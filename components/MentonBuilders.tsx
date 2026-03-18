@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import {
   Menu,
   X,
@@ -35,7 +36,7 @@ const testimonials = [
   },
   {
     quote:
-      'They helped us navigate a complex hillside build with total professionalism. We couldn\'t have done it without their pre-construction planning.',
+      "They helped us navigate a complex hillside build with total professionalism. We couldn't have done it without their pre-construction planning.",
     name: 'Sarah & James R.',
     location: 'Gualala, CA',
     project: 'Coastal New Construction',
@@ -72,7 +73,6 @@ export default function MentonBuilders() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Auto-rotate testimonials
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
@@ -93,37 +93,27 @@ export default function MentonBuilders() {
   )
 
   return (
-    <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-slate-800 selection:text-white">
+    <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
       {/* ── Navigation ── */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
-            : 'bg-transparent py-6'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm py-2'
+            : 'bg-transparent py-5'
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2.5">
-            <div
-              className={`w-9 h-9 ${
-                scrolled ? 'bg-slate-800' : 'bg-white'
-              } rounded flex items-center justify-center transition-colors`}
-            >
-              <span
-                className={`font-serif font-bold text-xl ${
-                  scrolled ? 'text-amber-400' : 'text-slate-800'
-                }`}
-              >
-                M
-              </span>
-            </div>
-            <span
-              className={`text-xl font-bold tracking-tight uppercase ${
-                scrolled ? 'text-slate-800' : 'text-white'
+          <a href="#" className="flex items-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Menton Builders"
+              width={160}
+              height={46}
+              className={`h-9 w-auto transition-all ${
+                scrolled ? 'brightness-100' : 'brightness-0 invert'
               }`}
-            >
-              Menton Builders
-            </span>
+              priority
+            />
           </a>
 
           {/* Desktop Nav */}
@@ -132,7 +122,7 @@ export default function MentonBuilders() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide hover:text-amber-500 transition-colors ${
+                className={`text-sm font-medium tracking-wide hover:text-teal-500 transition-colors ${
                   scrolled ? 'text-stone-600' : 'text-stone-200'
                 }`}
               >
@@ -141,9 +131,9 @@ export default function MentonBuilders() {
             ))}
             <a
               href="#contact"
-              className="relative bg-amber-500 text-slate-900 px-7 py-2.5 rounded text-sm font-bold hover:bg-amber-400 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
+              className="relative bg-teal-600 text-white px-7 py-2.5 rounded text-sm font-bold hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
             >
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-300 rounded-full animate-pulse" />
               Get a Quote
             </a>
           </div>
@@ -177,7 +167,7 @@ export default function MentonBuilders() {
               ))}
               <a
                 href="#contact"
-                className="bg-amber-500 text-slate-900 text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
+                className="bg-teal-600 text-white text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get a Quote
@@ -196,18 +186,18 @@ export default function MentonBuilders() {
             alt="Modern home in the redwoods"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-slate-900/60 to-transparent" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-20">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-stone-200 text-xs tracking-widest uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
               Serving Mendocino &amp; Sonoma Counties
             </div>
             <h1 className="font-serif text-5xl md:text-7xl font-medium text-white leading-tight mb-6">
               Builders Building <br />
-              <span className="text-amber-400">What Matters.</span>
+              <span className="text-teal-300">What Matters.</span>
             </h1>
             <p className="text-xl text-stone-300 mb-8 max-w-2xl font-light leading-relaxed">
               Design-build rooted in experience, guided by clarity, and built to
@@ -216,7 +206,7 @@ export default function MentonBuilders() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="bg-amber-500 text-slate-900 px-8 py-4 rounded font-bold hover:bg-amber-400 transition-colors text-center tracking-wide uppercase"
+                className="bg-teal-500 text-white px-8 py-4 rounded font-bold hover:bg-teal-400 transition-colors text-center tracking-wide uppercase shadow-lg"
               >
                 Discuss Your Build
               </a>
@@ -239,36 +229,36 @@ export default function MentonBuilders() {
       </header>
 
       {/* ── Trust / Stats Bar ── */}
-      <section className="bg-slate-900 py-12 border-b border-slate-800">
+      <section className="bg-teal-900 py-12 border-b border-teal-800">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
             <div>
-              <p className="text-3xl font-serif text-amber-400 mb-1">
+              <p className="text-3xl font-serif text-teal-300 mb-1">
                 50+ Years
               </p>
-              <p className="text-slate-400 text-sm">Of Experience</p>
+              <p className="text-teal-100/50 text-sm">Of Experience</p>
             </div>
             <div>
-              <p className="text-3xl font-serif text-amber-400 mb-1">
+              <p className="text-3xl font-serif text-teal-300 mb-1">
                 Planning
               </p>
-              <p className="text-slate-400 text-sm">
+              <p className="text-teal-100/50 text-sm">
                 Thoughtful Pre-construction
               </p>
             </div>
             <div>
-              <p className="text-3xl font-serif text-amber-400 mb-1">
+              <p className="text-3xl font-serif text-teal-300 mb-1">
                 Performance
               </p>
-              <p className="text-slate-400 text-sm">
+              <p className="text-teal-100/50 text-sm">
                 Durable &amp; Practical
               </p>
             </div>
             <div>
-              <p className="text-3xl font-serif text-amber-400 mb-1">
+              <p className="text-3xl font-serif text-teal-300 mb-1">
                 Craftsmanship
               </p>
-              <p className="text-slate-400 text-sm">
+              <p className="text-teal-100/50 text-sm">
                 Integrated Design-Build
               </p>
             </div>
@@ -288,23 +278,23 @@ export default function MentonBuilders() {
                   alt="Architectural details"
                   className="w-full h-[600px] object-cover rounded shadow-2xl"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-slate-800 p-8 shadow-xl max-w-xs hidden lg:block rounded">
-                  <p className="font-serif text-lg italic text-stone-300">
+                <div className="absolute -bottom-6 -right-6 bg-teal-900 p-8 shadow-xl max-w-xs hidden lg:block rounded">
+                  <p className="font-serif text-lg italic text-teal-100">
                     &ldquo;We build what matters and we stand behind how
                     it&rsquo;s built.&rdquo;
                   </p>
-                  <div className="w-12 h-0.5 bg-amber-400 mt-4" />
+                  <div className="w-12 h-0.5 bg-teal-400 mt-4" />
                 </div>
               </div>
             </div>
 
             <div className="lg:w-1/2">
-              <div className="inline-block text-amber-600 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-amber-500 pb-1">
+              <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
                 About Us
               </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-slate-900 mb-6 leading-tight">
+              <h2 className="font-serif text-4xl md:text-5xl text-stone-900 mb-6 leading-tight">
                 A fully integrated <br />
-                <span className="text-slate-600 italic">process.</span>
+                <span className="text-teal-700 italic">process.</span>
               </h2>
               <p className="text-stone-600 text-lg mb-6 leading-relaxed">
                 At Menton Builders, we approach construction as a fully
@@ -321,11 +311,11 @@ export default function MentonBuilders() {
 
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center shrink-0 border border-amber-200">
-                    <Shield className="w-5 h-5 text-amber-600" />
+                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                    <Shield className="w-5 h-5 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">
+                    <h3 className="font-bold text-stone-900 mb-1">
                       Performance-Based Thinking
                     </h3>
                     <p className="text-stone-500 text-sm">
@@ -337,11 +327,11 @@ export default function MentonBuilders() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center shrink-0 border border-amber-200">
-                    <Check className="w-5 h-5 text-amber-600" />
+                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                    <Check className="w-5 h-5 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">
+                    <h3 className="font-bold text-stone-900 mb-1">
                       Active Coordination
                     </h3>
                     <p className="text-stone-500 text-sm">
@@ -362,10 +352,10 @@ export default function MentonBuilders() {
       <section id="services" className="py-24 bg-stone-100">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-block text-amber-600 text-sm font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
               What We Do
             </div>
-            <h2 className="font-serif text-4xl text-slate-900 mb-4">
+            <h2 className="font-serif text-4xl text-stone-900 mb-4">
               Our Services
             </h2>
             <p className="text-stone-600">
@@ -382,7 +372,7 @@ export default function MentonBuilders() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-8 py-3 rounded-full text-sm font-medium transition-all ${
                     activeTab === tab
-                      ? 'bg-slate-800 text-white shadow-lg'
+                      ? 'bg-teal-700 text-white shadow-lg'
                       : 'bg-white text-stone-600 hover:bg-stone-200'
                   }`}
                 >
@@ -400,7 +390,7 @@ export default function MentonBuilders() {
             {activeTab === 'residential' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-slate-900">
+                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
                     Residential Construction
                   </h3>
                   <p className="text-stone-600 mb-6 leading-relaxed">
@@ -417,13 +407,13 @@ export default function MentonBuilders() {
                         key={item}
                         className="flex items-center gap-3 text-sm font-medium text-stone-700"
                       >
-                        <Check className="w-4 h-4 text-amber-500" /> {item}
+                        <Check className="w-4 h-4 text-teal-500" /> {item}
                       </li>
                     ))}
                   </ul>
                   <a
                     href="#contact"
-                    className="text-slate-800 font-bold text-sm border-b-2 border-amber-500 inline-block w-fit pb-1 hover:text-amber-600 transition-colors"
+                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
                   >
                     Start a Conversation
                   </a>
@@ -442,7 +432,7 @@ export default function MentonBuilders() {
             {activeTab === 'renovations' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-slate-900">
+                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
                     Renovations &amp; Upgrades
                   </h3>
                   <p className="text-stone-600 mb-6 leading-relaxed">
@@ -460,13 +450,13 @@ export default function MentonBuilders() {
                         key={item}
                         className="flex items-center gap-3 text-sm font-medium text-stone-700"
                       >
-                        <Check className="w-4 h-4 text-amber-500" /> {item}
+                        <Check className="w-4 h-4 text-teal-500" /> {item}
                       </li>
                     ))}
                   </ul>
                   <a
                     href="#contact"
-                    className="text-slate-800 font-bold text-sm border-b-2 border-amber-500 inline-block w-fit pb-1 hover:text-amber-600 transition-colors"
+                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
                   >
                     Discuss Your Remodel
                   </a>
@@ -485,7 +475,7 @@ export default function MentonBuilders() {
             {activeTab === 'commercial' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-slate-900">
+                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
                     Commercial &amp; Agricultural
                   </h3>
                   <p className="text-stone-600 mb-6 leading-relaxed">
@@ -503,13 +493,13 @@ export default function MentonBuilders() {
                         key={item}
                         className="flex items-center gap-3 text-sm font-medium text-stone-700"
                       >
-                        <Check className="w-4 h-4 text-amber-500" /> {item}
+                        <Check className="w-4 h-4 text-teal-500" /> {item}
                       </li>
                     ))}
                   </ul>
                   <a
                     href="#contact"
-                    className="text-slate-800 font-bold text-sm border-b-2 border-amber-500 inline-block w-fit pb-1 hover:text-amber-600 transition-colors"
+                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
                   >
                     Explore Options
                   </a>
@@ -533,10 +523,10 @@ export default function MentonBuilders() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <div className="inline-block text-amber-600 text-sm font-bold tracking-widest uppercase mb-4">
+              <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
                 Selected Works
               </div>
-              <h2 className="font-serif text-4xl text-slate-900 mb-4">
+              <h2 className="font-serif text-4xl text-stone-900 mb-4">
                 Recent Projects
               </h2>
               <p className="text-stone-500 max-w-2xl">
@@ -546,7 +536,7 @@ export default function MentonBuilders() {
             </div>
             <a
               href="#"
-              className="hidden md:flex items-center gap-2 text-stone-500 hover:text-amber-600 transition-colors font-medium"
+              className="hidden md:flex items-center gap-2 text-stone-500 hover:text-teal-600 transition-colors font-medium"
             >
               View Full Portfolio <ChevronRight className="w-4 h-4" />
             </a>
@@ -587,12 +577,12 @@ export default function MentonBuilders() {
                     alt={project.alt}
                     className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-800">
+                  <div className="absolute inset-0 bg-gradient-to-t from-teal-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wide text-stone-800">
                     {project.type}
                   </div>
                 </div>
-                <h3 className="font-serif text-2xl text-slate-900 mb-1 group-hover:text-amber-600 transition-colors">
+                <h3 className="font-serif text-2xl text-stone-900 mb-1 group-hover:text-teal-600 transition-colors">
                   {project.name}
                 </h3>
                 <p className="text-stone-500 text-sm mb-3">{project.loc}</p>
@@ -613,14 +603,16 @@ export default function MentonBuilders() {
       </section>
 
       {/* ── Testimonial Carousel ── */}
-      <section id="testimonials" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        {/* Decorative */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full translate-x-1/3 translate-y-1/3" />
+      <section
+        id="testimonials"
+        className="py-24 bg-teal-900 text-white relative overflow-hidden"
+      >
+        <div className="absolute top-0 left-0 w-64 h-64 bg-teal-400/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400/5 rounded-full translate-x-1/3 translate-y-1/3" />
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-4">
-            <div className="inline-block text-amber-400 text-sm font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block text-teal-300 text-sm font-bold tracking-widest uppercase mb-4">
               Client Stories
             </div>
             <h2 className="font-serif text-4xl mb-12">
@@ -631,17 +623,16 @@ export default function MentonBuilders() {
           <div className="max-w-4xl mx-auto">
             <div className="relative min-h-[280px] flex items-center">
               <div className="text-center w-full">
-                {/* Stars */}
                 <div className="flex justify-center gap-1 mb-8">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 text-amber-400 fill-amber-400"
+                      className="w-5 h-5 text-teal-300 fill-teal-300"
                     />
                   ))}
                 </div>
 
-                <blockquote className="font-serif text-2xl md:text-3xl leading-relaxed mb-8 text-stone-200 italic">
+                <blockquote className="font-serif text-2xl md:text-3xl leading-relaxed mb-8 text-teal-50 italic">
                   &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                 </blockquote>
 
@@ -649,7 +640,7 @@ export default function MentonBuilders() {
                   <p className="font-bold text-white text-lg">
                     {testimonials[currentTestimonial].name}
                   </p>
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-teal-300/70 text-sm">
                     {testimonials[currentTestimonial].project} &middot;{' '}
                     {testimonials[currentTestimonial].location}
                   </p>
@@ -657,11 +648,10 @@ export default function MentonBuilders() {
               </div>
             </div>
 
-            {/* Controls */}
             <div className="flex items-center justify-center gap-6 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center hover:border-amber-400 hover:text-amber-400 transition-colors text-slate-400"
+                className="w-10 h-10 rounded-full border border-teal-600 flex items-center justify-center hover:border-teal-300 hover:text-teal-300 transition-colors text-teal-400"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
@@ -673,8 +663,8 @@ export default function MentonBuilders() {
                     onClick={() => setCurrentTestimonial(i)}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       i === currentTestimonial
-                        ? 'w-8 bg-amber-400'
-                        : 'w-2 bg-slate-600 hover:bg-slate-500'
+                        ? 'w-8 bg-teal-300'
+                        : 'w-2 bg-teal-700 hover:bg-teal-600'
                     }`}
                   />
                 ))}
@@ -682,7 +672,7 @@ export default function MentonBuilders() {
 
               <button
                 onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center hover:border-amber-400 hover:text-amber-400 transition-colors text-slate-400"
+                className="w-10 h-10 rounded-full border border-teal-600 flex items-center justify-center hover:border-teal-300 hover:text-teal-300 transition-colors text-teal-400"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -695,8 +685,8 @@ export default function MentonBuilders() {
       <section className="bg-stone-100 py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-0.5 bg-amber-500 mx-auto mb-8" />
-            <h3 className="text-xl md:text-2xl font-serif leading-relaxed text-slate-700 mb-6">
+            <div className="w-16 h-0.5 bg-teal-500 mx-auto mb-8" />
+            <h3 className="text-xl md:text-2xl font-serif leading-relaxed text-stone-700 mb-6">
               Menton Builders brings a design-build approach rooted in over 50
               years of experience to projects throughout Sonoma County, including
               Healdsburg and surrounding wine country communities.
@@ -705,7 +695,7 @@ export default function MentonBuilders() {
               Our work reflects thoughtful design, high-performance
               construction, and respect for architectural context.
             </p>
-            <div className="w-16 h-0.5 bg-amber-500 mx-auto mt-8" />
+            <div className="w-16 h-0.5 bg-teal-500 mx-auto mt-8" />
           </div>
         </div>
       </section>
@@ -715,10 +705,10 @@ export default function MentonBuilders() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <div className="inline-block text-amber-600 text-sm font-bold tracking-widest uppercase mb-4">
+              <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
                 How We Work
               </div>
-              <h2 className="font-serif text-4xl text-slate-900 mb-6">
+              <h2 className="font-serif text-4xl text-stone-900 mb-6">
                 Our Approach
               </h2>
               <p className="text-stone-600 text-lg mb-10">
@@ -751,13 +741,13 @@ export default function MentonBuilders() {
                   },
                 ].map((step) => (
                   <div key={step.num} className="flex gap-5 group">
-                    <div className="w-14 h-14 bg-slate-800 flex items-center justify-center rounded shrink-0 group-hover:bg-amber-500 transition-colors">
-                      <span className="font-serif font-bold text-amber-400 group-hover:text-slate-900 transition-colors">
+                    <div className="w-14 h-14 bg-teal-800 flex items-center justify-center rounded shrink-0 group-hover:bg-teal-500 transition-colors">
+                      <span className="font-serif font-bold text-teal-300 group-hover:text-white transition-colors">
                         {step.num}
                       </span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1 text-lg">
+                      <h4 className="font-bold text-stone-900 mb-1 text-lg">
                         {step.title}
                       </h4>
                       <p className="text-stone-500">{step.desc}</p>
@@ -768,10 +758,9 @@ export default function MentonBuilders() {
             </div>
 
             <div className="flex flex-col gap-6">
-              {/* Regional Focus Card */}
-              <div className="bg-slate-800 p-8 lg:p-12 shadow-xl rounded border-l-4 border-amber-500 text-white flex-1">
+              <div className="bg-teal-900 p-8 lg:p-12 shadow-xl rounded border-l-4 border-teal-400 text-white flex-1">
                 <h3 className="font-serif text-2xl mb-6">Regional Focus</h3>
-                <p className="text-slate-300 mb-8">
+                <p className="text-teal-200/80 mb-8">
                   Our work is based in Northern California, thoughtfully
                   integrating structures into these environments:
                 </p>
@@ -781,9 +770,9 @@ export default function MentonBuilders() {
                       (loc) => (
                         <li
                           key={loc}
-                          className="flex items-center gap-2 text-stone-200 font-medium"
+                          className="flex items-center gap-2 text-teal-100 font-medium"
                         >
-                          <MapPin className="w-4 h-4 text-amber-400" /> {loc}
+                          <MapPin className="w-4 h-4 text-teal-400" /> {loc}
                         </li>
                       )
                     )}
@@ -792,27 +781,26 @@ export default function MentonBuilders() {
                     {['Wine Country', 'Coastal Regions'].map((loc) => (
                       <li
                         key={loc}
-                        className="flex items-center gap-2 text-stone-200 font-medium"
+                        className="flex items-center gap-2 text-teal-100 font-medium"
                       >
-                        <MapPin className="w-4 h-4 text-amber-400" /> {loc}
+                        <MapPin className="w-4 h-4 text-teal-400" /> {loc}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              {/* Quick CTA Card */}
-              <div className="bg-amber-500 p-8 rounded shadow-xl">
-                <h3 className="font-serif text-2xl text-slate-900 mb-3">
+              <div className="bg-teal-600 p-8 rounded shadow-xl">
+                <h3 className="font-serif text-2xl text-white mb-3">
                   Ready to Start?
                 </h3>
-                <p className="text-slate-800 mb-6">
+                <p className="text-teal-100 mb-6">
                   Tell us about your project and we&rsquo;ll help you determine
                   the next right step.
                 </p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded font-bold hover:bg-slate-800 transition-colors group"
+                  className="inline-flex items-center gap-2 bg-white text-teal-800 px-6 py-3 rounded font-bold hover:bg-teal-50 transition-colors group"
                 >
                   Get in Touch{' '}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -828,14 +816,14 @@ export default function MentonBuilders() {
         id="contact"
         className="py-24 bg-stone-50 relative overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-amber-50/50 hidden lg:block -skew-x-12 translate-x-20" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-teal-50/50 hidden lg:block -skew-x-12 translate-x-20" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-block text-amber-600 text-sm font-bold tracking-widest uppercase mb-4">
+              <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
                 Contact
               </div>
-              <h2 className="font-serif text-4xl text-slate-900 mb-4">
+              <h2 className="font-serif text-4xl text-stone-900 mb-4">
                 Start Your Project
               </h2>
               <p className="text-stone-600">
@@ -852,7 +840,7 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="text"
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-amber-500 transition-colors bg-transparent"
+                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="First Last"
                   />
                 </div>
@@ -862,7 +850,7 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="email"
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-amber-500 transition-colors bg-transparent"
+                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="email@address.com"
                   />
                 </div>
@@ -872,7 +860,7 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="tel"
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-amber-500 transition-colors bg-transparent"
+                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="(707) 555-0123"
                   />
                 </div>
@@ -882,7 +870,7 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="text"
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-amber-500 transition-colors bg-transparent"
+                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="e.g. Covelo, Healdsburg"
                   />
                 </div>
@@ -893,7 +881,7 @@ export default function MentonBuilders() {
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                     Project Type
                   </label>
-                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-amber-500 transition-colors text-stone-700">
+                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700">
                     <option>Custom Home Build</option>
                     <option>Major Renovation</option>
                     <option>ADU / Addition</option>
@@ -904,7 +892,7 @@ export default function MentonBuilders() {
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                     Estimated Budget
                   </label>
-                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-amber-500 transition-colors text-stone-700">
+                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700">
                     <option>$250k - $500k</option>
                     <option>$500k - $1M</option>
                     <option>$1M - $3M</option>
@@ -918,14 +906,14 @@ export default function MentonBuilders() {
                   Project Details / Goals
                 </label>
                 <textarea
-                  className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-amber-500 transition-colors h-32 bg-transparent"
+                  className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-transparent"
                   placeholder="Tell us about your timeline, lot status, and design vision..."
                 />
               </div>
 
               <button
                 type="button"
-                className="w-full bg-amber-500 text-slate-900 py-4 font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors shadow-lg rounded text-lg"
+                className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg"
               >
                 Submit Inquiry
               </button>
@@ -938,26 +926,25 @@ export default function MentonBuilders() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+      <footer className="bg-teal-950 text-teal-300/60 py-16 border-t border-teal-900">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-2.5 mb-6">
-                <div className="w-9 h-9 bg-white rounded flex items-center justify-center">
-                  <span className="font-serif font-bold text-xl text-slate-900">
-                    M
-                  </span>
-                </div>
-                <span className="text-xl font-bold tracking-tight text-white uppercase">
-                  Menton Builders
-                </span>
+              <div className="mb-6">
+                <Image
+                  src="/logo.png"
+                  alt="Menton Builders"
+                  width={200}
+                  height={57}
+                  className="h-12 w-auto brightness-0 invert"
+                />
               </div>
-              <p className="max-w-md text-slate-500 mb-4">
+              <p className="max-w-md text-teal-300/50 mb-4">
                 For over 50 years, Menton Builders has approached construction
                 through a design-build mindset grounded in planning,
                 performance, and craftsmanship.
               </p>
-              <p className="max-w-md text-amber-500/80 font-serif italic text-lg">
+              <p className="max-w-md text-teal-400/70 font-serif italic text-lg">
                 &ldquo;We build what matters and we stand behind how it&rsquo;s
                 built.&rdquo;
               </p>
@@ -969,7 +956,7 @@ export default function MentonBuilders() {
               </h4>
               <ul className="space-y-4 text-sm">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-amber-500 shrink-0" />
+                  <MapPin className="w-5 h-5 text-teal-500 shrink-0" />
                   <span>
                     PO Box 1234
                     <br />
@@ -977,11 +964,11 @@ export default function MentonBuilders() {
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-amber-500 shrink-0" />
+                  <Phone className="w-5 h-5 text-teal-500 shrink-0" />
                   <span>(707) 555-0199</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-amber-500 shrink-0" />
+                  <Mail className="w-5 h-5 text-teal-500 shrink-0" />
                   <span>build@mentonbuilders.com</span>
                 </li>
               </ul>
@@ -995,7 +982,7 @@ export default function MentonBuilders() {
                 <li>CA License #XXXXXX (B-General)</li>
                 <li>Bonded &amp; Insured</li>
                 <li>EPA Lead-Safe Certified</li>
-                <li className="pt-4 text-xs text-slate-600">
+                <li className="pt-4 text-xs text-teal-300/30">
                   &copy; 2026 Menton Builders Inc.
                   <br />
                   All rights reserved.
@@ -1010,9 +997,9 @@ export default function MentonBuilders() {
       <div className="fixed bottom-6 right-6 z-50">
         {contactOpen && (
           <div className="mb-4 bg-white rounded-xl shadow-2xl border border-stone-200 w-80 overflow-hidden">
-            <div className="bg-slate-800 p-4 text-white">
+            <div className="bg-teal-800 p-4 text-white">
               <h4 className="font-bold text-lg">Quick Contact</h4>
-              <p className="text-slate-300 text-sm">
+              <p className="text-teal-200 text-sm">
                 We&rsquo;ll get back to you within 24 hours.
               </p>
             </div>
@@ -1020,21 +1007,21 @@ export default function MentonBuilders() {
               <input
                 type="text"
                 placeholder="Your name"
-                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-amber-500"
+                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
               />
               <input
                 type="tel"
                 placeholder="Phone number"
-                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-amber-500"
+                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
               />
               <textarea
                 placeholder="How can we help?"
                 rows={3}
-                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-amber-500 resize-none"
+                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500 resize-none"
               />
               <button
                 type="button"
-                className="w-full bg-amber-500 text-slate-900 py-2.5 rounded font-bold text-sm hover:bg-amber-400 transition-colors"
+                className="w-full bg-teal-600 text-white py-2.5 rounded font-bold text-sm hover:bg-teal-500 transition-colors"
               >
                 Send Message
               </button>
@@ -1046,8 +1033,8 @@ export default function MentonBuilders() {
           onClick={() => setContactOpen(!contactOpen)}
           className={`w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
             contactOpen
-              ? 'bg-slate-800 text-white rotate-0'
-              : 'bg-amber-500 text-slate-900'
+              ? 'bg-teal-800 text-white'
+              : 'bg-teal-600 text-white'
           }`}
         >
           {contactOpen ? (
