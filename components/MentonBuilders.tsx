@@ -84,7 +84,7 @@ export default function MentonBuilders() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length)
-    }, 6000)
+    }, 8000)
     return () => clearInterval(timer)
   }, [])
 
@@ -124,9 +124,7 @@ export default function MentonBuilders() {
               alt="Menton Builders"
               width={160}
               height={46}
-              className={`h-9 w-auto transition-all ${
-                scrolled ? '' : 'brightness-0 invert'
-              }`}
+              className="h-9 w-auto"
               priority
             />
           </a>
@@ -200,7 +198,7 @@ export default function MentonBuilders() {
               key={img.src}
               src={img.src}
               alt={img.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-[4000ms] ease-in-out ${
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-[3000ms] ease-in-out ${
                 i === heroIndex
                   ? 'opacity-100 scale-105'
                   : 'opacity-0 scale-100'
