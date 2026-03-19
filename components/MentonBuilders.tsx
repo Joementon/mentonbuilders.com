@@ -105,12 +105,12 @@ export default function MentonBuilders() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/logo-nav.png"
               alt="Menton Builders"
               width={160}
               height={46}
               className={`h-9 w-auto transition-all ${
-                scrolled ? 'brightness-100' : 'brightness-0 invert'
+                scrolled ? '' : 'brightness-0 invert'
               }`}
               priority
             />
@@ -196,19 +196,19 @@ export default function MentonBuilders() {
               Serving Mendocino &amp; Sonoma Counties
             </div>
             <h1 className="font-serif text-5xl md:text-7xl font-medium text-white leading-tight mb-6">
-              Builders Building <br />
-              <span className="text-teal-300">What Matters.</span>
+              Built on Experience. <br />
+              <span className="text-teal-300">Driven by Craft.</span>
             </h1>
             <p className="text-xl text-stone-300 mb-8 max-w-2xl font-light leading-relaxed">
-              Design-build rooted in experience, guided by clarity, and built to
-              perform.
+              For over 50 years, Menton Builders has delivered thoughtful,
+              lasting construction across Northern California.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
                 className="bg-teal-500 text-white px-8 py-4 rounded font-bold hover:bg-teal-400 transition-colors text-center tracking-wide uppercase shadow-lg"
               >
-                Discuss Your Build
+                Start Your Project
               </a>
               <a
                 href="#portfolio"
@@ -293,20 +293,23 @@ export default function MentonBuilders() {
                 About Us
               </div>
               <h2 className="font-serif text-4xl md:text-5xl text-stone-900 mb-6 leading-tight">
-                A fully integrated <br />
-                <span className="text-teal-700 italic">process.</span>
+                Why <span className="text-teal-700 italic">Menton Builders</span>
               </h2>
               <p className="text-stone-600 text-lg mb-6 leading-relaxed">
-                At Menton Builders, we approach construction as a fully
-                integrated process where planning, design, and execution are
-                aligned from the beginning.
+                Menton Builders is a design-build firm specializing in high-end
+                residential construction. We work closely with homeowners and
+                architects to bring clarity to complex projects — aligning
+                design, budget, and construction from the beginning.
+              </p>
+              <p className="text-stone-600 text-lg mb-4 leading-relaxed">
+                We approach every project with a clear understanding of scope,
+                sequencing, and responsibility. Our communication is direct, and
+                our goal is simple — deliver construction that holds up over
+                time, and relationships that do the same.
               </p>
               <p className="text-stone-600 text-lg mb-8 leading-relaxed">
-                With over 50 years of experience, our work is grounded in
-                performance, durability, and thoughtful decision-making. We help
-                clients navigate the relationship between design, budget, and
-                construction, creating a more informed and buildable path from
-                concept through completion.
+                With over 50 years of experience behind us, we bring both proven
+                methods and a forward-thinking approach to every project.
               </p>
 
               <div className="space-y-6">
@@ -316,12 +319,13 @@ export default function MentonBuilders() {
                   </div>
                   <div>
                     <h3 className="font-bold text-stone-900 mb-1">
-                      Performance-Based Thinking
+                      Built to Last
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Focusing on how a building functions, endures, and serves
-                      its occupants over time. Materials and methods are selected
-                      for durability, practicality, and long-term value.
+                      Materials and methods are selected for durability,
+                      practicality, and long-term value. We focus on how a
+                      building performs and endures — not just how it looks on
+                      day one.
                     </p>
                   </div>
                 </div>
@@ -332,13 +336,13 @@ export default function MentonBuilders() {
                   </div>
                   <div>
                     <h3 className="font-bold text-stone-900 mb-1">
-                      Active Coordination
+                      Organized &amp; Direct
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Building today requires more than experience alone. It
-                      requires clarity, communication, and active coordination.
-                      We work closely with clients and design teams to align
-                      scope, expectations, and decision-making early.
+                      Our work is organized, our communication is direct. We
+                      coordinate with clients and design teams early to align
+                      scope, expectations, and decision-making — so there are
+                      fewer surprises down the road.
                     </p>
                   </div>
                 </div>
@@ -359,8 +363,11 @@ export default function MentonBuilders() {
               Our Services
             </h2>
             <p className="text-stone-600">
-              We provide design-build and construction services across
-              residential, commercial, and agricultural projects.
+              We provide full-service construction through a design-build
+              approach, allowing for a more streamlined and coordinated
+              process. Our services include pre-construction planning,
+              budgeting, project management, and full-scale residential
+              construction.
             </p>
           </div>
 
@@ -394,8 +401,10 @@ export default function MentonBuilders() {
                     Residential Construction
                   </h3>
                   <p className="text-stone-600 mb-6 leading-relaxed">
-                    Custom homes, ADUs, and additions built with craftsmanship
-                    and a deep respect for long-term performance.
+                    Custom homes, ADUs, and additions — planned carefully and
+                    built to perform for decades. We align all phases early to
+                    reduce uncertainty and create a more efficient path from
+                    concept to completion.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
@@ -530,8 +539,8 @@ export default function MentonBuilders() {
                 Recent Projects
               </h2>
               <p className="text-stone-500 max-w-2xl">
-                The work should speak for itself. Minimal, intentional, and
-                grounded.
+                Each project reflects a commitment to quality, coordination,
+                and lasting construction.
               </p>
             </div>
             <a
@@ -687,13 +696,15 @@ export default function MentonBuilders() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-16 h-0.5 bg-teal-500 mx-auto mb-8" />
             <h3 className="text-xl md:text-2xl font-serif leading-relaxed text-stone-700 mb-6">
-              Menton Builders brings a design-build approach rooted in over 50
-              years of experience to projects throughout Sonoma County, including
-              Healdsburg and surrounding wine country communities.
+              Built on a foundation established over generations, Menton
+              Builders continues to evolve while staying grounded in the
+              principles that have defined our work from the beginning.
             </h3>
             <p className="text-stone-500 text-base max-w-2xl mx-auto">
-              Our work reflects thoughtful design, high-performance
-              construction, and respect for architectural context.
+              Menton Builders was founded on a commitment to quality,
+              accountability, and long-term relationships. Over the past 50
+              years, that foundation has shaped a body of work defined by
+              consistency, attention to detail, and trust.
             </p>
             <div className="w-16 h-0.5 bg-teal-500 mx-auto mt-8" />
           </div>
@@ -709,12 +720,17 @@ export default function MentonBuilders() {
                 How We Work
               </div>
               <h2 className="font-serif text-4xl text-stone-900 mb-6">
-                Our Approach
+                Our Process
               </h2>
+              <p className="text-stone-600 text-lg mb-4">
+                Every project is carefully planned, tracked, and communicated
+                from start to finish.
+              </p>
               <p className="text-stone-600 text-lg mb-10">
-                Every project is different, but our approach remains consistent:
-                align early, build thoughtfully, and guide the process with
-                clarity.
+                We coordinate trades, monitor daily progress, and address issues
+                early — so the work moves forward with clarity and intention.
+                This approach maintains alignment between design, budget, and
+                execution throughout the entire project.
               </p>
 
               <div className="space-y-8">
@@ -732,7 +748,7 @@ export default function MentonBuilders() {
                   {
                     num: '03',
                     title: 'Construction',
-                    desc: 'Execute with craftsmanship while seamlessly coordinating trades and project decisions.',
+                    desc: 'Execute with craftsmanship while coordinating trades, tracking progress daily, and addressing issues early.',
                   },
                   {
                     num: '04',
@@ -827,8 +843,8 @@ export default function MentonBuilders() {
                 Start Your Project
               </h2>
               <p className="text-stone-600">
-                Tell us about your vision. We&rsquo;ll help you determine the
-                next right step.
+                Tell us about your project. We&rsquo;ll help you determine the
+                next right step — no pressure, no obligation.
               </p>
             </div>
 
@@ -932,7 +948,7 @@ export default function MentonBuilders() {
             <div className="col-span-1 md:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/logo.png"
+                  src="/logo-nav.png"
                   alt="Menton Builders"
                   width={200}
                   height={57}
@@ -940,13 +956,17 @@ export default function MentonBuilders() {
                 />
               </div>
               <p className="max-w-md text-teal-300/50 mb-4">
-                For over 50 years, Menton Builders has approached construction
-                through a design-build mindset grounded in planning,
-                performance, and craftsmanship.
+                Menton Builders was founded on a commitment to quality,
+                accountability, and long-term relationships. Today, the company
+                continues to build on that legacy — combining 50 years of
+                experience with a modern, organized approach to construction.
               </p>
-              <p className="max-w-md text-teal-400/70 font-serif italic text-lg">
+              <p className="max-w-md text-teal-400/70 font-serif italic text-lg mb-3">
                 &ldquo;We build what matters and we stand behind how it&rsquo;s
                 built.&rdquo;
+              </p>
+              <p className="text-teal-300/40 text-sm">
+                Serving Mendocino County, Healdsburg, and Sonoma County.
               </p>
             </div>
 
