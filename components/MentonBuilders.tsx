@@ -58,6 +58,13 @@ const navLinks = [
   { name: 'Testimonials', href: '#testimonials' },
 ]
 
+const heroImages = [
+  { src: '/hero-1.png', alt: 'Beautiful lines' },
+  { src: '/hero-2.png', alt: 'Ranch living room' },
+  { src: '/hero-3.png', alt: 'Straw bale and venetian plaster' },
+  { src: '/hero-4.png', alt: 'Rammed earth construction' },
+]
+
 /* ─── component ─────────────────────────────────────────────────── */
 
 export default function MentonBuilders() {
@@ -66,11 +73,19 @@ export default function MentonBuilders() {
   const [activeTab, setActiveTab] = useState('residential')
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [contactOpen, setContactOpen] = useState(false)
+  const [heroIndex, setHeroIndex] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length)
+    }, 4000)
+    return () => clearInterval(timer)
   }, [])
 
   useEffect(() => {
@@ -180,12 +195,16 @@ export default function MentonBuilders() {
       {/* ── Hero Section ── */}
       <header className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop"
-            alt="Modern home in the redwoods"
-            className="w-full h-full object-cover"
-          />
+          {heroImages.map((img, i) => (
+            <img
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                i === heroIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-slate-900/60 to-transparent" />
         </div>
 
