@@ -222,10 +222,13 @@ export default function MentonBuilders() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-2 animate-bounce">
+        <a
+          href="#about"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 hover:text-white/80 transition-colors flex flex-col items-center gap-2 animate-bounce cursor-pointer"
+        >
           <span className="text-xs tracking-widest uppercase">Explore</span>
           <ArrowRight className="w-4 h-4 rotate-90" />
-        </div>
+        </a>
       </header>
 
       {/* ── Trust / Stats Bar ── */}
