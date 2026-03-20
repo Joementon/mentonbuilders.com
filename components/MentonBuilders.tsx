@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import {
   Menu,
   X,
   Check,
   ArrowRight,
-  ArrowLeft,
   Shield,
   Phone,
   Mail,
@@ -71,7 +70,6 @@ export default function MentonBuilders() {
   const [scrolled, setScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('residential')
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [contactOpen, setContactOpen] = useState(false)
   const [heroIndex, setHeroIndex] = useState(0)
 
@@ -88,24 +86,6 @@ export default function MentonBuilders() {
     return () => clearInterval(timer)
   }, [])
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const nextTestimonial = useCallback(
-    () => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length),
-    []
-  )
-  const prevTestimonial = useCallback(
-    () =>
-      setCurrentTestimonial(
-        (prev) => (prev - 1 + testimonials.length) % testimonials.length
-      ),
-    []
-  )
 
   return (
     <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
@@ -249,6 +229,32 @@ export default function MentonBuilders() {
           <ArrowRight className="w-4 h-4 rotate-90" />
         </a>
       </header>
+
+      {/* ── Testimonials Ticker ── */}
+      <section id="testimonials" className="bg-stone-100 border-y border-stone-200 py-4 overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-ticker">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 flex items-center gap-3 px-8 whitespace-nowrap"
+              >
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} className="w-3.5 h-3.5 text-teal-500 fill-teal-500" />
+                  ))}
+                </div>
+                <span className="text-stone-600 text-sm italic">
+                  &ldquo;{t.quote}&rdquo;
+                </span>
+                <span className="text-stone-400 text-sm font-semibold">
+                  — {t.name}, {t.location}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Trust / Stats Bar ── */}
       <section className="bg-teal-900 py-12 border-b border-teal-800">
@@ -633,84 +639,6 @@ export default function MentonBuilders() {
         </div>
       </section>
 
-      {/* ── Testimonial Carousel ── */}
-      <section
-        id="testimonials"
-        className="py-24 bg-teal-900 text-white relative overflow-hidden"
-      >
-        <div className="absolute top-0 left-0 w-64 h-64 bg-teal-400/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400/5 rounded-full translate-x-1/3 translate-y-1/3" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-4">
-            <div className="inline-block text-teal-300 text-sm font-bold tracking-widest uppercase mb-4">
-              Client Stories
-            </div>
-            <h2 className="font-serif text-4xl mb-12">
-              What Our Clients Say
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative min-h-[280px] flex items-center">
-              <div className="text-center w-full">
-                <div className="flex justify-center gap-1 mb-8">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-teal-300 fill-teal-300"
-                    />
-                  ))}
-                </div>
-
-                <blockquote className="font-serif text-2xl md:text-3xl leading-relaxed mb-8 text-teal-50 italic">
-                  &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
-                </blockquote>
-
-                <div className="mb-2">
-                  <p className="font-bold text-white text-lg">
-                    {testimonials[currentTestimonial].name}
-                  </p>
-                  <p className="text-teal-300/70 text-sm">
-                    {testimonials[currentTestimonial].project} &middot;{' '}
-                    {testimonials[currentTestimonial].location}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-6 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full border border-teal-600 flex items-center justify-center hover:border-teal-300 hover:text-teal-300 transition-colors text-teal-400"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-
-              <div className="flex gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentTestimonial(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === currentTestimonial
-                        ? 'w-8 bg-teal-300'
-                        : 'w-2 bg-teal-700 hover:bg-teal-600'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full border border-teal-600 flex items-center justify-center hover:border-teal-300 hover:text-teal-300 transition-colors text-teal-400"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── Regional Focus Quote ── */}
       <section className="bg-stone-100 py-20">
