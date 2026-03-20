@@ -1,0 +1,161 @@
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft, X } from 'lucide-react'
+
+/* ─── categories ──────────────────────────────────────────────── */
+
+const categories = [
+  { slug: 'all', label: 'All' },
+  { slug: 'site-foundation', label: 'Site & Foundation' },
+  { slug: 'framing', label: 'Framing' },
+  { slug: 'finishes', label: 'Finishes' },
+  { slug: 'completed', label: 'Completed' },
+  { slug: 'renovation', label: 'Renovation' },
+]
+
+/* ─── gallery data ────────────────────────────────────────────── */
+
+interface GalleryPhoto {
+  src: string
+  alt: string
+  category: string
+}
+
+const photos: GalleryPhoto[] = [
+  // Site & Foundation
+  { src: '/hero-4.png', alt: 'Rammed earth construction', category: 'site-foundation' },
+
+  // Framing
+  { src: '/hero-3.png', alt: 'Straw bale and venetian plaster framing', category: 'framing' },
+
+  // Completed
+  { src: '/hero-1.png', alt: 'Beautiful finished lines', category: 'completed' },
+  { src: '/hero-2.png', alt: 'Ranch living room', category: 'completed' },
+]
+
+/* ─── component ───────────────────────────────────────────────── */
+
+export default function GalleryPage() {
+  const [activeCategory, setActiveCategory] = useState('all')
+  const [lightbox, setLightbox] = useState<GalleryPhoto | null>(null)
+
+  const filtered =
+    activeCategory === 'all'
+      ? photos
+      : photos.filter((p) => p.category === activeCategory)
+
+  return (
+    <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
+      {/* Header */}
+      <div className="bg-teal-900 pt-12 pb-16">
+        <div className="container mx-auto px-6">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-teal-300 hover:text-white transition-colors text-sm mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+          <h1 className="font-serif text-4xl md:text-5xl text-white mb-3">
+            Project Gallery
+          </h1>
+          <p className="text-teal-200/70 text-lg max-w-2xl">
+            A look inside our work — from breaking ground to handing over the
+            keys.
+          </p>
+        </div>
+      </div>
+
+      {/* Filter Buttons */}
+      <div className="container mx-auto px-6 -mt-6">
+        <div className="flex flex-wrap gap-2">
+          {categories.map(({ slug, label }) => (
+            <button
+              key={slug}
+              onClick={() => setActiveCategory(slug)}
+              className={`py-2.5 px-5 rounded-full text-sm font-medium transition-all duration-150 ${
+                activeCategory === slug
+                  ? 'bg-teal-600 text-white shadow-lg'
+                  : 'bg-white border border-stone-200 text-stone-700 hover:bg-stone-50 hover:border-stone-300'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Photo Grid */}
+      <div className="container mx-auto px-6 py-12">
+        {filtered.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filtered.map((photo, i) => (
+              <button
+                key={`${photo.src}-${i}`}
+                onClick={() => setLightbox(photo)}
+                className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-200 cursor-pointer"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-white text-sm font-medium">{photo.alt}</p>
+                  <p className="text-white/60 text-xs capitalize">
+                    {categories.find((c) => c.slug === photo.category)?.label}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-24">
+            <p className="text-stone-400 text-lg">
+              No photos in this category yet — check back soon.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 md:p-8"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <div
+            className="relative max-w-5xl w-full max-h-[85vh] aspect-[4/3]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightbox.src}
+              alt={lightbox.alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
+          <div className="absolute bottom-6 left-0 right-0 text-center">
+            <p className="text-white font-medium">{lightbox.alt}</p>
+            <p className="text-white/50 text-sm capitalize">
+              {categories.find((c) => c.slug === lightbox.category)?.label}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

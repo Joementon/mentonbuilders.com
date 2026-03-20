@@ -54,7 +54,7 @@ const navLinks = [
   { name: 'Services', href: '#services' },
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Approach', href: '#approach' },
-  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'Gallery', href: '/gallery' },
 ]
 
 const heroImages = [
