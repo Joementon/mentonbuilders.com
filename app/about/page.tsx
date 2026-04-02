@@ -104,7 +104,7 @@ export default function AboutPage() {
                       Built to Perform
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Every material earns its place &mdash; chosen for durability, practical function, and minimal waste. We build structures that work with their environment, not against it, so nothing is spent twice.
+                      Performance-based design means every material earns its place &mdash; chosen for durability, practical function, and minimal waste. We build structures that work with their environment, not against it, so nothing is spent twice.
                     </p>
                   </div>
                 </div>
