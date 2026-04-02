@@ -86,7 +86,7 @@ export default function MentonBuilders() {
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   // Quick contact widget state
-  const [quickForm, setQuickForm] = useState({ name: '', phone: '', message: '' })
+  const [quickForm, setQuickForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [quickStatus, setQuickStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   async function handleSubmitInquiry(e: FormEvent) {
@@ -115,7 +115,7 @@ export default function MentonBuilders() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: quickForm.name,
-          email: 'via-widget@mentonbuilders.com',
+          email: quickForm.email,
           phone: quickForm.phone,
           projectType: 'Quick Contact',
           budget: 'N/A',
@@ -124,7 +124,7 @@ export default function MentonBuilders() {
       })
       if (!res.ok) throw new Error()
       setQuickStatus('sent')
-      setQuickForm({ name: '', phone: '', message: '' })
+      setQuickForm({ name: '', email: '', phone: '', message: '' })
     } catch {
       setQuickStatus('error')
     }
@@ -1091,6 +1091,14 @@ export default function MentonBuilders() {
                 placeholder="Your name"
                 value={quickForm.name}
                 onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
+                className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
+              />
+              <input
+                type="email"
+                required
+                placeholder="Email address"
+                value={quickForm.email}
+                onChange={(e) => setQuickForm({ ...quickForm, email: e.target.value })}
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
               />
               <input
