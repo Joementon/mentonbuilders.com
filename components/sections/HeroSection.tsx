@@ -59,10 +59,6 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-6 relative z-10 pt-20">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-stone-200 text-xs tracking-widest uppercase mb-6">
-            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-            Serving Mendocino &amp; Sonoma Counties
-          </div>
           <h1 className="font-serif text-5xl md:text-7xl font-medium text-white leading-tight mb-6">
             Built on Experience. <br />
             <span className="text-teal-300">Driven by Craft.</span>
