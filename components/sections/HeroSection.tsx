@@ -5,9 +5,9 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 const heroImages = [
-  { src: '/hero-2.png', alt: 'Vaulted timber beam living room' },
-  { src: '/hero-3.png', alt: 'Straw bale and venetian plaster' },
   { src: '/hero-4.png', alt: 'Rammed earth construction' },
+  { src: '/hero-3.png', alt: 'Straw bale and venetian plaster' },
+  { src: '/hero-2.png', alt: 'Vaulted timber beam living room' },
 ]
 
 export default function HeroSection() {
