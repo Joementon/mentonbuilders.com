@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock } from 'lucide-react'
+import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock, Compass } from 'lucide-react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Layers className="w-5 h-5 text-teal-600" />
+                    <Compass className="w-5 h-5 text-teal-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-stone-900 mb-1">
@@ -101,10 +101,24 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-stone-900 mb-1">
-                      Built to Perform
+                      Built to Last
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      We practice performance-based design &mdash; if a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Build it right the first time so you&rsquo;re not rebuilding it later.
+                      We build things that hold up &mdash; materials chosen for durability, joints that don&rsquo;t fail, assemblies that age well. Do it right the first time so you&rsquo;re not rebuilding it later.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                    <Layers className="w-5 h-5 text-teal-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-stone-900 mb-1">
+                      Performance-Based Design
+                    </h3>
+                    <p className="text-stone-500 text-sm">
+                      If a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Form meets function &mdash; sustainable, resourceful, and nothing wasted.
                     </p>
                   </div>
                 </div>
