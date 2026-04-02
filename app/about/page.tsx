@@ -101,10 +101,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-stone-900 mb-1">
-                      Built to Last
+                      Built to Perform
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Materials and methods selected for durability and long-term value &mdash; not just how it looks on day one.
+                      Every material earns its place &mdash; chosen for durability, practical function, and minimal waste. We build structures that work with their environment, not against it, so nothing is spent twice.
                     </p>
                   </div>
                 </div>
