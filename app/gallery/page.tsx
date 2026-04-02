@@ -2,18 +2,9 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowLeft, X, Grid3X3, FolderOpen, Menu } from 'lucide-react'
-
-/* ─── shared nav ──────────────────────────────────────────────── */
-
-const navLinks = [
-  { name: 'About', href: '/#about' },
-  { name: 'Services', href: '/#services' },
-  { name: 'Portfolio', href: '/#portfolio' },
-  { name: 'Approach', href: '/#approach' },
-  { name: 'Gallery', href: '/gallery' },
-]
+import { ArrowLeft, X, Grid3X3, FolderOpen } from 'lucide-react'
+import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 /* ─── categories ──────────────────────────────────────────────── */
 
@@ -34,8 +25,8 @@ interface GalleryPhoto {
   src: string
   alt: string
   category: string
-  project: string      // internal project group
-  displayProject: string // public-facing project name (no last names)
+  project: string
+  displayProject: string
   location: string
 }
 
@@ -109,83 +100,9 @@ export default function GalleryPage() {
     ? photos.filter((p) => p.project === activeProject)
     : []
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
   return (
     <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
-      {/* ── Global Nav ── */}
-      <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm py-2">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/menton_only_logo_transparent.png"
-              alt="Menton Builders"
-              width={160}
-              height={46}
-              className="h-9 w-auto"
-              priority
-            />
-          </Link>
-
-          <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium tracking-wide hover:text-teal-500 transition-colors ${
-                  link.href === '/gallery'
-                    ? 'text-teal-600'
-                    : 'text-stone-600'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="/#contact"
-              className="relative bg-teal-600 text-white px-7 py-2.5 rounded text-sm font-bold hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
-            >
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-300 rounded-full animate-pulse" />
-              Get a Quote
-            </Link>
-          </div>
-
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="text-stone-800 w-6 h-6" />
-            ) : (
-              <Menu className="text-stone-800 w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-        {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white border-b border-stone-100 p-6 lg:hidden shadow-xl">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-lg font-serif text-stone-800"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <Link
-                href="/#contact"
-                className="bg-teal-600 text-white text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get a Quote
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Nav activePath="/gallery" />
 
       {/* Header Banner */}
       <div className="bg-stone-800 pt-24 pb-16">
@@ -203,7 +120,6 @@ export default function GalleryPage() {
       {/* View Toggle + Filters */}
       <div className="container mx-auto px-6 -mt-6">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          {/* View mode toggle */}
           <div className="flex bg-white rounded-full border border-stone-200 p-1 shadow-sm">
             <button
               onClick={() => {
@@ -232,7 +148,6 @@ export default function GalleryPage() {
             </button>
           </div>
 
-          {/* Category filters (only in category mode) */}
           {viewMode === 'category' && (
             <div className="flex flex-wrap gap-2">
               {categories.map(({ slug, label }) => (
@@ -255,7 +170,6 @@ export default function GalleryPage() {
 
       {/* Content */}
       <div className="container mx-auto px-6 py-12">
-        {/* ── Category View ── */}
         {viewMode === 'category' && (
           <>
             {filtered.length > 0 ? (
@@ -295,7 +209,6 @@ export default function GalleryPage() {
           </>
         )}
 
-        {/* ── Project View: Project Grid ── */}
         {viewMode === 'project' && !activeProject && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((proj) => (
@@ -328,7 +241,6 @@ export default function GalleryPage() {
           </div>
         )}
 
-        {/* ── Project View: Single Project Photos ── */}
         {viewMode === 'project' && activeProject && (
           <>
             <button
@@ -405,6 +317,8 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }
