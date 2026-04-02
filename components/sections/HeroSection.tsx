@@ -35,6 +35,7 @@ export default function HeroSection() {
                 : 'opacity-0 scale-100'
             }`}
             sizes="100vw"
+            quality={95}
             priority={i === 0}
           />
         ))}
