@@ -33,18 +33,21 @@ export default function AboutPage() {
                 Why <span className="text-teal-700 italic">Menton Builders</span>
               </h2>
 
-              <div className="space-y-6 text-stone-600 text-base leading-relaxed">
+              <div className="space-y-5 text-stone-600 text-base leading-relaxed">
                 <p>
-                  Menton Builders is a three-generation company with over 50 years of experience building in this region. That continuity matters &mdash; not just in how we build, but in how we take responsibility for the work long after it&rsquo;s complete.
+                  Three generations. Over 50 years in this region. We&rsquo;re still here because we stand behind what we build.
                 </p>
+
+                <div className="w-10 h-0.5 bg-teal-400" />
+
                 <p>
-                  We focus primarily on custom homes and complex remodels, while also taking on projects like ADUs, barns, and specialty builds when they align. Our experience includes both conventional construction and methods like straw bale and rammed earth, giving us a broader understanding of materials, structure, and long-term performance.
+                  Custom homes, remodels, ADUs, barns, straw bale, rammed earth &mdash; we&rsquo;ve done it all, and that range gives us a real understanding of what works and what lasts.
                 </p>
+
+                <div className="w-10 h-0.5 bg-teal-400" />
+
                 <p>
-                  What sets us apart is not just what we build, but how we manage the process. We approach each project with a clear plan, tight coordination, and a responsibility to protect both the budget and the outcome. That means fewer surprises, better decisions along the way, and a finished product that holds up over time.
-                </p>
-                <p>
-                  We&rsquo;re not trying to be everything to everyone. We take on projects where we know we can deliver at a high level &mdash; and we stay closely involved from start to finish.
+                  We don&rsquo;t take on everything. We take on projects where we know we can deliver &mdash; and we stay involved start to finish.
                 </p>
               </div>
             </div>
@@ -56,7 +59,7 @@ export default function AboutPage() {
                   alt="Architectural details"
                   width={800}
                   height={600}
-                  className="w-full h-[500px] object-cover rounded shadow-2xl"
+                  className="w-full h-[380px] object-cover rounded shadow-2xl"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-teal-900 p-8 shadow-xl max-w-xs hidden lg:block rounded">
                   <p className="font-serif text-xl italic text-teal-100 leading-relaxed">
