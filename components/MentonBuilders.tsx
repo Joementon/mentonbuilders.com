@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
 import Image from 'next/image'
 import {
   Menu,
@@ -72,6 +72,63 @@ export default function MentonBuilders() {
   const [activeTab, setActiveTab] = useState('residential')
   const [contactOpen, setContactOpen] = useState(false)
   const [heroIndex, setHeroIndex] = useState(0)
+
+  // Main contact form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    projectType: 'Custom Home Build',
+    budget: '$250k - $500k',
+    details: '',
+  })
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+  // Quick contact widget state
+  const [quickForm, setQuickForm] = useState({ name: '', phone: '', message: '' })
+  const [quickStatus, setQuickStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+  async function handleSubmitInquiry(e: FormEvent) {
+    e.preventDefault()
+    setFormStatus('sending')
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (!res.ok) throw new Error()
+      setFormStatus('sent')
+      setFormData({ name: '', email: '', phone: '', location: '', projectType: 'Custom Home Build', budget: '$250k - $500k', details: '' })
+    } catch {
+      setFormStatus('error')
+    }
+  }
+
+  async function handleQuickContact(e: FormEvent) {
+    e.preventDefault()
+    setQuickStatus('sending')
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: quickForm.name,
+          email: 'via-widget@mentonbuilders.com',
+          phone: quickForm.phone,
+          projectType: 'Quick Contact',
+          budget: 'N/A',
+          details: quickForm.message,
+        }),
+      })
+      if (!res.ok) throw new Error()
+      setQuickStatus('sent')
+      setQuickForm({ name: '', phone: '', message: '' })
+    } catch {
+      setQuickStatus('error')
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -800,7 +857,23 @@ export default function MentonBuilders() {
               </p>
             </div>
 
-            <form className="bg-white shadow-2xl p-8 md:p-12 rounded border border-stone-200">
+            {formStatus === 'sent' ? (
+              <div className="bg-white shadow-2xl p-8 md:p-12 rounded border border-stone-200 text-center">
+                <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Check className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="font-serif text-2xl text-stone-900 mb-3">Inquiry Received</h3>
+                <p className="text-stone-600 mb-6">Thank you! We&rsquo;ll review your project details and get back to you within 24 hours.</p>
+                <button
+                  type="button"
+                  onClick={() => setFormStatus('idle')}
+                  className="text-teal-600 font-bold text-sm uppercase tracking-wider hover:text-teal-500"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmitInquiry} className="bg-white shadow-2xl p-8 md:p-12 rounded border border-stone-200">
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
@@ -808,6 +881,9 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="First Last"
                   />
@@ -818,6 +894,9 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="email@address.com"
                   />
@@ -828,6 +907,8 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="(707) 555-0123"
                   />
@@ -838,6 +919,8 @@ export default function MentonBuilders() {
                   </label>
                   <input
                     type="text"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
                     placeholder="e.g. Covelo, Healdsburg"
                   />
@@ -849,7 +932,11 @@ export default function MentonBuilders() {
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                     Project Type
                   </label>
-                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700">
+                  <select
+                    value={formData.projectType}
+                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                    className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
+                  >
                     <option>Custom Home Build</option>
                     <option>Major Renovation</option>
                     <option>ADU / Addition</option>
@@ -860,7 +947,11 @@ export default function MentonBuilders() {
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                     Estimated Budget
                   </label>
-                  <select className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700">
+                  <select
+                    value={formData.budget}
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
+                  >
                     <option>$250k - $500k</option>
                     <option>$500k - $1M</option>
                     <option>$1M - $3M</option>
@@ -874,21 +965,30 @@ export default function MentonBuilders() {
                   Project Details / Goals
                 </label>
                 <textarea
+                  value={formData.details}
+                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-transparent"
                   placeholder="Tell us about your timeline, lot status, and design vision..."
                 />
               </div>
 
               <button
-                type="button"
-                className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg"
+                type="submit"
+                disabled={formStatus === 'sending'}
+                className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg disabled:opacity-50"
               >
-                Submit Inquiry
+                {formStatus === 'sending' ? 'Sending...' : 'Submit Inquiry'}
               </button>
+              {formStatus === 'error' && (
+                <p className="text-center text-sm text-red-500 mt-4">
+                  Something went wrong. Please try again or call us directly.
+                </p>
+              )}
               <p className="text-center text-xs text-stone-400 mt-4">
                 We respect your privacy. Your information is never shared.
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>
@@ -975,29 +1075,51 @@ export default function MentonBuilders() {
                 We&rsquo;ll get back to you within 24 hours.
               </p>
             </div>
-            <div className="p-4 space-y-3">
+            {quickStatus === 'sent' ? (
+              <div className="p-6 text-center">
+                <Check className="w-8 h-8 text-teal-600 mx-auto mb-2" />
+                <p className="text-stone-700 font-medium">Message sent!</p>
+                <button type="button" onClick={() => setQuickStatus('idle')} className="text-teal-600 text-sm mt-2 font-bold">
+                  Send Another
+                </button>
+              </div>
+            ) : (
+            <form onSubmit={handleQuickContact} className="p-4 space-y-3">
               <input
                 type="text"
+                required
                 placeholder="Your name"
+                value={quickForm.name}
+                onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
               />
               <input
                 type="tel"
+                required
                 placeholder="Phone number"
+                value={quickForm.phone}
+                onChange={(e) => setQuickForm({ ...quickForm, phone: e.target.value })}
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500"
               />
               <textarea
                 placeholder="How can we help?"
                 rows={3}
+                value={quickForm.message}
+                onChange={(e) => setQuickForm({ ...quickForm, message: e.target.value })}
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-teal-500 resize-none"
               />
               <button
-                type="button"
-                className="w-full bg-teal-600 text-white py-2.5 rounded font-bold text-sm hover:bg-teal-500 transition-colors"
+                type="submit"
+                disabled={quickStatus === 'sending'}
+                className="w-full bg-teal-600 text-white py-2.5 rounded font-bold text-sm hover:bg-teal-500 transition-colors disabled:opacity-50"
               >
-                Send Message
+                {quickStatus === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
-            </div>
+              {quickStatus === 'error' && (
+                <p className="text-red-500 text-xs text-center">Failed to send. Please try again.</p>
+              )}
+            </form>
+            )}
           </div>
         )}
 
