@@ -74,7 +74,11 @@ export default function Footer() {
               <li>CA License #XXXXXX (B-General)</li>
               <li>Bonded &amp; Insured</li>
               <li>EPA Lead-Safe Certified</li>
-              <li className="pt-4 text-xs text-teal-300/30">
+              <li className="pt-4 space-y-1">
+                <Link href="/terms" className="text-xs text-teal-300/40 hover:text-teal-300 transition-colors block">Terms &amp; Conditions</Link>
+                <Link href="/accessibility" className="text-xs text-teal-300/40 hover:text-teal-300 transition-colors block">Accessibility</Link>
+              </li>
+              <li className="pt-2 text-xs text-teal-300/30">
                 &copy; 2026 Menton Builders Inc.
                 <br />
                 All rights reserved.
