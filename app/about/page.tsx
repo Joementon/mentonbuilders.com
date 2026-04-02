@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock, Compass } from 'lucide-react'
+import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock } from 'lucide-react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
@@ -16,15 +16,15 @@ export default function AboutPage() {
             About Menton Builders
           </h1>
           <p className="text-stone-400 text-lg max-w-2xl">
-            50+ years of design-build experience in Northern California.
+            Three generations. Over 50 years. Building what matters across Northern California.
           </p>
         </div>
       </div>
 
-      {/* About Section */}
+      {/* About Narrative */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
               <div className="relative">
                 <Image
@@ -35,9 +35,8 @@ export default function AboutPage() {
                   className="w-full h-[500px] object-cover rounded shadow-2xl"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-teal-900 p-8 shadow-xl max-w-xs hidden lg:block rounded">
-                  <p className="font-serif text-lg italic text-teal-100">
-                    &ldquo;We build what matters and we stand behind how
-                    it&rsquo;s built.&rdquo;
+                  <p className="font-serif text-xl italic text-teal-100 leading-relaxed">
+                    &ldquo;Build it right. Stand behind it. Make it last.&rdquo;
                   </p>
                   <div className="w-12 h-0.5 bg-teal-400 mt-4" />
                 </div>
@@ -52,103 +51,120 @@ export default function AboutPage() {
                 Why <span className="text-teal-700 italic">Menton Builders</span>
               </h2>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Compass className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Versatile by Nature
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      Custom design-build homes, ADUs, historic renovations, adaptive reuse, commercial, barns &mdash; and more. Resourceful and hands-on, we bring the same standard of craft to every type of project.
-                    </p>
-                  </div>
-                </div>
+              <div className="space-y-6 text-stone-600 text-base leading-relaxed">
+                <p>
+                  Menton Builders is a three-generation company with over 50 years of experience building in this region. That continuity matters &mdash; not just in how we build, but in how we take responsibility for the work long after it&rsquo;s complete.
+                </p>
+                <p>
+                  We focus primarily on custom homes and complex remodels, while also taking on projects like ADUs, barns, and specialty builds when they align. Our experience includes both conventional construction and methods like straw bale and rammed earth, giving us a broader understanding of materials, structure, and long-term performance.
+                </p>
+                <p>
+                  What sets us apart is not just what we build, but how we manage the process. We approach each project with a clear plan, tight coordination, and a responsibility to protect both the budget and the outcome. That means fewer surprises, better decisions along the way, and a finished product that holds up over time.
+                </p>
+                <p>
+                  We&rsquo;re not trying to be everything to everyone. We take on projects where we know we can deliver at a high level &mdash; and we stay closely involved from start to finish.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Clock className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      50+ Years of Experience
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      Proven methods refined over generations, paired with a forward-thinking approach to materials and design.
-                    </p>
-                  </div>
-                </div>
+      {/* Differentiators */}
+      <section className="py-24 bg-stone-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+                What Sets Us Apart
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl text-stone-900">
+                Built on Experience. Driven by Craft.
+              </h2>
+            </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Users className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Design-Build Partnership
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      We sit down with homeowners and architects early &mdash; before anything gets drawn up &mdash; so design, budget, and build are all on the same page from the start.
-                    </p>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Layers className="w-5 h-5 text-teal-600" />
                 </div>
-
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Shield className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Built to Last
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      We build things that hold up &mdash; materials chosen for durability, joints that don&rsquo;t fail, assemblies that age well. Do it right the first time so you&rsquo;re not rebuilding it later.
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Versatile by Experience &mdash; Focused in Execution
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    We&rsquo;ve built everything from custom homes and remodels to ADUs, barns, and alternative construction &mdash; but we stay focused on projects where quality and execution matter most.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Layers className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Performance-Based Design
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      If a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Form meets function &mdash; sustainable, resourceful, and nothing wasted.
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Clock className="w-5 h-5 text-teal-600" />
                 </div>
-
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Hammer className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Hands-On Craft
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      Rammed earth, straw bale, conventional framing, repurposed materials, barn conversions &mdash; we know how to build it because we&rsquo;ve built it.
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Three Generations of Accountability
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    Over 50 years of work in this region means our name is tied to what we build &mdash; past, present, and future.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                    <Check className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-stone-900 mb-1">
-                      Organized &amp; Direct
-                    </h3>
-                    <p className="text-stone-500 text-sm">
-                      Clear communication, coordinated trades, and early alignment on scope &mdash; fewer surprises down the road.
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Users className="w-5 h-5 text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Design-Build Alignment
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    We work closely with homeowners and architects early, aligning scope, budget, and construction before decisions become costly.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Shield className="w-5 h-5 text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Built to Last
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    We prioritize materials and methods that perform over time &mdash; not just what looks good up front.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Hammer className="w-5 h-5 text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Hands-On Knowledge
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    Our decisions come from real field experience &mdash; not theory &mdash; and that shows in the details.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Check className="w-5 h-5 text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Clear, Direct Process
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    Straightforward communication, coordinated trades, and proactive planning keep projects moving without unnecessary friction.
+                  </p>
                 </div>
               </div>
             </div>
@@ -156,21 +172,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Legacy Quote */}
-      <section className="bg-stone-100 py-20">
+      {/* Closing Statement */}
+      <section className="bg-stone-800 py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <div className="w-16 h-0.5 bg-teal-500 mx-auto mb-8" />
-            <h3 className="text-xl md:text-2xl font-serif leading-relaxed text-stone-700 mb-6">
-              Built on a foundation established over generations, Menton
-              Builders continues to evolve while staying grounded in the
-              principles that have defined our work from the beginning.
-            </h3>
-            <p className="text-stone-500 text-base max-w-2xl mx-auto">
-              Menton Builders was founded on a commitment to quality,
-              accountability, and long-term relationships. Over the past 50
-              years, that foundation has shaped a body of work defined by
-              consistency, attention to detail, and trust.
+            <p className="font-serif text-2xl md:text-3xl italic text-white leading-relaxed mb-4">
+              &ldquo;Build it right. Stand behind it. Make it last.&rdquo;
+            </p>
+            <p className="text-stone-400 text-base">
+              At the end of the day, our responsibility is simple.
             </p>
             <div className="w-16 h-0.5 bg-teal-500 mx-auto mt-8" />
           </div>
@@ -222,7 +233,7 @@ export default function AboutPage() {
                 the next right step.
               </p>
               <Link
-                href="/contact"
+                href="/#contact"
                 className="inline-flex items-center gap-2 bg-white text-teal-800 px-6 py-3 rounded font-bold hover:bg-teal-50 transition-colors group w-fit"
               >
                 Get in Touch{' '}
