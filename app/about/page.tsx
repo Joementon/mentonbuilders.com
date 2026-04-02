@@ -152,7 +152,7 @@ export default function AboutPage() {
                     Performance-Based Design
                   </h3>
                   <p className="text-stone-500 text-sm">
-                    If a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Form meets function &mdash; sustainable, resourceful, nothing wasted.
+                    Every choice is intentional &mdash; from the materials we select to how we orient a building on the land. We don&rsquo;t overbuild and we don&rsquo;t cut corners. The goal is a structure that does its job quietly for a long time.
                   </p>
                 </div>
               </div>
