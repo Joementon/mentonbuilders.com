@@ -171,18 +171,18 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
-                  <Check className="w-5 h-5 text-teal-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-stone-900 mb-1">
-                    Clear, Direct Process
-                  </h3>
-                  <p className="text-stone-500 text-sm">
-                    Straightforward communication, coordinated trades, and proactive planning keep projects moving without unnecessary friction.
-                  </p>
-                </div>
+            </div>
+            <div className="flex gap-4 max-w-md mx-auto mt-8">
+              <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                <Check className="w-5 h-5 text-teal-600" />
+              </div>
+              <div>
+                <h3 className="font-bold text-stone-900 mb-1">
+                  Clear, Direct Process
+                </h3>
+                <p className="text-stone-500 text-sm">
+                  Straightforward communication, coordinated trades, and proactive planning keep projects moving without unnecessary friction.
+                </p>
               </div>
             </div>
           </div>
