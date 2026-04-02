@@ -59,7 +59,6 @@ const navLinks = [
 
 const heroImages = [
   { src: '/hero-1.png', alt: 'Beautiful lines' },
-  { src: '/hero-2.png', alt: 'Ranch living room' },
   { src: '/hero-3.png', alt: 'Straw bale and venetian plaster' },
   { src: '/hero-4.png', alt: 'Rammed earth construction' },
 ]
@@ -1037,7 +1036,7 @@ export default function MentonBuilders() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-teal-500 shrink-0" />
-                  <span>(707) 555-0199</span>
+                  <span>(707) 468-8814</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-teal-500 shrink-0" />
