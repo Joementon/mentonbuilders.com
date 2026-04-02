@@ -273,18 +273,41 @@ Do not touch these. They are already configured in the Vercel project dashboard.
 
 ## Summary Checklist for Claude Code
 
-- [ ] Refactor `MentonBuilders.tsx` → split into `Nav.tsx`, `Footer.tsx`, `HeroSection.tsx`, `TestimonialCarousel.tsx`, `ContactSection.tsx`
-- [ ] New homepage (`app/page.tsx`) renders: `<Nav>` + `<HeroSection>` + `<TestimonialCarousel>` + `<ContactSection id="contact">` + `<Footer>`
-- [ ] Replace horizontal marquee ticker with a proper prev/next carousel using `useState`
-- [ ] Update nav links (remove `#about`, `#services`, `#approach`; add `/about`, `/services`; keep `/gallery`)
-- [ ] Remove floating Quick-Contact widget
-- [ ] Remove Stats Bar, About, Services, Portfolio grid, Regional Focus, and Approach sections from homepage
-- [ ] Add `id="contact"` to contact section wrapper
-- [ ] Update gallery page (`app/gallery/page.tsx`) to use shared `<Nav>` and `<Footer>` components
-- [ ] Add `priority` prop to first hero image only
-- [ ] Add `sizes="100vw"` to all hero slideshow images
-- [ ] Remove `.animate-ticker` from `globals.css`
-- [ ] Fix "View Full Portfolio" dead link → `/gallery`
+- [x] Refactor `MentonBuilders.tsx` → split into `Nav.tsx`, `Footer.tsx`, `HeroSection.tsx`, `TestimonialCarousel.tsx`, `ContactSection.tsx` *(done — commit 30e6950)*
+- [x] New homepage (`app/page.tsx`) renders: `<Nav>` + `<HeroSection>` + `<TestimonialCarousel>` + `<ContactSection id="contact">` + `<Footer>` *(done — commit 30e6950)*
+- [x] ~~Replace horizontal marquee ticker with carousel~~ → **Owner chose to keep the scrolling ticker** — ticker restored in `TestimonialCarousel.tsx` *(commit bf943c4)*
+- [x] Update nav links (remove `#about`, `#services`, `#approach`; add `/about`, `/services`; keep `/gallery`) *(done — Nav.tsx)*
+- [x] Remove floating Quick-Contact widget *(done — not in new components)*
+- [x] Remove Stats Bar, About, Services, Portfolio grid, Regional Focus, and Approach sections from homepage *(done — those sections only remain in old MentonBuilders.tsx which is no longer imported by page.tsx)*
+- [x] Add `id="contact"` to contact section wrapper *(done — ContactSection.tsx)*
+- [x] Update gallery page (`app/gallery/page.tsx`) to use shared `<Nav>` and `<Footer>` components *(done — commit 30e6950)*
+- [x] Add `priority` prop to first hero image only *(done — HeroSection.tsx)*
+- [x] Add `sizes="100vw"` to all hero slideshow images *(done — HeroSection.tsx)*
+- [x] ~~Remove `.animate-ticker` from `globals.css`~~ → **Ticker kept per owner request** — CSS restored *(commit bf943c4)*
+- [x] Fix "View Full Portfolio" dead link → `/gallery` *(done — old monolith; new homepage links to /gallery in nav)*
+- [x] Add top-down gradient scrim for nav contrast on all hero photos *(commit 123aa4c — not in original brief but needed)*
+- [x] Create placeholder `/about` and `/services` pages (Coming Soon) *(done — commit 30e6950)*
 - [ ] **Hold**: Footer license number + address (get real values from Joe/Aimee before final deploy)
 - [ ] Run `yarn lint` before pushing — zero ESLint errors
 - [ ] Test on mobile (375px) and desktop (1280px)
+
+## Implementation Notes (for other Claude instances)
+
+**Current architecture (as of 2026-04-02):**
+
+The homepage NO LONGER uses `MentonBuilders.tsx`. That file still exists but is not imported anywhere. The new homepage is composed of:
+
+```
+app/page.tsx → Nav + HeroSection + TestimonialCarousel + ContactSection + Footer
+```
+
+New component files:
+- `components/Nav.tsx` — shared nav, used on all pages (transparent mode on homepage)
+- `components/Footer.tsx` — shared footer, used on all pages
+- `components/sections/HeroSection.tsx` — hero slideshow with nav contrast scrim
+- `components/sections/TestimonialCarousel.tsx` — horizontal scrolling ticker (NOT a prev/next carousel)
+- `components/sections/ContactSection.tsx` — full contact form with validation + Supabase/Resend
+
+**Do NOT edit `MentonBuilders.tsx` expecting changes to appear on the live site.** Edit the component files above instead.
+
+Gallery page (`app/gallery/page.tsx`) also uses shared `Nav` and `Footer`.
