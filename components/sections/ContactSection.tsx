@@ -40,8 +40,8 @@ export default function ContactSection() {
     email: '',
     phone: '',
     location: '',
-    projectType: 'Custom Home Build',
-    budget: '$250k - $500k',
+    projectType: '',
+    budget: '',
     details: '',
   })
   const [isInternational, setIsInternational] = useState(false)
@@ -130,7 +130,7 @@ export default function ContactSection() {
       if (!res.ok) throw new Error()
       setFormStatus('sent')
       setFormErrors({})
-      setFormData({ name: '', email: '', phone: '', location: '', projectType: 'Custom Home Build', budget: '$250k - $500k', details: '' })
+      setFormData({ name: '', email: '', phone: '', location: '', projectType: '', budget: '', details: '' })
       setIsInternational(false)
       setPhoneCountry('')
     } catch {
@@ -255,31 +255,25 @@ export default function ContactSection() {
                     <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                       Project Type
                     </label>
-                    <select
+                    <input
+                      type="text"
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                       className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                    >
-                      <option>Custom Home Build</option>
-                      <option>Major Renovation</option>
-                      <option>ADU / Addition</option>
-                      <option>Commercial / Barn</option>
-                    </select>
+                      placeholder="e.g. Custom home, renovation, ADU, barn"
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
                       Estimated Budget
                     </label>
-                    <select
+                    <input
+                      type="text"
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                    >
-                      <option>$250k - $500k</option>
-                      <option>$500k - $1M</option>
-                      <option>$1M - $3M</option>
-                      <option>$3M+</option>
-                    </select>
+                      placeholder="e.g. $500k - $1M, not sure yet"
+                    />
                   </div>
                 </div>
 
