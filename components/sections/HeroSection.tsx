@@ -16,7 +16,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
+    }, 8000)
     return () => clearInterval(timer)
   }, [])
 
@@ -43,7 +43,7 @@ export default function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(4,47,46,0.92) 0%, rgba(4,47,46,0.92) 33%, rgba(15,23,42,0.4) 55%, transparent 70%)',
+              'linear-gradient(to right, rgba(41,37,36,0.45) 0%, rgba(41,37,36,0.35) 8%, rgba(41,37,36,0.25) 15%, rgba(41,37,36,0.15) 22%, rgba(41,37,36,0.06) 32%, transparent 42%)',
           }}
         />
         {/* Top-down scrim for navbar contrast on all photos */}
