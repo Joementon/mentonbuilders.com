@@ -91,9 +91,9 @@ export default function ServicesPage() {
                 </div>
                 <div className="relative bg-stone-200 h-64 md:h-auto min-h-[300px]">
                   <Image
-                    src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop"
+                    src="/rammed_earth_sunset.png"
                     className="object-cover"
-                    alt="Custom Home"
+                    alt="Rammed earth residential construction at sunset"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
