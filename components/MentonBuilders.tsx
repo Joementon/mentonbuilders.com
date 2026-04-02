@@ -298,7 +298,7 @@ export default function MentonBuilders() {
               className="relative bg-teal-600 text-white px-7 py-2.5 rounded text-sm font-bold hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
             >
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-300 rounded-full animate-pulse" />
-              Start a Conversation
+              Get in Touch
             </a>
           </div>
 
@@ -334,7 +334,7 @@ export default function MentonBuilders() {
                 className="bg-teal-600 text-white text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Start a Conversation
+                Get in Touch
               </a>
             </div>
           </div>
@@ -625,7 +625,7 @@ export default function MentonBuilders() {
                     href="#contact"
                     className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
                   >
-                    Start a Conversation
+                    Get in Touch
                   </a>
                 </div>
                 <div className="bg-stone-200 h-64 md:h-auto">
