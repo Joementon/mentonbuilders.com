@@ -64,12 +64,11 @@ export default function HeroSection() {
             Serving Mendocino &amp; Sonoma Counties
           </div>
           <h1 className="font-serif text-5xl md:text-7xl font-medium text-white leading-tight mb-6">
-            Builders Building <br />
-            <span className="text-teal-300">What Matters.</span>
+            Built on Experience. <br />
+            <span className="text-teal-300">Driven by Craft.</span>
           </h1>
-          <p className="text-xl text-stone-300 mb-8 max-w-2xl font-light leading-relaxed">
-            Design-build rooted in experience. Serving Mendocino &amp; Sonoma
-            Counties for 50+ years.
+          <p className="text-2xl md:text-3xl text-stone-200 mb-8 max-w-2xl font-light leading-relaxed">
+            Design-build for <span className="text-white font-semibold">over 50 years</span> across Mendocino &amp; Sonoma Counties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
