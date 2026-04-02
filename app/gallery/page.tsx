@@ -118,7 +118,7 @@ export default function GalleryPage() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo-nav.png"
+              src="/menton_only_logo_transparent.png"
               alt="Menton Builders"
               width={160}
               height={46}

@@ -264,7 +264,7 @@ export default function MentonBuilders() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3">
             <Image
-              src="/logo-nav.png"
+              src="/menton_only_logo_transparent.png"
               alt="Menton Builders"
               width={160}
               height={46}
@@ -1136,7 +1136,7 @@ export default function MentonBuilders() {
             <div className="col-span-1 md:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/logo-nav.png"
+                  src="/menton_only_logo_transparent.png"
                   alt="Menton Builders"
                   width={200}
                   height={57}
