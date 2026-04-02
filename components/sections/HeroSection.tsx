@@ -38,11 +38,20 @@ export default function HeroSection() {
             priority={i === 0}
           />
         ))}
+        {/* Left-to-right gradient for hero text area */}
         <div
           className="absolute inset-0"
           style={{
             background:
               'linear-gradient(to right, rgba(4,47,46,0.92) 0%, rgba(4,47,46,0.92) 33%, rgba(15,23,42,0.4) 55%, transparent 70%)',
+          }}
+        />
+        {/* Top-down scrim for navbar contrast on all photos */}
+        <div
+          className="absolute inset-x-0 top-0 h-28"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, transparent 100%)',
           }}
         />
       </div>
