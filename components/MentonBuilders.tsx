@@ -947,7 +947,7 @@ export default function MentonBuilders() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                      Project Location (City)
+                      Project Location (City) <span className="text-red-400">*</span>
                     </label>
                     <input
                       type="text"
