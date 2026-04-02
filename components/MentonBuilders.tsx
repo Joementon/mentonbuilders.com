@@ -82,6 +82,8 @@ export default function MentonBuilders() {
     budget: '$250k - $500k',
     details: '',
   })
+  const [isInternational, setIsInternational] = useState(false)
+  const [phoneCountry, setPhoneCountry] = useState('')
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
@@ -89,12 +91,86 @@ export default function MentonBuilders() {
   const [quickForm, setQuickForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [quickStatus, setQuickStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
+  const COUNTRY_CODES: Record<string, { name: string; code: string; digits: number }> = {
+    '1': { name: 'US/Canada', code: '+1', digits: 10 },
+    '44': { name: 'United Kingdom', code: '+44', digits: 10 },
+    '61': { name: 'Australia', code: '+61', digits: 9 },
+    '49': { name: 'Germany', code: '+49', digits: 11 },
+    '33': { name: 'France', code: '+33', digits: 9 },
+    '52': { name: 'Mexico', code: '+52', digits: 10 },
+    '81': { name: 'Japan', code: '+81', digits: 10 },
+    '86': { name: 'China', code: '+86', digits: 11 },
+    '91': { name: 'India', code: '+91', digits: 10 },
+    '39': { name: 'Italy', code: '+39', digits: 10 },
+    '34': { name: 'Spain', code: '+34', digits: 9 },
+    '55': { name: 'Brazil', code: '+55', digits: 11 },
+    '7': { name: 'Russia', code: '+7', digits: 10 },
+    '82': { name: 'South Korea', code: '+82', digits: 10 },
+    '31': { name: 'Netherlands', code: '+31', digits: 9 },
+    '46': { name: 'Sweden', code: '+46', digits: 9 },
+    '41': { name: 'Switzerland', code: '+41', digits: 9 },
+    '64': { name: 'New Zealand', code: '+64', digits: 9 },
+    '353': { name: 'Ireland', code: '+353', digits: 9 },
+    '972': { name: 'Israel', code: '+972', digits: 9 },
+  }
+
+  function detectCountry(digits: string): { name: string; code: string; digits: number } | null {
+    // Try 3-digit, then 2-digit, then 1-digit country codes
+    for (const len of [3, 2, 1]) {
+      const prefix = digits.slice(0, len)
+      if (COUNTRY_CODES[prefix]) return COUNTRY_CODES[prefix]
+    }
+    return null
+  }
+
   function formatPhone(raw: string): string {
     const digits = raw.replace(/\D/g, '')
-    // Strip leading 1 for US country code
+    if (isInternational) {
+      const country = detectCountry(digits)
+      if (country) {
+        const national = digits.slice(country.code.replace('+', '').length)
+        return `${country.code} ${national}`
+      }
+      return `+${digits}`
+    }
+    // US: strip leading 1
     const d = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits
     if (d.length === 10) return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`
     return raw
+  }
+
+  function validatePhone(raw: string): string | null {
+    const digits = raw.replace(/\D/g, '')
+    if (!raw.trim()) return 'Phone number is required'
+    if (isInternational) {
+      const country = detectCountry(digits)
+      if (!country) return 'Unrecognized country code'
+      const national = digits.slice(country.code.replace('+', '').length)
+      if (national.length < 7 || national.length > 12) return `Invalid number for ${country.name}`
+      return null
+    }
+    const d = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits
+    if (d.length !== 10) return 'Enter a valid 10-digit phone number'
+    return null
+  }
+
+  function handlePhoneBlur() {
+    const digits = formData.phone.replace(/\D/g, '')
+    if (!digits) return
+    const error = validatePhone(formData.phone)
+    if (error) {
+      setFormErrors({ ...formErrors, phone: error })
+    } else {
+      const formatted = formatPhone(formData.phone)
+      setFormData({ ...formData, phone: formatted })
+      setFormErrors({ ...formErrors, phone: '' })
+      if (isInternational) {
+        const country = detectCountry(digits)
+        setPhoneCountry(country?.name || '')
+      } else {
+        setPhoneCountry('US')
+      }
+    }
   }
 
   function validateForm(): boolean {
@@ -103,10 +179,8 @@ export default function MentonBuilders() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
     if (!formData.email.trim()) errors.email = 'Email is required'
     else if (!emailRegex.test(formData.email.trim())) errors.email = 'Enter a valid email address'
-    const phoneDigits = formData.phone.replace(/\D/g, '')
-    const normalizedDigits = phoneDigits.length === 11 && phoneDigits[0] === '1' ? phoneDigits.slice(1) : phoneDigits
-    if (!formData.phone.trim()) errors.phone = 'Phone number is required'
-    else if (normalizedDigits.length !== 10) errors.phone = 'Enter a valid 10-digit phone number'
+    const phoneError = validatePhone(formData.phone)
+    if (phoneError) errors.phone = phoneError
     setFormErrors(errors)
     return Object.keys(errors).length === 0
   }
@@ -115,7 +189,13 @@ export default function MentonBuilders() {
     e.preventDefault()
     if (!validateForm()) return
     setFormStatus('sending')
-    const submissionData = { ...formData, phone: formatPhone(formData.phone) }
+    const formatted = formatPhone(formData.phone)
+    const submissionData = {
+      ...formData,
+      phone: formatted,
+      isInternational,
+      phoneCountry: isInternational ? (detectCountry(formData.phone.replace(/\D/g, ''))?.name || 'Unknown') : 'US',
+    }
     try {
       const res = await fetch('/api/quote', {
         method: 'POST',
@@ -126,6 +206,8 @@ export default function MentonBuilders() {
       setFormStatus('sent')
       setFormErrors({})
       setFormData({ name: '', email: '', phone: '', location: '', projectType: 'Custom Home Build', budget: '$250k - $500k', details: '' })
+      setIsInternational(false)
+      setPhoneCountry('')
     } catch {
       setFormStatus('error')
     }
@@ -940,10 +1022,21 @@ export default function MentonBuilders() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setFormErrors({ ...formErrors, phone: '' }) }}
+                      onBlur={handlePhoneBlur}
                       className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
-                      placeholder="(707) 468-8814"
+                      placeholder={isInternational ? '+44 7911 123456' : '(707) 468-8814'}
                     />
                     {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
+                    {phoneCountry && !formErrors.phone && <p className="text-xs text-teal-600">{phoneCountry}</p>}
+                    <label className="flex items-center gap-2 pt-1 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={isInternational}
+                        onChange={(e) => { setIsInternational(e.target.checked); setPhoneCountry(''); setFormErrors({ ...formErrors, phone: '' }) }}
+                        className="w-3.5 h-3.5 rounded border-stone-300 text-teal-600 focus:ring-teal-500"
+                      />
+                      <span className="text-xs text-stone-400">International number</span>
+                    </label>
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">

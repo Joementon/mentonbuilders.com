@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { supabase } from "@/lib/supabase";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -82,11 +83,26 @@ function emailWrapper(content: string) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, location, projectType, budget, details } = body;
+    const { name, email, phone, location, projectType, budget, details, isInternational, phoneCountry } = body;
 
     if (!name || !email) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
     }
+
+    // Save to Supabase
+    const { error: dbError } = await supabase.from("inquiries").insert({
+      name,
+      email,
+      phone,
+      phone_country: phoneCountry || "US",
+      is_international: isInternational || false,
+      location: location || null,
+      project_type: projectType || null,
+      budget: budget || null,
+      details: details || null,
+      source: "website",
+    });
+    if (dbError) console.error("Supabase insert error:", dbError.message);
 
     const inquiryTable = buildInquiryTable({ name, email, phone, location, projectType, budget, details });
 
