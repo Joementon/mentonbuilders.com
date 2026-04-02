@@ -43,7 +43,7 @@ export default function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(41,37,36,0.45) 0%, rgba(41,37,36,0.35) 8%, rgba(41,37,36,0.25) 15%, rgba(41,37,36,0.15) 22%, rgba(41,37,36,0.06) 32%, transparent 42%)',
+              'linear-gradient(to right, rgba(41,37,36,0.65) 0%, rgba(41,37,36,0.32) 16.5%, transparent 33%)',
           }}
         />
         {/* Top-down scrim for navbar contrast on all photos */}
