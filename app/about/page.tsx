@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock } from 'lucide-react'
+import { Shield, Check, MapPin, ArrowRight, Hammer, Layers, Users, Clock, Gauge } from 'lucide-react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
@@ -26,24 +26,6 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
-              <div className="relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?q=80&w=2670&auto=format&fit=crop"
-                  alt="Architectural details"
-                  width={800}
-                  height={600}
-                  className="w-full h-[500px] object-cover rounded shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-teal-900 p-8 shadow-xl max-w-xs hidden lg:block rounded">
-                  <p className="font-serif text-xl italic text-teal-100 leading-relaxed">
-                    &ldquo;Build it right. Stand behind it. Make it last.&rdquo;
-                  </p>
-                  <div className="w-12 h-0.5 bg-teal-400 mt-4" />
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:w-1/2">
               <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
                 About Us
               </div>
@@ -64,6 +46,24 @@ export default function AboutPage() {
                 <p>
                   We&rsquo;re not trying to be everything to everyone. We take on projects where we know we can deliver at a high level &mdash; and we stay closely involved from start to finish.
                 </p>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2">
+              <div className="relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?q=80&w=2670&auto=format&fit=crop"
+                  alt="Architectural details"
+                  width={800}
+                  height={600}
+                  className="w-full h-[500px] object-cover rounded shadow-2xl"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-teal-900 p-8 shadow-xl max-w-xs hidden lg:block rounded">
+                  <p className="font-serif text-xl italic text-teal-100 leading-relaxed">
+                    &ldquo;Build it right. Stand behind it. Make it last.&rdquo;
+                  </p>
+                  <div className="w-12 h-0.5 bg-teal-400 mt-4" />
+                </div>
               </div>
             </div>
           </div>
@@ -136,6 +136,20 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-stone-500 text-sm">
                     We prioritize materials and methods that perform over time &mdash; not just what looks good up front.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center shrink-0 border border-teal-200">
+                  <Gauge className="w-5 h-5 text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 mb-1">
+                    Performance-Based Design
+                  </h3>
+                  <p className="text-stone-500 text-sm">
+                    If a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Form meets function &mdash; sustainable, resourceful, nothing wasted.
                   </p>
                 </div>
               </div>
