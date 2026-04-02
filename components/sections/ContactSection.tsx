@@ -161,7 +161,7 @@ export default function ContactSection() {
                 <Check className="w-8 h-8 text-teal-600" />
               </div>
               <h3 className="font-serif text-2xl text-stone-900 mb-3">Inquiry Received</h3>
-              <p className="text-stone-600 mb-6">Thank you! We&rsquo;ll review your project details and get back to you within 24 hours.</p>
+              <p className="text-stone-600 mb-6">Thank you! We&rsquo;ll review your project details and get back to you within 2 business days.</p>
               <button
                 type="button"
                 onClick={() => setFormStatus('idle')}
