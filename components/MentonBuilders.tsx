@@ -82,23 +82,49 @@ export default function MentonBuilders() {
     budget: '$250k - $500k',
     details: '',
   })
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   // Quick contact widget state
   const [quickForm, setQuickForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [quickStatus, setQuickStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
+  function formatPhone(raw: string): string {
+    const digits = raw.replace(/\D/g, '')
+    // Strip leading 1 for US country code
+    const d = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits
+    if (d.length === 10) return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`
+    return raw
+  }
+
+  function validateForm(): boolean {
+    const errors: Record<string, string> = {}
+    if (!formData.name.trim()) errors.name = 'Name is required'
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+    if (!formData.email.trim()) errors.email = 'Email is required'
+    else if (!emailRegex.test(formData.email.trim())) errors.email = 'Enter a valid email address'
+    const phoneDigits = formData.phone.replace(/\D/g, '')
+    const normalizedDigits = phoneDigits.length === 11 && phoneDigits[0] === '1' ? phoneDigits.slice(1) : phoneDigits
+    if (!formData.phone.trim()) errors.phone = 'Phone number is required'
+    else if (normalizedDigits.length !== 10) errors.phone = 'Enter a valid 10-digit phone number'
+    setFormErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
   async function handleSubmitInquiry(e: FormEvent) {
     e.preventDefault()
+    if (!validateForm()) return
     setFormStatus('sending')
+    const submissionData = { ...formData, phone: formatPhone(formData.phone) }
     try {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       })
       if (!res.ok) throw new Error()
       setFormStatus('sent')
+      setFormErrors({})
       setFormData({ name: '', email: '', phone: '', location: '', projectType: 'Custom Home Build', budget: '$250k - $500k', details: '' })
     } catch {
       setFormStatus('error')
@@ -872,120 +898,138 @@ export default function MentonBuilders() {
                 </button>
               </div>
             ) : (
-            <form onSubmit={handleSubmitInquiry} className="bg-white shadow-2xl p-8 md:p-12 rounded border border-stone-200">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
-                    placeholder="First Last"
-                  />
+            <form onSubmit={handleSubmitInquiry} className="shadow-2xl rounded-lg overflow-hidden border border-stone-200">
+              {/* ── Required Section ── */}
+              <div className="bg-white p-8 md:p-12">
+                <div className="flex items-center gap-2 mb-6">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-teal-700">Your Information</h3>
+                  <span className="text-xs text-red-400 font-medium">* Required</span>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
-                    placeholder="email@address.com"
-                  />
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setFormErrors({ ...formErrors, name: '' }) }}
+                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.name ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
+                      placeholder="First Last"
+                    />
+                    {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Email <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setFormErrors({ ...formErrors, email: '' }) }}
+                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.email ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
+                      placeholder="email@address.com"
+                    />
+                    {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Phone <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setFormErrors({ ...formErrors, phone: '' }) }}
+                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
+                      placeholder="(707) 468-8814"
+                    />
+                    {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Project Location (City)
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
+                      placeholder="e.g. Covelo, Healdsburg"
+                    />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
-                    placeholder="(707) 555-0123"
-                  />
+              </div>
+
+              {/* ── Optional Section ── */}
+              <div className="bg-stone-50 p-8 md:p-12 border-t border-stone-200">
+                <div className="flex items-center gap-2 mb-6">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-stone-400">Project Details</h3>
+                  <span className="text-xs text-stone-400 font-medium">Optional</span>
                 </div>
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Project Type
+                    </label>
+                    <select
+                      value={formData.projectType}
+                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                      className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
+                    >
+                      <option>Custom Home Build</option>
+                      <option>Major Renovation</option>
+                      <option>ADU / Addition</option>
+                      <option>Commercial / Barn</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                      Estimated Budget
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
+                    >
+                      <option>$250k - $500k</option>
+                      <option>$500k - $1M</option>
+                      <option>$1M - $3M</option>
+                      <option>$3M+</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Project Location (City)
+                    Project Details / Goals
                   </label>
-                  <input
-                    type="text"
-                    value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
-                    placeholder="e.g. Covelo, Healdsburg"
+                  <textarea
+                    value={formData.details}
+                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                    className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-white"
+                    placeholder="Tell us about your timeline, lot status, and design vision..."
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Project Type
-                  </label>
-                  <select
-                    value={formData.projectType}
-                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                  >
-                    <option>Custom Home Build</option>
-                    <option>Major Renovation</option>
-                    <option>ADU / Addition</option>
-                    <option>Commercial / Barn</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                    Estimated Budget
-                  </label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                  >
-                    <option>$250k - $500k</option>
-                    <option>$500k - $1M</option>
-                    <option>$1M - $3M</option>
-                    <option>$3M+</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="mb-8 space-y-2">
-                <label className="text-xs font-bold uppercase text-stone-500 tracking-wider">
-                  Project Details / Goals
-                </label>
-                <textarea
-                  value={formData.details}
-                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                  className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-transparent"
-                  placeholder="Tell us about your timeline, lot status, and design vision..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={formStatus === 'sending'}
-                className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg disabled:opacity-50"
-              >
-                {formStatus === 'sending' ? 'Sending...' : 'Submit Inquiry'}
-              </button>
-              {formStatus === 'error' && (
-                <p className="text-center text-sm text-red-500 mt-4">
-                  Something went wrong. Please try again or call us directly.
+              {/* ── Submit ── */}
+              <div className="bg-white p-8 md:px-12 md:py-8 border-t border-stone-200">
+                <button
+                  type="submit"
+                  disabled={formStatus === 'sending'}
+                  className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg disabled:opacity-50"
+                >
+                  {formStatus === 'sending' ? 'Sending...' : 'Submit Inquiry'}
+                </button>
+                {formStatus === 'error' && (
+                  <p className="text-center text-sm text-red-500 mt-4">
+                    Something went wrong. Please try again or call us directly.
+                  </p>
+                )}
+                <p className="text-center text-xs text-stone-400 mt-4">
+                  We respect your privacy. Your information is never shared.
                 </p>
-              )}
-              <p className="text-center text-xs text-stone-400 mt-4">
-                We respect your privacy. Your information is never shared.
-              </p>
+              </div>
             </form>
             )}
           </div>
