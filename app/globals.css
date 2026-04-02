@@ -4,3 +4,13 @@
   --font-serif: var(--font-playfair), serif;
   --font-sans: var(--font-inter), sans-serif;
 }
+
+/* Infinite scroll ticker */
+@keyframes scroll-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: scroll-ticker 35s linear infinite;
+}
