@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
   { name: 'Portfolio', href: '/gallery' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 interface NavProps {
@@ -68,7 +68,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href="/contact"
             className="relative bg-teal-600 text-white px-7 py-2.5 rounded text-sm font-bold hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
           >
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-300 rounded-full animate-pulse" />
@@ -104,7 +104,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href="/contact"
               className="bg-teal-600 text-white text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
