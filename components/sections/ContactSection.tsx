@@ -187,8 +187,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.name}
                       onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setFormErrors({ ...formErrors, name: '' }) }}
-                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.name ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
-                      placeholder="First Last"
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.name ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
                     />
                     {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
                   </div>
@@ -200,8 +199,7 @@ export default function ContactSection() {
                       type="email"
                       value={formData.email}
                       onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setFormErrors({ ...formErrors, email: '' }) }}
-                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.email ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
-                      placeholder="email@address.com"
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.email ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
                     />
                     {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
                   </div>
@@ -214,8 +212,7 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setFormErrors({ ...formErrors, phone: '' }) }}
                       onBlur={handlePhoneBlur}
-                      className={`w-full border-b-2 py-2 focus:outline-none transition-colors bg-transparent ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-stone-200 focus:border-teal-500'}`}
-                      placeholder={isInternational ? '+44 7911 123456' : '(707) 468-8814'}
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
                     />
                     {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
                     {phoneCountry && !formErrors.phone && <p className="text-xs text-teal-600">{phoneCountry}</p>}
@@ -237,8 +234,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      className="w-full border-b-2 border-stone-200 py-2 focus:outline-none focus:border-teal-500 transition-colors bg-transparent"
-                      placeholder="e.g. Covelo, Healdsburg"
+                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white"
                     />
                   </div>
                 </div>
@@ -259,8 +255,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                      placeholder="e.g. Custom home, renovation, ADU, barn"
+                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white text-stone-700"
                     />
                   </div>
                   <div className="space-y-2">
@@ -271,8 +266,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full border-b-2 border-stone-200 py-2 bg-transparent focus:outline-none focus:border-teal-500 transition-colors text-stone-700"
-                      placeholder="e.g. $500k - $1M, not sure yet"
+                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white text-stone-700"
                     />
                   </div>
                 </div>
@@ -284,8 +278,7 @@ export default function ContactSection() {
                   <textarea
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    className="w-full border-2 border-stone-200 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-white"
-                    placeholder="Tell us about your timeline, lot status, and design vision..."
+                    className="w-full border-2 border-stone-300 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-white"
                   />
                 </div>
               </div>
