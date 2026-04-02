@@ -41,7 +41,7 @@ export default function AboutPage() {
                 <div className="w-10 h-0.5 bg-teal-400" />
 
                 <p>
-                  Custom homes, remodels, ADUs, barns, straw bale, rammed earth &mdash; we&rsquo;ve done it all, and that range gives us a real understanding of what works and what lasts.
+                  Custom homes, remodels, ADUs, barns, timber and pole structures, straw bale, rammed earth, historic restorations &mdash; we&rsquo;ve done it all, and that range gives us a real understanding of what works and what lasts.
                 </p>
 
                 <div className="w-10 h-0.5 bg-teal-400" />
