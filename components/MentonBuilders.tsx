@@ -356,7 +356,7 @@ export default function MentonBuilders() {
               }`}
             />
           ))}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(4,47,46,0.85) 0%, rgba(4,47,46,0.7) 25%, rgba(15,23,42,0.2) 40%, transparent 50%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 20%, rgba(0,0,0,0.1) 35%, transparent 45%)' }} />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-20">
