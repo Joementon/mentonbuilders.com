@@ -6,64 +6,7 @@ import { ArrowLeft, X, Grid3X3, FolderOpen } from 'lucide-react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-/* ─── categories ──────────────────────────────────────────────── */
-
-const categories = [
-  { slug: 'all', label: 'All' },
-  { slug: 'site-foundation', label: 'Site & Foundation' },
-  { slug: 'framing', label: 'Framing' },
-  { slug: 'finishes', label: 'Finishes' },
-  { slug: 'completed', label: 'Completed' },
-  { slug: 'renovation', label: 'Renovation' },
-  { slug: 'interior', label: 'Interior' },
-  { slug: 'exterior', label: 'Exterior' },
-]
-
-/* ─── gallery data ────────────────────────────────────────────── */
-
-interface GalleryPhoto {
-  src: string
-  alt: string
-  category: string
-  project: string
-  displayProject: string
-  location: string
-}
-
-const photos: GalleryPhoto[] = [
-  {
-    src: '/hero-3.png',
-    alt: 'Straw bale and venetian plaster exterior',
-    category: 'completed',
-    project: 'polynesian-straw-bale',
-    displayProject: 'Straw Bale Homestead',
-    location: 'Mendocino County',
-  },
-  {
-    src: '/hero-4.png',
-    alt: 'Rammed earth modern home',
-    category: 'completed',
-    project: 'rammed-earth',
-    displayProject: 'Rammed Earth Estate',
-    location: 'Mendocino County',
-  },
-  {
-    src: '/hero-1.png',
-    alt: 'Clean interior lines and skylights',
-    category: 'interior',
-    project: 'beautiful-lines',
-    displayProject: 'Contemporary Interior',
-    location: 'Sonoma County',
-  },
-  {
-    src: '/hero-2.png',
-    alt: 'Vaulted timber beam living room',
-    category: 'interior',
-    project: 'ranch-living',
-    displayProject: 'Ranch Living Room',
-    location: 'Ukiah',
-  },
-]
+import { categories, photos, type GalleryPhoto } from '@/lib/gallery-data'
 
 /* ─── derive projects from photos ─────────────────────────────── */
 
