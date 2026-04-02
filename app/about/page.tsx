@@ -90,7 +90,7 @@ export default function AboutPage() {
                       Design-Build Partnership
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      We work alongside homeowners and architects from day one &mdash; aligning design, budget, and construction before ground breaks.
+                      We sit down with homeowners and architects early &mdash; before anything gets drawn up &mdash; so design, budget, and build are all on the same page from the start.
                     </p>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                       Built to Perform
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Performance-based design means every material earns its place &mdash; chosen for durability, practical function, and minimal waste. We build structures that work with their environment, not against it, so nothing is spent twice.
+                      We practice performance-based design &mdash; if a material doesn&rsquo;t pull its weight structurally, thermally, or practically, it doesn&rsquo;t go in the wall. Build it right the first time so you&rsquo;re not rebuilding it later.
                     </p>
                   </div>
                 </div>
