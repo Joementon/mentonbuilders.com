@@ -61,8 +61,8 @@ function emailWrapper(content: string) {
     <div style="background: ${BRAND.stone100}; padding: 40px 20px;">
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 580px; margin: 0 auto; background: ${BRAND.white}; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
         <!-- Header with logo -->
-        <div style="background: ${BRAND.tealDark}; padding: 28px 32px; text-align: center;">
-          <img src="${LOGO_URL}" alt="Menton Builders" width="180" style="display: inline-block;" />
+        <div style="background: ${BRAND.white}; padding: 36px 32px; text-align: center; border-bottom: 3px solid ${BRAND.teal};">
+          <img src="${LOGO_URL}" alt="Menton Builders" width="280" style="display: inline-block;" />
         </div>
         <!-- Body -->
         <div style="padding: 32px;">
