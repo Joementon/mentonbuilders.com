@@ -19,6 +19,14 @@ export const categories = [
 ]
 
 export const photos: GalleryPhoto[] = [
+  // ── Recent Showcase Photos (6 photos) ──
+  { src: '/gallery/kitchen-dark-wood-island.png', alt: 'Kitchen with dark wood cabinets and island', category: 'interior', project: 'showcase-recent', displayProject: 'Recent Work', location: 'Northern California' },
+  { src: '/gallery/cottage-living-room-vaulted-ceiling.png', alt: 'Cottage living room with vaulted wood ceiling', category: 'interior', project: 'showcase-recent', displayProject: 'Recent Work', location: 'Northern California' },
+  { src: '/gallery/bedroom-barn-door-sunset.png', alt: 'Bedroom with barn door and sunset view', category: 'interior', project: 'showcase-recent', displayProject: 'Recent Work', location: 'Northern California' },
+  { src: '/gallery/open-plan-timber-ceiling-living-kitchen.png', alt: 'Open-plan living and kitchen with timber vaulted ceiling', category: 'interior', project: 'showcase-recent', displayProject: 'Recent Work', location: 'Northern California' },
+  { src: '/gallery/reclaimed-steel-barn-exterior.png', alt: 'Reclaimed corrugated steel barn with integrated solar', category: 'completed', project: 'reclaimed-barn', displayProject: 'Reclaimed Steel Barn', location: 'Northern California' },
+  { src: '/gallery/rsg-3d-adu-fire-pit-patio.png', alt: 'RSG 3D accessory dwelling unit with fire pit patio', category: 'completed', project: 'rsg-3d-adu', displayProject: 'RSG 3D ADU', location: 'Northern California' },
+
   // ── ADU Project (32 photos) ──
   { src: '/gallery/adu-exterior.jpg', alt: 'ADU exterior view', category: 'completed', project: 'adu-build', displayProject: 'ADU / Guest House', location: 'Mendocino County' },
   { src: '/gallery/adu-exterior-2.jpg', alt: 'ADU exterior alternate angle', category: 'exterior', project: 'adu-build', displayProject: 'ADU / Guest House', location: 'Mendocino County' },
