@@ -62,7 +62,7 @@ export default function AboutPage() {
                       Versatile by Nature
                     </h3>
                     <p className="text-stone-500 text-sm">
-                      Custom design-build homes, barns, ADUs, historic renovations, adaptive reuse, commercial &mdash; and more. We bring the same standard of craft to every type of project.
+                      Custom design-build homes, barns, ADUs, historic renovations, adaptive reuse, commercial &mdash; and more. Resourceful and hands-on, we bring the same standard of craft to every type of project.
                     </p>
                   </div>
                 </div>
