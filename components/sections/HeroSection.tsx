@@ -59,12 +59,11 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-6 relative z-10 pt-20">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-5xl md:text-7xl font-medium text-white leading-tight mb-6">
-            Built on Experience. <br />
-            <span className="text-teal-300">Driven by Craft.</span>
+          <h1 className="font-serif text-4xl md:text-6xl font-medium text-white leading-tight mb-8">
+            We build with the understanding that what we create carries forward &mdash; long after the project is done.
           </h1>
-          <p className="text-2xl md:text-3xl text-stone-200 mb-8 max-w-2xl font-light leading-relaxed">
-            Design-build for <span className="text-white font-semibold">over 50 years</span> across Mendocino &amp; Sonoma Counties.
+          <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl font-light leading-relaxed">
+            Three generations. Over 50 years in Northern California. <span className="text-white font-semibold">We stand behind what we build.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a

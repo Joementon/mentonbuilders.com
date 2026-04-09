@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   ChevronDown,
   ChevronRight,
@@ -9,6 +9,15 @@ import {
   FileText,
   Eye,
   Lock,
+  Check,
+  X,
+  MessageSquare,
+  Mic,
+  MicOff,
+  Square,
+  Play,
+  Pause,
+  AlertTriangle,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -16,11 +25,32 @@ import {
 /* ------------------------------------------------------------------ */
 
 type Status = "DONE" | "IN PROGRESS" | "PROPOSAL" | "FOR REVIEW";
+type Decision = "approved" | "rejected" | "approved_with_notes";
+
+interface QuestionItem {
+  id: string;
+  text: string;
+}
+
+interface Approval {
+  decision: Decision;
+  commentary_text?: string;
+  audio_base64?: string;
+  reviewer_name?: string;
+  created_at: string;
+  savedToDb?: boolean;
+}
+
+interface QuestionResponse {
+  answer: "yes" | "no" | "notes" | null;
+  commentary?: string;
+}
 
 interface Deliverable {
   title: string;
   status: Status;
   content: React.ReactNode;
+  questions?: QuestionItem[];
 }
 
 interface Session {
@@ -306,6 +336,28 @@ const sessions: Session[] = [
       {
         title: "Permission Tiers Proposal",
         status: "FOR REVIEW",
+        questions: [
+          {
+            id: "q1",
+            text: "Should leads be able to submit receipts, or only admins?",
+          },
+          {
+            id: "q2",
+            text: "Should leads be able to approve/attest timecards, or should all approvals require admin sign-off?",
+          },
+          {
+            id: "q3",
+            text: "Should the 'foreman' role be retired and replaced with 'lead'?",
+          },
+          {
+            id: "q4",
+            text: "Should crew members see coworkers' names/phone numbers on shared jobs?",
+          },
+          {
+            id: "q5",
+            text: "Should the Office role be able to export job data?",
+          },
+        ],
         content: (
           <div className="space-y-3">
             <p>
@@ -606,7 +658,8 @@ const sessions: Session[] = [
 /* ------------------------------------------------------------------ */
 
 function StatusBadge({ status }: { status: Status }) {
-  const base = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide";
+  const base =
+    "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide";
 
   switch (status) {
     case "DONE":
@@ -637,6 +690,547 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Audio Recorder                                                     */
+/* ------------------------------------------------------------------ */
+
+interface AudioRecorderProps {
+  onRecordingComplete: (base64: string) => void;
+}
+
+function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
+  const [isRecording, setIsRecording] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const MAX_SECONDS = 300; // 5 minutes
+
+  const stopRecording = useCallback(() => {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+      mediaRecorderRef.current.stop();
+    }
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    setIsRecording(false);
+  }, []);
+
+  useEffect(() => {
+    if (isRecording && elapsed >= MAX_SECONDS) {
+      stopRecording();
+    }
+  }, [elapsed, isRecording, stopRecording]);
+
+  async function startRecording() {
+    setError(null);
+    setAudioUrl(null);
+    chunksRef.current = [];
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm")
+        ? "audio/webm"
+        : "audio/mp4";
+      const recorder = new MediaRecorder(stream, { mimeType });
+
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      recorder.onstop = () => {
+        const blob = new Blob(chunksRef.current, { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        setAudioUrl(url);
+
+        // Convert to base64
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64 = (reader.result as string).split(",")[1];
+          onRecordingComplete(base64);
+        };
+        reader.readAsDataURL(blob);
+
+        // Stop all tracks
+        stream.getTracks().forEach((t) => t.stop());
+      };
+
+      recorder.start(250);
+      mediaRecorderRef.current = recorder;
+      setIsRecording(true);
+      setElapsed(0);
+
+      timerRef.current = setInterval(() => {
+        setElapsed((s) => s + 1);
+      }, 1000);
+    } catch (err) {
+      setError("Microphone access denied or unavailable.");
+      console.error(err);
+    }
+  }
+
+  function formatTime(s: number) {
+    const m = Math.floor(s / 60)
+      .toString()
+      .padStart(2, "0");
+    const sec = (s % 60).toString().padStart(2, "0");
+    return `${m}:${sec}`;
+  }
+
+  function togglePlayback() {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  }
+
+  return (
+    <div className="space-y-3">
+      {error && <p className="text-sm text-red-400">{error}</p>}
+
+      {!isRecording && !audioUrl && (
+        <button
+          type="button"
+          onClick={startRecording}
+          className="flex items-center gap-2 rounded-lg border border-teal-700/50 bg-teal-900/30 px-4 py-2.5 text-sm font-medium text-teal-300 transition-colors hover:bg-teal-900/50"
+        >
+          <Mic size={16} />
+          Record Audio Note
+        </button>
+      )}
+
+      {isRecording && (
+        <div className="flex items-center gap-3 rounded-lg border border-red-700/40 bg-red-900/20 px-4 py-2.5">
+          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500" />
+          <span className="text-sm font-mono text-red-300">
+            {formatTime(elapsed)} / {formatTime(MAX_SECONDS)}
+          </span>
+          <button
+            type="button"
+            onClick={stopRecording}
+            className="ml-auto flex items-center gap-1.5 rounded bg-red-800/60 px-3 py-1.5 text-xs font-medium text-red-200 transition-colors hover:bg-red-700/60"
+          >
+            <Square size={12} />
+            Stop
+          </button>
+        </div>
+      )}
+
+      {audioUrl && (
+        <div className="flex items-center gap-3 rounded-lg border border-teal-700/30 bg-teal-900/20 px-4 py-2.5">
+          <audio
+            ref={audioRef}
+            src={audioUrl}
+            onEnded={() => setIsPlaying(false)}
+            className="hidden"
+          />
+          <button
+            type="button"
+            onClick={togglePlayback}
+            className="flex items-center gap-1.5 rounded bg-teal-800/60 px-3 py-1.5 text-xs font-medium text-teal-200 transition-colors hover:bg-teal-700/60"
+          >
+            {isPlaying ? <Pause size={12} /> : <Play size={12} />}
+            {isPlaying ? "Pause" : "Play"}
+          </button>
+          <span className="text-xs text-teal-400">Recording ready ({formatTime(elapsed)})</span>
+          <button
+            type="button"
+            onClick={() => {
+              setAudioUrl(null);
+              setElapsed(0);
+            }}
+            className="ml-auto flex items-center gap-1 text-xs text-slate-500 transition-colors hover:text-slate-300"
+          >
+            <MicOff size={12} />
+            Re-record
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Question Item (for individual yes/no decisions)                   */
+/* ------------------------------------------------------------------ */
+
+interface QuestionRowProps {
+  question: QuestionItem;
+  response: QuestionResponse;
+  onChange: (r: QuestionResponse) => void;
+}
+
+function QuestionRow({ question, response, onChange }: QuestionRowProps) {
+  return (
+    <div className="space-y-2">
+      <p className="text-sm font-medium text-slate-200">{question.text}</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={() =>
+            onChange({ ...response, answer: response.answer === "yes" ? null : "yes" })
+          }
+          className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+            response.answer === "yes"
+              ? "bg-emerald-700 text-white"
+              : "bg-slate-700/60 text-slate-300 hover:bg-emerald-900/40 hover:text-emerald-300"
+          }`}
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          onClick={() =>
+            onChange({ ...response, answer: response.answer === "no" ? null : "no" })
+          }
+          className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+            response.answer === "no"
+              ? "bg-red-700 text-white"
+              : "bg-slate-700/60 text-slate-300 hover:bg-red-900/40 hover:text-red-300"
+          }`}
+        >
+          No
+        </button>
+        <button
+          type="button"
+          onClick={() =>
+            onChange({
+              ...response,
+              answer: response.answer === "notes" ? null : "notes",
+            })
+          }
+          className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+            response.answer === "notes"
+              ? "bg-amber-700 text-white"
+              : "bg-slate-700/60 text-slate-300 hover:bg-amber-900/40 hover:text-amber-300"
+          }`}
+        >
+          Comment
+        </button>
+      </div>
+      {response.answer === "notes" && (
+        <textarea
+          value={response.commentary || ""}
+          onChange={(e) => onChange({ ...response, commentary: e.target.value })}
+          placeholder="Your notes on this question..."
+          rows={2}
+          className="w-full rounded-lg border border-amber-700/30 bg-slate-900/60 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-amber-500/60 focus:ring-1 focus:ring-amber-500/40"
+        />
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Approval Panel                                                     */
+/* ------------------------------------------------------------------ */
+
+interface ApprovalPanelProps {
+  deliverableTitle: string;
+  sessionDate: string;
+  storageKey: string;
+}
+
+function ApprovalPanel({
+  deliverableTitle,
+  sessionDate,
+  storageKey,
+}: ApprovalPanelProps) {
+  const [approval, setApproval] = useState<Approval | null>(() => {
+    if (typeof window === "undefined") return null;
+    const saved = localStorage.getItem(storageKey);
+    return saved ? (JSON.parse(saved) as Approval) : null;
+  });
+
+  const [showNotesPanel, setShowNotesPanel] = useState(false);
+  const [commentaryText, setCommentaryText] = useState("");
+  const [audioBase64, setAudioBase64] = useState<string | null>(null);
+  const [reviewerName, setReviewerName] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  async function submitApproval(decision: Decision, notes?: string, audio?: string) {
+    setSubmitting(true);
+    setSubmitError(null);
+
+    const payload = {
+      deliverable_title: deliverableTitle,
+      session_date: sessionDate,
+      decision,
+      commentary_text: notes || undefined,
+      audio_blob_base64: audio || undefined,
+      reviewer_name: reviewerName || undefined,
+    };
+
+    const newApproval: Approval = {
+      decision,
+      commentary_text: notes,
+      audio_base64: audio,
+      reviewer_name: reviewerName || undefined,
+      created_at: new Date().toISOString(),
+      savedToDb: false,
+    };
+
+    // Optimistic local save
+    localStorage.setItem(storageKey, JSON.stringify(newApproval));
+    setApproval(newApproval);
+    setShowNotesPanel(false);
+
+    // Post to API route
+    try {
+      const res = await fetch("/api/dashboard-approval", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        const updated = { ...newApproval, savedToDb: true };
+        localStorage.setItem(storageKey, JSON.stringify(updated));
+        setApproval(updated);
+      } else {
+        const data = await res.json();
+        setSubmitError(
+          data.detail || data.error || "Database save failed — approval saved locally."
+        );
+      }
+    } catch {
+      setSubmitError("Network error — approval saved locally only.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  function handleApprove() {
+    submitApproval("approved");
+  }
+
+  function handleReject() {
+    submitApproval("rejected");
+  }
+
+  function handleSubmitWithNotes() {
+    submitApproval(
+      "approved_with_notes",
+      commentaryText || undefined,
+      audioBase64 || undefined
+    );
+  }
+
+  function handleReset() {
+    localStorage.removeItem(storageKey);
+    setApproval(null);
+    setShowNotesPanel(false);
+    setCommentaryText("");
+    setAudioBase64(null);
+    setReviewerName("");
+    setSubmitError(null);
+  }
+
+  // Already submitted — show status
+  if (approval) {
+    return (
+      <div className="mt-5 border-t border-slate-700/40 pt-5">
+        <div className="flex flex-wrap items-start gap-4">
+          <div
+            className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
+              approval.decision === "approved"
+                ? "bg-emerald-900/50 text-emerald-300"
+                : approval.decision === "rejected"
+                ? "bg-red-900/50 text-red-300"
+                : "bg-amber-900/50 text-amber-300"
+            }`}
+          >
+            {approval.decision === "approved" && <Check size={15} />}
+            {approval.decision === "rejected" && <X size={15} />}
+            {approval.decision === "approved_with_notes" && <MessageSquare size={15} />}
+            {approval.decision === "approved"
+              ? "Approved"
+              : approval.decision === "rejected"
+              ? "Rejected"
+              : "Approved with Notes"}
+            {approval.savedToDb && (
+              <span className="ml-1 rounded bg-slate-700/60 px-1.5 py-0.5 text-xs font-normal text-slate-400">
+                saved
+              </span>
+            )}
+          </div>
+
+          {approval.reviewer_name && (
+            <span className="text-sm text-slate-500">by {approval.reviewer_name}</span>
+          )}
+
+          <button
+            type="button"
+            onClick={handleReset}
+            className="ml-auto text-xs text-slate-600 transition-colors hover:text-slate-400"
+          >
+            Change decision
+          </button>
+        </div>
+
+        {approval.commentary_text && (
+          <div className="mt-3 rounded-lg border border-amber-700/20 bg-amber-900/10 px-4 py-3">
+            <p className="text-sm text-amber-200/80">{approval.commentary_text}</p>
+          </div>
+        )}
+
+        {submitError && (
+          <p className="mt-2 text-xs text-amber-400">{submitError}</p>
+        )}
+      </div>
+    );
+  }
+
+  // Not yet submitted
+  return (
+    <div className="mt-5 border-t border-slate-700/40 pt-5 space-y-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+          Decision
+        </span>
+      </div>
+
+      {/* Reviewer name (optional) */}
+      <input
+        type="text"
+        value={reviewerName}
+        onChange={(e) => setReviewerName(e.target.value)}
+        placeholder="Your name (optional)"
+        className="w-64 rounded-lg border border-slate-600/60 bg-slate-900/60 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-teal-500/60 focus:ring-1 focus:ring-teal-500/40"
+      />
+
+      {/* Main action buttons */}
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={handleApprove}
+          disabled={submitting}
+          className="flex items-center gap-2 rounded-lg bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600 disabled:opacity-50"
+        >
+          <Check size={16} />
+          Approve
+        </button>
+
+        <button
+          type="button"
+          onClick={handleReject}
+          disabled={submitting}
+          className="flex items-center gap-2 rounded-lg bg-red-700/90 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-600 disabled:opacity-50"
+        >
+          <X size={16} />
+          Reject
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setShowNotesPanel((v) => !v)}
+          disabled={submitting}
+          className="flex items-center gap-2 rounded-lg bg-amber-700/80 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-600 disabled:opacity-50"
+        >
+          <MessageSquare size={16} />
+          Approve with Notes
+        </button>
+      </div>
+
+      {/* Notes panel */}
+      {showNotesPanel && (
+        <div className="space-y-4 rounded-xl border border-amber-700/30 bg-amber-900/10 p-4">
+          <p className="text-sm font-medium text-amber-300">
+            Add commentary or record an audio note:
+          </p>
+          <textarea
+            value={commentaryText}
+            onChange={(e) => setCommentaryText(e.target.value)}
+            placeholder="Type your notes here..."
+            rows={3}
+            className="w-full rounded-lg border border-slate-600/60 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-amber-500/60 focus:ring-1 focus:ring-amber-500/40"
+          />
+          <AudioRecorder onRecordingComplete={(b64) => setAudioBase64(b64)} />
+          <button
+            type="button"
+            onClick={handleSubmitWithNotes}
+            disabled={submitting}
+            className="flex items-center gap-2 rounded-lg bg-amber-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-600 disabled:opacity-50"
+          >
+            {submitting ? "Saving..." : "Submit Approval with Notes"}
+          </button>
+        </div>
+      )}
+
+      {submitError && (
+        <p className="text-xs text-red-400">{submitError}</p>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Decisions Needed Callout                                           */
+/* ------------------------------------------------------------------ */
+
+interface DecisionsNeededProps {
+  questions: QuestionItem[];
+  storageKey: string;
+}
+
+function DecisionsNeeded({ questions, storageKey }: DecisionsNeededProps) {
+  const qKey = `${storageKey}__questions`;
+
+  const [responses, setResponses] = useState<Record<string, QuestionResponse>>(() => {
+    if (typeof window === "undefined") return {};
+    const saved = localStorage.getItem(qKey);
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  function updateResponse(qId: string, r: QuestionResponse) {
+    setResponses((prev) => {
+      const next = { ...prev, [qId]: r };
+      localStorage.setItem(qKey, JSON.stringify(next));
+      return next;
+    });
+  }
+
+  const answeredCount = Object.values(responses).filter((r) => r.answer !== null).length;
+
+  return (
+    <div className="mb-5 rounded-xl border-l-4 border-amber-500 bg-amber-950/30 px-5 py-4">
+      <div className="mb-3 flex items-center gap-2">
+        <AlertTriangle size={16} className="text-amber-400" />
+        <span className="text-sm font-bold uppercase tracking-widest text-amber-400">
+          Decisions Needed
+        </span>
+        <span className="ml-auto text-xs text-amber-500/70">
+          {answeredCount}/{questions.length} answered
+        </span>
+      </div>
+      <p className="mb-4 text-xs text-amber-300/70">
+        The following questions require Joe&rsquo;s input before implementation can proceed.
+      </p>
+      <div className="space-y-4">
+        {questions.map((q) => (
+          <QuestionRow
+            key={q.id}
+            question={q}
+            response={responses[q.id] || { answer: null }}
+            onChange={(r) => updateResponse(q.id, r)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Accordion Item                                                     */
 /* ------------------------------------------------------------------ */
 
@@ -644,13 +1238,17 @@ function AccordionItem({
   deliverable,
   index,
   isOpen,
+  sessionDate,
   toggle,
 }: {
   deliverable: Deliverable;
   index: number;
   isOpen: boolean;
+  sessionDate: string;
   toggle: () => void;
 }) {
+  const storageKey = `approval__${sessionDate}__${index}`;
+
   return (
     <div className="overflow-hidden rounded-lg border border-slate-700/50 bg-slate-800/60">
       <button
@@ -672,7 +1270,25 @@ function AccordionItem({
       </button>
       {isOpen && (
         <div className="border-t border-slate-700/40 px-5 py-4 text-sm leading-relaxed text-slate-300">
+          {/* Questions callout — shown before content if this deliverable has them */}
+          {deliverable.status === "FOR REVIEW" && deliverable.questions && (
+            <DecisionsNeeded
+              questions={deliverable.questions}
+              storageKey={storageKey}
+            />
+          )}
+
+          {/* Main content */}
           {deliverable.content}
+
+          {/* Approval panel — only for FOR REVIEW items */}
+          {deliverable.status === "FOR REVIEW" && (
+            <ApprovalPanel
+              deliverableTitle={deliverable.title}
+              sessionDate={sessionDate}
+              storageKey={storageKey}
+            />
+          )}
         </div>
       )}
     </div>
@@ -757,9 +1373,7 @@ export default function AppBuildingDashboard() {
   }
 
   function expandAll() {
-    setOpenSections(
-      new Set(session.deliverables.map((_, i) => i))
-    );
+    setOpenSections(new Set(session.deliverables.map((_, i) => i)));
   }
 
   function collapseAll() {
@@ -775,9 +1389,7 @@ export default function AppBuildingDashboard() {
     <div className="min-h-screen bg-[#0F172A] text-slate-100">
       {/* Mobile warning */}
       <div className="block p-8 text-center md:hidden">
-        <p className="text-lg font-semibold text-amber-400">
-          Desktop Only
-        </p>
+        <p className="text-lg font-semibold text-amber-400">Desktop Only</p>
         <p className="mt-2 text-sm text-slate-400">
           This dashboard is designed for desktop viewing. Please open it on a
           larger screen.
@@ -864,6 +1476,7 @@ export default function AppBuildingDashboard() {
               deliverable={d}
               index={i}
               isOpen={openSections.has(i)}
+              sessionDate={session.date}
               toggle={() => toggleSection(i)}
             />
           ))}
