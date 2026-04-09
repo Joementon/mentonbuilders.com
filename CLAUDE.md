@@ -89,6 +89,14 @@ mentonbuilders.com/
 - `yarn start` — start production server
 - `yarn lint` — run ESLint
 
+## App Building Dashboard
+- **Route**: `/app-building-dashboard`
+- **Purpose**: Internal review portal for app development deliverables
+- **Auth**: Client-side password gate (case-insensitive)
+- **NOT part of the public site** — standalone page, no Nav/Footer
+- **Data**: Hardcoded session data in the component — add new sessions by pushing to the array
+- **Desktop only**: Shows warning on mobile
+
 ## Related
 - Internal ops app: `../menton_app/menton-builders/`
 - Ecosystem reference: `SAMUEL_HOLLEY_REPO_ECOSYSTEM.md`
