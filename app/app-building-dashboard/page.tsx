@@ -439,36 +439,154 @@ const sessions: Session[] = [
       },
       {
         title: "Hierarchy to Intelligence Strategic Analysis",
-        status: "IN PROGRESS",
+        status: "DONE",
         content: (
-          <div className="space-y-3">
+          <div className="space-y-4">
+            <p className="text-sm italic text-slate-400">
+              Strategic context document prepared by the Strategy Council
+            </p>
+
+            <h4 className="text-base font-bold text-teal-300">
+              1. The Thesis Applied to Menton Builders
+            </h4>
             <p>
-              <strong>Concept:</strong> Applying Samuel&rsquo;s &ldquo;Hierarchy
-              to Intelligence&rdquo; framework to Menton Builders &mdash; using AI
-              agents as middle management, artifacting every decision, and building
-              a system that learns and grows.
+              Joe Menton is the intelligence bottleneck. He knows which jobs are
+              profitable, which crews are lagging, which change orders are
+              outstanding. None of that knowledge is externalized. The app is
+              systematically distributing that intelligence outward:
             </p>
             <ul className="ml-4 list-disc space-y-1 text-slate-300">
               <li>
-                Every session produces artifacts (code, proposals, dashboards)
-                that compound over time
+                <strong>Timecards as intelligence distribution:</strong> Structured
+                data replaces Joe&rsquo;s memory. Activity codes make labor costs
+                queryable. Attestation creates legal records automatically.
               </li>
               <li>
-                The feedback table captures user input; agent councils verify
-                implementation; the dashboard makes it legible
+                <strong>RLS as organizational intelligence:</strong> The 4-tier role
+                system (admin/office/lead/crew) enforces who-decides-what at the
+                database level &mdash; no manager required.
               </li>
               <li>
-                Permission tiers enforce organizational structure that used to
-                require a manager
+                <strong>Offline-first as edge intelligence:</strong> Each crew
+                member&rsquo;s device becomes an autonomous node that captures,
+                validates, and queues data without any network connection.
+              </li>
+            </ul>
+            <p>
+              <strong>Where humans stay essential:</strong> Client relationships,
+              craft decisions (&ldquo;engineered lumber or stick frame?&rdquo;),
+              and safety judgment. The app externalizes information synthesis, not
+              expertise.
+            </p>
+
+            <h4 className="mt-4 text-base font-bold text-teal-300">
+              2. Artifacting Everything = The Learning System
+            </h4>
+            <p>
+              Every session produces permanent artifacts that compound over time:
+            </p>
+            <ul className="ml-4 list-disc space-y-1 text-slate-300">
+              <li>
+                The Architecture Proposal (700 lines) captures every design
+                decision and why
               </li>
               <li>
-                This pattern is productizable: install AI-powered operations at
-                any small business for $160/hr
+                The feedback table converts unstructured user input into
+                queryable, actionable records
+              </li>
+              <li>
+                The audit_log is an append-only record of every data change
+                &mdash; patterns emerge over time
+              </li>
+              <li>
+                Memory files persist institutional knowledge across sessions and
+                devices
+              </li>
+              <li>
+                This dashboard itself is an artifact &mdash; a living record of
+                decisions and rationale
+              </li>
+            </ul>
+            <p>
+              <strong>The compounding effect:</strong> Each session builds on an
+              increasingly well-documented foundation. The client gets more
+              effective hours per hour billed as the engagement matures.
+            </p>
+
+            <h4 className="mt-4 text-base font-bold text-teal-300">
+              3. Mini AGI at the Core
+            </h4>
+            <ul className="ml-4 list-disc space-y-1 text-slate-300">
+              <li>
+                <strong>FeedbackWidget = input layer:</strong> Captures unstructured
+                human intelligence and converts to structured records
+              </li>
+              <li>
+                <strong>Audit triggers = passive monitoring:</strong> Always watching,
+                always recording, never invoked manually
+              </li>
+              <li>
+                <strong>RLS policies = policy enforcement:</strong> Every operation
+                evaluated against role-based rules without human intervention
+              </li>
+              <li>
+                <strong>Sync queue = resilience layer:</strong> System functions even
+                when central authority is unreachable
+              </li>
+              <li>
+                <strong>5-agent council = multi-perspective verification:</strong>{" "}
+                No single point of failure in quality assessment
+              </li>
+            </ul>
+
+            <h4 className="mt-4 text-base font-bold text-teal-300">
+              4. The Productizable Pattern
+            </h4>
+            <p>
+              What&rsquo;s being built for Menton Builders is a{" "}
+              <strong>template for AI-powered small business operations</strong>,
+              instantiated in a construction context. The pattern:
+            </p>
+            <ol className="ml-4 list-decimal space-y-1 text-slate-300">
+              <li>Capture all decisions as artifacts</li>
+              <li>Use the database schema as the intelligence layer</li>
+              <li>Build for the edge, not the center</li>
+              <li>Wire a feedback loop</li>
+              <li>Dashboard the whole thing</li>
+            </ol>
+            <p>
+              A landscaping company, restaurant group, or property management firm
+              all have the same underlying problem: intelligence centralized in the
+              owner&rsquo;s head. This package gets sold to the next client in half
+              the time at the same price.
+            </p>
+
+            <h4 className="mt-4 text-base font-bold text-teal-300">
+              5. What&rsquo;s Still Missing
+            </h4>
+            <ul className="ml-4 list-disc space-y-1 text-slate-300">
+              <li>
+                <strong>Analytical layer:</strong> Pattern detection, anomaly
+                detection, cost variance alerts (requires 6+ months of data)
+              </li>
+              <li>
+                <strong>Generative layer:</strong> AI reading structured data and
+                producing natural language recommendations
+              </li>
+              <li>
+                <strong>Weekly AI digest:</strong> Monday 6am synthesis of anomalies,
+                corrections, and budget trends
+              </li>
+              <li>
+                <strong>Audit_log as training signal:</strong> Corrections become a
+                dataset for operational intelligence
               </li>
             </ul>
             <p className="text-sm text-slate-400">
-              Full analysis being produced by strategy council. Will be added when
-              complete.
+              The architectural decision to capture everything now &mdash; even
+              before the analytical layer exists &mdash; is correct. The data is
+              being created. The intelligence layer gets built on top once the
+              artifacts exist.
             </p>
           </div>
         ),
