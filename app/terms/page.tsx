@@ -12,7 +12,7 @@ export default function TermsPage() {
             Terms &amp; Conditions
           </h1>
           <p className="text-stone-400 text-sm">
-            Last updated: April 2, 2026
+            Last updated: April 9, 2026
           </p>
         </div>
       </div>
@@ -59,12 +59,30 @@ export default function TermsPage() {
             Menton Builders Inc. makes no warranties or representations about the accuracy or completeness of this website&rsquo;s content. To the fullest extent permitted by law, Menton Builders Inc. shall not be liable for any damages arising from the use of this website.
           </p>
 
-          <h2 className="font-serif text-2xl text-stone-900 mb-4">9. Governing Law</h2>
+          <h2 className="font-serif text-2xl text-stone-900 mb-4">9. SMS Messaging Terms</h2>
+          <p className="text-stone-600 mb-4 leading-relaxed">
+            Menton Builders may send SMS (text message) communications to employees and consenting clients for operational and scheduling purposes. By providing your mobile phone number and opting in to SMS communications, you agree to the following:
+          </p>
+          <ul className="text-stone-600 mb-6 leading-relaxed list-disc pl-6 space-y-2">
+            <li><strong>Message frequency varies</strong> based on operational activity and may include multiple messages per day during active job periods.</li>
+            <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
+            <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time. You will receive a single confirmation and no further messages will be sent.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:joe@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">joe@mentonbuilders.com</a>.</li>
+            <li>SMS consent is not a condition of employment or service.</li>
+            <li>We do not share your phone number with third parties for their marketing purposes.</li>
+          </ul>
+
+          <h2 className="font-serif text-2xl text-stone-900 mb-4">10. Internal App Usage</h2>
+          <p className="text-stone-600 mb-6 leading-relaxed">
+            Menton Builders operates an internal operations platform (&ldquo;the App&rdquo;) used by employees for timecards, job management, and field communications. Use of the App is limited to authorized Menton Builders employees and contractors. Unauthorized access, misuse of App credentials, or intentional submission of false records (including falsified timecard entries) may result in disciplinary action and/or legal consequences. All App activity is logged and subject to audit.
+          </p>
+
+          <h2 className="font-serif text-2xl text-stone-900 mb-4">11. Governing Law</h2>
           <p className="text-stone-600 mb-6 leading-relaxed">
             These terms are governed by the laws of the State of California. Any disputes arising from these terms or the use of this website shall be subject to the jurisdiction of the courts of Mendocino County, California.
           </p>
 
-          <h2 className="font-serif text-2xl text-stone-900 mb-4">10. Contact</h2>
+          <h2 className="font-serif text-2xl text-stone-900 mb-4">12. Contact</h2>
           <p className="text-stone-600 mb-6 leading-relaxed">
             For questions about these terms, contact us at{' '}
             <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>{' '}
