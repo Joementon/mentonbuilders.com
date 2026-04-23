@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 182" width="182" height="182" role="img" aria-labelledby="title desc">
+  <title id="title">Menton Builders Mark</title>
+  <desc id="desc">Two interlocking diamonds in warm gray forming the Menton Builders icon.</desc>
+  <g fill="none" stroke="#8C7E6E" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10">
+    <polygon points="77,41 127,91 77,141 27,91"/>
+    <polygon points="105,41 155,91 105,141 55,91"/>
+    <line x1="77" y1="41" x2="127" y2="91"/>
+  </g>
+</svg>

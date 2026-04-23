@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" role="img" aria-labelledby="title desc">
+  <title id="title">Menton Builders</title>
+  <desc id="desc">Menton Builders stacked logo: two interlocking diamonds above the MENTON BUILDERS wordmark.</desc>
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&amp;family=Lato:wght@300&amp;display=swap');</style>
+  </defs>
+  <g fill="none" stroke="#8C7E6E" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10">
+    <polygon points="126,25 176,75 126,125 76,75"/>
+    <polygon points="154,25 204,75 154,125 104,75"/>
+    <line x1="126" y1="25" x2="176" y2="75"/>
+  </g>
+  <text x="140" y="176" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="42" letter-spacing="0.04em" fill="#2F2C28">MENTON</text>
+  <text x="140" y="203" text-anchor="middle" font-family="Lato, sans-serif" font-weight="300" font-size="16" letter-spacing="0.28em" fill="#8C7E6E">BUILDERS</text>
+</svg>
