@@ -3,6 +3,15 @@
 @theme {
   --font-serif: var(--font-playfair), serif;
   --font-sans: var(--font-inter), sans-serif;
+
+  /* Menton Builders — Mineral Palette (see BRAND_GUIDE.md) */
+  --color-ivory: #F8F4ED;      /* Warm Ivory — primary bg */
+  --color-sand: #EDE4D8;       /* Soft Sand — secondary bg */
+  --color-taupe: #5C5347;      /* Warm Taupe — anchor (logo, headers, CTAs) */
+  --color-warm-gray: #8C7E6E;  /* Warm Gray — subheads, rules, labels, icons */
+  --color-olive: #8A8572;      /* Mineral Olive — restrained accent */
+  --color-charcoal: #2F2C28;   /* Charcoal Earth — dark text */
+  --color-ink: #2D2D2D;        /* Logo MENTON — near-identical to charcoal */
 }
 
 /* Infinite scroll ticker */

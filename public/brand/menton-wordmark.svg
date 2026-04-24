@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" width="820" height="280" role="img" aria-labelledby="mb-wordmark-title mb-wordmark-desc">
+  <title id="mb-wordmark-title">Menton Builders</title>
+  <desc id="mb-wordmark-desc">Menton Builders wordmark: MENTON in bold serif above BUILDERS in medium sans.</desc>
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@500&amp;display=swap');</style>
+  </defs>
+  <!-- MENTON -->
+  <text x="410" y="115" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-weight="700" font-size="180" letter-spacing="0.01em" fill="#2D2D2D">MENTON</text>
+  <!-- BUILDERS -->
+  <text x="410" y="225" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="500" font-size="78" letter-spacing="0.22em" fill="#928E85">BUILDERS</text>
+</svg>
