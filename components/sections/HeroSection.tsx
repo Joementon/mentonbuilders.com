@@ -39,12 +39,12 @@ export default function HeroSection() {
             priority={i === 0}
           />
         ))}
-        {/* Left-to-right gradient for hero text area */}
+        {/* Left-to-right gradient for hero text area — Charcoal Earth */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(41,37,30,0.72) 0%, rgba(41,37,30,0.72) 30%, rgba(41,37,30,0.50) 42%, rgba(41,37,30,0.25) 55%, rgba(41,37,30,0.08) 68%, transparent 80%)',
+              'linear-gradient(to right, rgba(47,44,40,0.78) 0%, rgba(47,44,40,0.72) 30%, rgba(47,44,40,0.50) 42%, rgba(47,44,40,0.25) 55%, rgba(47,44,40,0.08) 68%, transparent 80%)',
           }}
         />
         {/* Top-down scrim for navbar contrast on all photos */}
@@ -52,29 +52,29 @@ export default function HeroSection() {
           className="absolute inset-x-0 top-0 h-28"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, transparent 100%)',
+              'linear-gradient(to bottom, rgba(47,44,40,0.55) 0%, rgba(47,44,40,0.25) 60%, transparent 100%)',
           }}
         />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pt-20">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-4xl md:text-6xl font-medium text-white leading-tight mb-8">
+          <h1 className="font-sans text-4xl md:text-6xl font-medium text-ivory leading-tight tracking-tight mb-8">
             We build with the understanding that what we create carries forward &mdash; long after the project is done.
           </h1>
-          <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl font-light leading-relaxed">
-            Three generations. Over 50 years in Northern California. <span className="text-white font-semibold">We stand behind what we build.</span>
+          <p className="text-xl md:text-2xl text-ivory/85 mb-10 max-w-2xl font-light leading-relaxed">
+            Three generations. Over 50 years in Northern California. <span className="text-ivory font-medium">We stand behind what we build.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="bg-teal-500 text-white px-8 py-4 rounded font-bold hover:bg-teal-400 transition-colors text-center tracking-wide uppercase shadow-lg"
+              className="bg-taupe text-ivory px-8 py-4 rounded-md font-medium tracking-wide hover:bg-charcoal transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
             >
               Start Your Project
             </a>
             <a
               href="/gallery"
-              className="border border-white/30 text-white px-8 py-4 rounded font-medium hover:bg-white/10 transition-colors backdrop-blur-sm flex items-center justify-center gap-2 group"
+              className="bg-sand/90 text-charcoal px-8 py-4 rounded-md font-medium hover:bg-ivory transition-colors flex items-center justify-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
             >
               View Our Work{' '}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -86,7 +86,8 @@ export default function HeroSection() {
       {/* Scroll Indicator */}
       <a
         href="#testimonials"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 hover:text-white/80 transition-colors flex flex-col items-center gap-2 animate-bounce cursor-pointer"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-ivory/60 hover:text-ivory transition-colors flex flex-col items-center gap-2 animate-bounce cursor-pointer"
+        aria-label="Scroll to testimonials"
       >
         <span className="text-xs tracking-widest uppercase">Explore</span>
         <ArrowRight className="w-4 h-4 rotate-90" />
