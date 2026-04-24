@@ -45,7 +45,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             alt="Menton Builders"
             width={640}
             height={184}
-            className={`w-auto transition-all duration-300 ${isTransparent ? 'h-36' : 'hidden'}`}
+            className={`w-auto transition-all duration-300 ${isTransparent ? 'h-14' : 'hidden'}`}
             priority
           />
           <Image

@@ -119,8 +119,7 @@ export default function PrivacyPage() {
             Ukiah, California
           </p>
           <p className="text-stone-600 mb-2 leading-relaxed">
-            Email: <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>{' '}
-            or <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>
+            Email: <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>
           </p>
           <p className="text-stone-600 mb-6 leading-relaxed">
             Phone: <a href="tel:+17074688814" className="text-teal-600 hover:text-teal-500">(707) 468-8814</a>

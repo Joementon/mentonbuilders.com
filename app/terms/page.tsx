@@ -26,7 +26,7 @@ export default function TermsPage() {
 
           <h2 className="font-serif text-2xl text-stone-900 mb-4">2. Company Information</h2>
           <p className="text-stone-600 mb-6 leading-relaxed">
-            Menton Builders Inc. is a licensed general contractor (CA License #XXXXXX, B-General) serving Mendocino County, Sonoma County, and surrounding areas of Northern California. Our principal office is located in Ukiah, California.
+            Menton Builders Inc. is a licensed general contractor (CA License #381334, Class B – General Building Contractor) serving Mendocino County, Sonoma County, and surrounding areas of Northern California. Our principal office is located in Ukiah, California.
           </p>
 
           <h2 className="font-serif text-2xl text-stone-900 mb-4">3. Use of This Website</h2>
