@@ -18,7 +18,7 @@ export default function AccessibilityPage() {
       </div>
 
       <div className="container mx-auto px-6 py-16">
-        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-taupe hover:prose-a:text-charcoal prose-strong:text-charcoal">
+        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-shadow-char prose-a:no-underline prose-strong:text-charcoal">
           <h2 className="text-2xl text-charcoal mb-4">Our Commitment</h2>
           <p className="text-warm-gray mb-6 leading-relaxed">
             Menton Builders Inc. is committed to ensuring that our website is accessible to all visitors, including people with disabilities. We strive to meet or exceed the requirements of the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.
@@ -54,8 +54,8 @@ export default function AccessibilityPage() {
             If you experience any difficulty accessing content on this website, or if you have suggestions for improving accessibility, please contact us:
           </p>
           <ul className="text-warm-gray mb-6 space-y-2 list-disc pl-6">
-            <li>Email: <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a></li>
-            <li>Phone: <a href="tel:+17074688814" className="text-taupe hover:text-charcoal">(707) 468-8814</a></li>
+            <li>Email: <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a></li>
+            <li>Phone: <a href="tel:+17074688814" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">(707) 468-8814</a></li>
           </ul>
           <p className="text-warm-gray mb-6 leading-relaxed">
             We take accessibility feedback seriously and will make reasonable efforts to address any reported issues promptly.

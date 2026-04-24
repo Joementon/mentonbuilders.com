@@ -30,7 +30,7 @@ export default function Home() {
       <section className="py-20 bg-ivory">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+            <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
               What We Build
             </div>
             <h2 className="text-3xl md:text-4xl text-charcoal mb-6 leading-tight">
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+              <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
                 What Sets Us Apart
               </div>
               <h2 className="text-3xl md:text-4xl text-charcoal">

@@ -4,14 +4,35 @@
   --font-serif: var(--font-playfair), serif;
   --font-sans: var(--font-inter), sans-serif;
 
-  /* Menton Builders — Mineral Palette (see BRAND_GUIDE.md) */
-  --color-ivory: #F8F4ED;      /* Warm Ivory — primary bg */
-  --color-sand: #EDE4D8;       /* Soft Sand — secondary bg */
-  --color-taupe: #5C5347;      /* Warm Taupe — anchor (logo, headers, CTAs) */
-  --color-warm-gray: #8C7E6E;  /* Warm Gray — subheads, rules, labels, icons */
-  --color-olive: #8A8572;      /* Mineral Olive — restrained accent */
-  --color-charcoal: #2F2C28;   /* Charcoal Earth — dark text */
-  --color-ink: #2D2D2D;        /* Logo MENTON — near-identical to charcoal */
+  /* === Direction C: California Earth + Coastal Sage (see BRAND_GUIDE.md) ===
+     Logo-locked: MENTON #2D2D2D, Icon+BUILDERS #928E85.
+     Sage is rationed: focus rings, link underlines, ONE hero gesture. < 1% per page. */
+
+  /* Backgrounds & surfaces */
+  --color-bone: #F2EDE4;          /* primary page canvas (warm, slightly yellowed) */
+  --color-fog-linen: #E6DFD2;     /* secondary surface, cards, banding */
+
+  /* Anchors & text */
+  --color-shadow-char: #2D2D2D;   /* primary type + button anchor (= MENTON) */
+  --color-ink-well: #1A1A1A;      /* deeper anchor for footer / dark scrims */
+
+  /* Logo-locked */
+  --color-mineral-gray: #928E85;  /* matches logo icon + BUILDERS exactly */
+  --color-ink: #2D2D2D;           /* matches logo MENTON exactly */
+
+  /* Mid-tone */
+  --color-weathered-oak: #B8A892; /* dividers, eyebrows, hairlines, captions */
+
+  /* THE accent — rare and deliberate */
+  --color-sage: #7C8770;          /* coastal sage / eucalyptus-shadow */
+
+  /* === Legacy aliases (re-pointed to Direction C — existing classes pick up new look) === */
+  --color-ivory: #F2EDE4;         /* now Bone */
+  --color-sand: #E6DFD2;          /* now Fog Linen */
+  --color-taupe: #2D2D2D;         /* now Shadow Char (was warm brown #5C5347) */
+  --color-warm-gray: #928E85;     /* now logo-exact Mineral Gray */
+  --color-charcoal: #1A1A1A;      /* now Ink Well (deeper) */
+  --color-olive: #8A8572;         /* deprecated under Direction C */
 }
 
 /* Infinite scroll ticker */

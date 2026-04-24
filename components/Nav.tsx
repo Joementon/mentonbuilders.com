@@ -35,13 +35,13 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isTransparent
           ? 'bg-transparent py-5'
-          : 'bg-ivory/95 backdrop-blur-md border-b border-sand py-2'
+          : 'bg-ivory/95 backdrop-blur-md border-b border-weathered-oak/60 py-2'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link
           href="/"
-          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
+          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sage rounded"
           aria-label="Menton Builders — Home"
         >
           <Image
@@ -80,7 +80,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded-sm ${
+              className={`text-sm font-medium tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sage rounded-sm ${
                 activePath === link.href
                   ? isTransparent
                     ? 'text-white'
@@ -95,7 +95,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
           ))}
           <Link
             href="/contact"
-            className="bg-taupe text-ivory px-6 py-2.5 rounded-md text-sm font-medium tracking-wide hover:bg-charcoal transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+            className="bg-taupe text-ivory px-6 py-2.5 rounded-md text-sm font-medium tracking-wide hover:bg-charcoal transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
           >
             Get in Touch
           </Link>
@@ -103,7 +103,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
+          className="lg:hidden p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sage rounded"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
@@ -118,7 +118,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-ivory border-b border-sand p-6 lg:hidden">
+        <div className="absolute top-full left-0 w-full bg-ivory border-b border-weathered-oak/60 p-6 lg:hidden">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link

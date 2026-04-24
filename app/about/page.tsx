@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
-              <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+              <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
                 Who We Are
               </div>
               <h2 className="text-3xl md:text-4xl text-charcoal mb-8 leading-tight">
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="py-24 bg-ivory">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+            <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
               Our Approach
             </div>
             <h2 className="text-3xl md:text-4xl text-charcoal mb-8 leading-tight">
@@ -102,7 +102,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+            <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
               Built With Purpose
             </div>
             <h2 className="text-3xl md:text-4xl text-charcoal mb-8 leading-tight">
@@ -148,7 +148,7 @@ export default function AboutPage() {
       <section className="py-24 bg-ivory">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-taupe pb-1">
+            <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-weathered-oak/60 pb-1">
               Our Standard
             </div>
             <h2 className="text-3xl md:text-4xl text-charcoal mb-8 leading-tight">

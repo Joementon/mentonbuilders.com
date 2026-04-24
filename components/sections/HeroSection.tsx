@@ -74,7 +74,7 @@ export default function HeroSection() {
             </a>
             <a
               href="/gallery"
-              className="bg-sand/90 text-charcoal px-8 py-4 rounded-md font-medium hover:bg-ivory transition-colors flex items-center justify-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+              className="bg-sand/90 text-charcoal px-8 py-4 rounded-md font-medium hover:bg-ivory transition-colors flex items-center justify-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal border-b-2 border-sage"
             >
               View Our Work{' '}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

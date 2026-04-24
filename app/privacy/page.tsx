@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       </div>
 
       <div className="container mx-auto px-6 py-16">
-        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-taupe hover:prose-a:text-charcoal prose-strong:text-charcoal">
+        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-shadow-char prose-a:no-underline prose-strong:text-charcoal">
 
           <h2 className="text-2xl text-charcoal mb-4">1. Overview</h2>
           <p className="text-warm-gray mb-6 leading-relaxed">
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
             <li><strong>Message frequency:</strong> Message frequency varies based on operational needs. You may receive multiple messages per day during active job periods.</li>
             <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
             <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time to unsubscribe. You will receive a confirmation and no further messages will be sent.</li>
-            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>.</li>
             <li>Opting out of SMS does not affect your ability to use other communication channels with us.</li>
           </ul>
 
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
             <li><strong>Request deletion</strong> of their data after employment ends, subject to legal retention requirements (e.g., payroll records, tax documents)</li>
           </ul>
           <p className="text-warm-gray mb-6 leading-relaxed">
-            To exercise these rights, contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>.
+            To exercise these rights, contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>.
           </p>
 
           <h2 className="text-2xl text-charcoal mb-4">8. California Privacy Rights (CCPA)</h2>
@@ -119,11 +119,11 @@ export default function PrivacyPage() {
             Ukiah, California
           </p>
           <p className="text-warm-gray mb-2 leading-relaxed">
-            Email: <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>{' '}
-            or <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>
+            Email: <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>{' '}
+            or <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>
           </p>
           <p className="text-warm-gray mb-6 leading-relaxed">
-            Phone: <a href="tel:+17074688814" className="text-taupe hover:text-charcoal">(707) 468-8814</a>
+            Phone: <a href="tel:+17074688814" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">(707) 468-8814</a>
           </p>
 
         </div>

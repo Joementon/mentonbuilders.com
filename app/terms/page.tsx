@@ -18,7 +18,7 @@ export default function TermsPage() {
       </div>
 
       <div className="container mx-auto px-6 py-16">
-        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-taupe hover:prose-a:text-charcoal prose-strong:text-charcoal">
+        <div className="max-w-3xl prose prose-headings:text-charcoal prose-a:text-shadow-char prose-a:no-underline prose-strong:text-charcoal">
           <h2 className="text-2xl text-charcoal mb-4">1. Agreement to Terms</h2>
           <p className="text-warm-gray mb-6 leading-relaxed">
             By accessing and using the Menton Builders website (&ldquo;mentonbuilders.com&rdquo;), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use this website.
@@ -67,7 +67,7 @@ export default function TermsPage() {
             <li><strong>Message frequency varies</strong> based on operational activity and may include multiple messages per day during active job periods.</li>
             <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
             <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time. You will receive a single confirmation and no further messages will be sent.</li>
-            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>.</li>
             <li>SMS consent is not a condition of employment or service.</li>
             <li>We do not share your phone number with third parties for their marketing purposes.</li>
           </ul>
@@ -85,8 +85,8 @@ export default function TermsPage() {
           <h2 className="text-2xl text-charcoal mb-4">12. Contact</h2>
           <p className="text-warm-gray mb-6 leading-relaxed">
             For questions about these terms, contact us at{' '}
-            <a href="mailto:aimee@mentonbuilders.com" className="text-taupe hover:text-charcoal">aimee@mentonbuilders.com</a>{' '}
-            or call <a href="tel:+17074688814" className="text-taupe hover:text-charcoal">(707) 468-8814</a>.
+            <a href="mailto:aimee@mentonbuilders.com" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">aimee@mentonbuilders.com</a>{' '}
+            or call <a href="tel:+17074688814" className="text-shadow-char underline decoration-sage decoration-1 underline-offset-2 hover:decoration-2">(707) 468-8814</a>.
           </p>
         </div>
       </div>

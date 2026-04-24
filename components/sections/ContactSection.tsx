@@ -143,7 +143,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block text-weathered-oak text-sm font-bold tracking-widest uppercase mb-4">
               Contact
             </div>
             <h2 className="text-4xl text-stone-900 mb-4">
@@ -175,7 +175,7 @@ export default function ContactSection() {
               {/* Required Section */}
               <div className="bg-white p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-taupe">Your Information</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-weathered-oak">Your Information</h3>
                   <span className="text-xs text-red-400 font-medium">* Required</span>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
@@ -221,7 +221,7 @@ export default function ContactSection() {
                         type="checkbox"
                         checked={isInternational}
                         onChange={(e) => { setIsInternational(e.target.checked); setPhoneCountry(''); setFormErrors({ ...formErrors, phone: '' }) }}
-                        className="w-3.5 h-3.5 rounded border-stone-300 text-taupe focus:ring-taupe"
+                        className="w-3.5 h-3.5 rounded border-stone-300 text-taupe focus:ring-sage"
                       />
                       <span className="text-xs text-stone-400">International number</span>
                     </label>

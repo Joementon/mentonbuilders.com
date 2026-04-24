@@ -1,13 +1,16 @@
 # Menton Builders — Brand Guide (Source of Truth)
 
-**Status:** Active. Supersedes all prior brand references.
+**Status:** Active — Direction C (California Earth + Coastal Sage).
 **Source documents:**
-- Joe's Brand Specification Sheet (wins on any contradiction)
-- `public/brand/Menton_Builders_Brand_System_v3.pdf` (everything else)
+- Joe's Brand Specification Sheet (wins on logo lockup contradictions)
+- `public/brand/Menton_Builders_Brand_System_v3.pdf` (mineral foundation)
+- Direction C designer brief (this guide synthesizes all three)
 
-**Core idea:** Contained. Simple. Strong.
-**Feel:** Quiet confidence. Long-standing capability. Regional sophistication without flash.
-**Avoid:** Generic contractor tropes, loud sales language, bright trendy colors, clutter, heavy shadows, luxury theater.
+**Core idea:** Of-this-place. Quietly elite. Built by people of Northern California, for people who chose Northern California.
+**Feel:** A Faulkner-designed home on a fog-rolled hill. Restrained but clearly *of* a region. Multi-generational craft, contemporary architectural restraint.
+**Avoid:** Generic luxury, sage-tinted residential cliché, eco/wellness greens, real-estate sheen, contractor tropes, luxury theater.
+
+**Peer set (visual reference):** Faulkner Architects, Walker Warner, Olson Kundig, Field Architecture, Backen & Backen.
 
 ---
 
@@ -31,25 +34,38 @@
 
 ---
 
-## 2. Color System — Mineral Palette
+## 2. Color System — California Earth + Coastal Sage
 
-Backgrounds come first. Taupe/olive are restrained anchors, not decoration.
+Bone backgrounds carry most surfaces. Sage is the *single* deliberate accent — < 1% of any page. Anchors run dark for elite weight.
 
-| Name | HEX | RGB | Role |
+| Name | HEX | Role | Behavior rule |
 |---|---|---|---|
-| **Warm Ivory** | `#F8F4ED` | 248, 244, 237 | Primary light background. Open, calm page space. |
-| **Soft Sand** | `#EDE4D8` | 237, 228, 216 | Secondary background behind cards and groupings. |
-| **Warm Taupe** | `#5C5347` | 92, 83, 71 | Primary anchor — headers, primary buttons, nav emphasis, logo lockup on light bg. |
-| **Warm Gray** | `#8C7E6E` | 140, 126, 110 | Subheads, rules, labels, icons, secondary text. |
-| **Mineral Olive** | `#8A8572` | 138, 133, 114 | Restrained accent. Use sparingly. |
-| **Charcoal Earth** | `#2F2C28` | 47, 44, 40 | Dark text on light surfaces. Near-identical to logo MENTON `#2D2D2D`. |
+| **Bone** | `#F2EDE4` | Primary page canvas | Default canvas behind 65–70% of content. Warm, slightly yellowed — never pure white. |
+| **Fog Linen** | `#E6DFD2` | Secondary surface | Cards, section banding, image mats, form fields. One step deeper than Bone. |
+| **Weathered Oak** | `#B8A892` | Mid-tone, dividers, eyebrows | 1px hairlines, eyebrow type, captions, metadata. Never as a background block. |
+| **Mineral Gray** | `#928E85` | Logo-locked + secondary text | Matches logo icon + BUILDERS exactly. Used for body hierarchy, dividers, secondary text. |
+| **Shadow Char** | `#2D2D2D` | Primary text + button anchor | Body copy, headings, primary CTA fills. Matches logo MENTON exactly. |
+| **Ink Well** | `#1A1A1A` | Deeper anchor | Footer, modal scrims, photo overlays. Used to weight the bottom of the page. |
+| **Coastal Sage** | `#7C8770` | THE accent — rare and deliberate | Focus rings, body-link underlines, ONE hero gesture. < 1% of any page. |
+
+### Hierarchy of use (per page)
+- **70%** Bone + Fog Linen (canvas + surfaces)
+- **18%** Shadow Char + Ink Well (type + dark anchors)
+- **7%** Mineral Gray (logo continuity, secondary text)
+- **4%** Weathered Oak (rules, eyebrows, metadata)
+- **< 1%** Coastal Sage (one accent moment per viewport)
+
+### Why this palette is elite for Menton specifically
+- **Regional specificity > category luxury.** A generic luxury palette signals *category*. A Northern California landscape palette signals *provenance* — uncopyable by a Marin or Tahoe competitor.
+- **Sage extracted FROM the logo undertone.** `#928E85` (Mineral Gray) carries a faint warm-green undertone. Sage `#7C8770` is its saturated cousin — most cohesive accent possible.
+- **Audience fit.** This is the visual register HNW homeowners and vintners already recognize as elite (Faulkner, Walker Warner, Field).
 
 ### Behavior rules
-- Light mineral backgrounds carry most surfaces.
-- Warm Taupe is the anchor for hierarchy — logo, headers, primary CTAs, nav emphasis.
-- Mineral Olive is a supporting note, never dominant.
-- **Do not** use bright blues, saturated greens, bright reds, glossy metallics, neon, or gradients. These break the brand language.
-- **Retire** the current teal-* palette — it is inconsistent with the new system.
+- Sage is **rationed**. The moment it appears twice in one viewport it stops being a juniper sprig and becomes landscaping.
+- No gold, brass, or shiny metallics — those read Vegas, not Napa. Bronze references are out.
+- No EPA-green or wellness sage — kept to coastal/eucalyptus-shadow density only.
+- Backgrounds never pure white. Bone is warm, never gray.
+- **Retired:** teal-* palette, Warm Taupe `#5C5347`, Mineral Olive `#8A8572`. The previous mineral spec was correct in temperature but soft in contrast structure — Direction C deepens the anchor (Shadow Char + Ink Well) and adds the sage signal moment that the spec lacked.
 
 ---
 

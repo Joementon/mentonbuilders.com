@@ -231,7 +231,7 @@ export default function UploadPage() {
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
               placeholder='e.g. "Exterior shot of the rammed earth wall — use as hero image" or "Interior kitchen finish — for portfolio"'
-              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-taupe focus:border-transparent resize-none"
+              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent resize-none"
               required
             />
           </div>
@@ -246,7 +246,7 @@ export default function UploadPage() {
               value={submitterName}
               onChange={(e) => setSubmitterName(e.target.value)}
               placeholder="e.g. Joe Menton"
-              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-taupe focus:border-transparent"
+              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent"
               required
             />
           </div>
@@ -295,7 +295,7 @@ export default function UploadPage() {
                 value={otherLocation}
                 onChange={(e) => setOtherLocation(e.target.value)}
                 placeholder="Enter location..."
-                className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-taupe focus:border-transparent"
+                className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent"
               />
             )}
           </div>
@@ -311,7 +311,7 @@ export default function UploadPage() {
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}
               placeholder="e.g. Smith Residence, Anderson Ranch"
-              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-taupe focus:border-transparent"
+              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal placeholder:text-warm-gray/70 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent"
             />
             <p className="text-xs text-warm-gray/70 mt-1.5">
               Last names stay internal — public gallery uses display names like &quot;Hillside Ranch&quot; or &quot;Modern Estate.&quot;
@@ -327,7 +327,7 @@ export default function UploadPage() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:ring-2 focus:ring-taupe focus:border-transparent bg-white"
+              className="w-full border border-warm-gray/40 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent bg-white"
             >
               {CATEGORIES.map((cat) => (
                 <option key={cat.value} value={cat.value}>
