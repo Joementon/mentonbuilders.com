@@ -35,25 +35,25 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isTransparent
           ? 'bg-transparent py-5'
-          : 'bg-ivory/95 backdrop-blur-md border-b border-sand py-2'
+          : 'bg-white/95 backdrop-blur-md shadow-sm py-2'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded">
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/brand/menton-lockup-dark.svg"
+            src="/full_menton_logo_transparent.png"
             alt="Menton Builders"
-            width={820}
-            height={820}
+            width={640}
+            height={184}
             className={`w-auto transition-all duration-300 ${isTransparent ? 'h-36' : 'hidden'}`}
             priority
           />
           <Image
-            src="/brand/menton-icon.svg"
+            src="/menton_only_logo_transparent.png"
             alt="Menton Builders"
-            width={250}
-            height={310}
-            className={`w-auto transition-all duration-300 ${isTransparent ? 'hidden' : 'h-10'}`}
+            width={160}
+            height={46}
+            className={`w-auto transition-all duration-300 ${isTransparent ? 'hidden' : 'h-9'}`}
           />
         </Link>
 
@@ -63,14 +63,12 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded-sm ${
+              className={`text-sm font-medium tracking-wide hover:text-teal-500 transition-colors ${
                 activePath === link.href
-                  ? isTransparent
-                    ? 'text-white'
-                    : 'text-taupe'
+                  ? 'text-teal-600'
                   : isTransparent
-                    ? 'text-ivory/90 hover:text-white'
-                    : 'text-charcoal hover:text-taupe'
+                    ? 'text-stone-200'
+                    : 'text-stone-600'
               }`}
             >
               {link.name}
@@ -78,36 +76,35 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
           ))}
           <Link
             href="/contact"
-            className="bg-taupe text-ivory px-6 py-2.5 rounded-md text-sm font-medium tracking-wide hover:bg-charcoal transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+            className="relative bg-teal-600 text-white px-7 py-2.5 rounded text-sm font-bold hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
           >
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-300 rounded-full animate-pulse" />
             Get in Touch
           </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
+          className="lg:hidden p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
-            <X className={isTransparent ? 'text-white' : 'text-charcoal'} />
+            <X className={isTransparent ? 'text-white' : 'text-stone-800'} />
           ) : (
-            <Menu className={isTransparent ? 'text-white' : 'text-charcoal'} />
+            <Menu className={isTransparent ? 'text-white' : 'text-stone-800'} />
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-ivory border-b border-sand p-6 lg:hidden">
+        <div className="absolute top-full left-0 w-full bg-white border-b border-stone-100 p-6 lg:hidden shadow-xl">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-charcoal hover:text-taupe transition-colors"
+                className="text-lg font-serif text-stone-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
@@ -115,7 +112,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             ))}
             <Link
               href="/contact"
-              className="bg-taupe text-ivory text-center py-3 rounded-md font-medium tracking-wide hover:bg-charcoal transition-colors mt-4"
+              className="bg-teal-600 text-white text-center py-3 rounded font-bold mt-4 uppercase tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
               Get in Touch

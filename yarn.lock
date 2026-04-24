@@ -861,15 +861,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.10.3":
-  version: 22.19.17
-  resolution: "@types/node@npm:22.19.17"
-  dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10c0/b66c484c0a9f6d88b1ef360b0f487717234ee1a482cb2551ff73d9f3c43a42a777daf4c8a5eee970960728f8fe1f3877d3d8c6ffabcbca74cb401a59db700fa4
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^19.0.0":
   version: 19.2.3
   resolution: "@types/react-dom@npm:19.2.3"
@@ -2993,7 +2984,6 @@ __metadata:
     eslint-config-next: "npm:^15.1.0"
     lucide-react: "npm:^0.468.0"
     next: "npm:^15.1.0"
-    png-to-ico: "npm:^3.0.1"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     resend: "npm:^6.10.0"
@@ -3037,7 +3027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.6, minimist@npm:^1.2.8":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.6":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 10c0/19d3fcdca050087b84c2029841a093691a91259a47def2f18222f41e7645a0b7c44ef4b40e88a1e58a40c84d2ef0ee6047c55594d298146d0eb3f6b737c20ce6
@@ -3320,26 +3310,6 @@ __metadata:
   version: 4.0.4
   resolution: "picomatch@npm:4.0.4"
   checksum: 10c0/e2c6023372cc7b5764719a5ffb9da0f8e781212fa7ca4bd0562db929df8e117460f00dff3cb7509dacfc06b86de924b247f504d0ce1806a37fac4633081466b0
-  languageName: node
-  linkType: hard
-
-"png-to-ico@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "png-to-ico@npm:3.0.1"
-  dependencies:
-    "@types/node": "npm:^22.10.3"
-    minimist: "npm:^1.2.8"
-    pngjs: "npm:^7.0.0"
-  bin:
-    png-to-ico: bin/cli.js
-  checksum: 10c0/71532b59eaf9deb8a7b97a02b8f84a484ac0dcfeb41c8f80f9f4263553c521f9f9e2c7b12bbce47cc835cc241e13440f0ab616530b02cf4c2317e701efef5787
-  languageName: node
-  linkType: hard
-
-"pngjs@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "pngjs@npm:7.0.0"
-  checksum: 10c0/0d4c7a0fd476a9c33df7d0a2a73e1d56537628a668841f6995c2bca070cf30819f9254a64363266bc14ef2fee47659dd3b4f2b18eec7ab65143015139f497b38
   languageName: node
   linkType: hard
 

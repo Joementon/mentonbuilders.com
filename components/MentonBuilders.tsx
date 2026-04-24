@@ -264,19 +264,19 @@ export default function MentonBuilders() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3">
             <Image
-              src="/brand/menton-lockup-dark.svg"
+              src="/full_menton_logo_transparent.png"
               alt="Menton Builders"
-              width={820}
-              height={820}
+              width={640}
+              height={184}
               className={`w-auto transition-all duration-300 ${scrolled ? 'hidden' : 'h-36'}`}
               priority
             />
             <Image
-              src="/brand/menton-icon.svg"
+              src="/menton_only_logo_transparent.png"
               alt="Menton Builders"
-              width={250}
-              height={310}
-              className={`w-auto transition-all duration-300 ${scrolled ? 'h-10' : 'hidden'}`}
+              width={160}
+              height={46}
+              className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'hidden'}`}
             />
           </a>
 
@@ -1143,11 +1143,11 @@ export default function MentonBuilders() {
             <div className="col-span-1 md:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/brand/menton-icon-dark.svg"
+                  src="/menton_only_logo_transparent.png"
                   alt="Menton Builders"
-                  width={250}
-                  height={310}
-                  className="h-14 w-auto"
+                  width={200}
+                  height={57}
+                  className="h-12 w-auto brightness-0 invert"
                 />
               </div>
               <p className="max-w-md text-teal-300/50 mb-4">
