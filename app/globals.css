@@ -3,6 +3,44 @@
 @theme {
   --font-serif: var(--font-playfair), serif;
   --font-sans: var(--font-inter), sans-serif;
+
+  /* === Teal V2: elevated teal with maritime/architectural heritage ===
+     Same vibe as production teal, but elite weight:
+     - Teal ramp shifted from bright SaaS (#14B8A6) to oxidized verdigris (#2A5A56)
+     - Stone ramp warmed (cream bone instead of cool gray)
+     - Brass accent for the single elite signal moment per viewport */
+
+  /* Teal ramp — verdigris/oxidized copper family. Used for buttons, anchors, hero accents. */
+  --color-teal-50:  #E8EFEC;
+  --color-teal-100: #D1DDD8;
+  --color-teal-200: #A6BDB6;
+  --color-teal-300: #7B9D94;
+  --color-teal-400: #517D72;
+  --color-teal-500: #2A5A56;  /* primary verdigris */
+  --color-teal-600: #1F4E47;  /* button anchor */
+  --color-teal-700: #16403A;
+  --color-teal-800: #0F332D;
+  --color-teal-900: #0A2622;
+  --color-teal-950: #061814;
+
+  /* Stone ramp — warm cream/bone/ink. Replaces cool gray-stone with regional warmth. */
+  --color-stone-50:  #F1ECDF;  /* Bone — primary canvas */
+  --color-stone-100: #E5DCC9;  /* Linen — secondary surface */
+  --color-stone-200: #D2C5AC;
+  --color-stone-300: #B5A88E;
+  --color-stone-400: #9A8E73;
+  --color-stone-500: #857B6E;  /* Warm Gray — eyebrows, secondary text */
+  --color-stone-600: #5C5347;
+  --color-stone-700: #3A352C;
+  --color-stone-800: #1A1814;  /* Warm Ink — dark sections, hero scrim */
+  --color-stone-900: #110F0C;  /* deeper for footer */
+  --color-stone-950: #0A0807;
+
+  /* New: Brass — the single elite accent. Matte, never glossy. < 2% per page. */
+  --color-brass: #8C6F35;
+
+  /* Logo-locked */
+  --color-ink: #2D2D2D;        /* MENTON wordmark */
 }
 
 /* Infinite scroll ticker */

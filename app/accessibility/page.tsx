@@ -54,8 +54,8 @@ export default function AccessibilityPage() {
             If you experience any difficulty accessing content on this website, or if you have suggestions for improving accessibility, please contact us:
           </p>
           <ul className="text-stone-600 mb-6 space-y-2 list-disc pl-6">
-            <li>Email: <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a></li>
-            <li>Phone: <a href="tel:+17074688814" className="text-teal-600 hover:text-teal-500">(707) 468-8814</a></li>
+            <li>Email: <a href="mailto:aimee@mentonbuilders.com" className="text-teal-700 hover:text-brass transition-colors">aimee@mentonbuilders.com</a></li>
+            <li>Phone: <a href="tel:+17074688814" className="text-teal-700 hover:text-brass transition-colors">(707) 468-8814</a></li>
           </ul>
           <p className="text-stone-600 mb-6 leading-relaxed">
             We take accessibility feedback seriously and will make reasonable efforts to address any reported issues promptly.

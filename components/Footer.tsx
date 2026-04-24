@@ -37,10 +37,10 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/about" className="hover:text-teal-300 transition-colors">About</Link></li>
-              <li><Link href="/services" className="hover:text-teal-300 transition-colors">Services</Link></li>
-              <li><Link href="/gallery" className="hover:text-teal-300 transition-colors">Portfolio</Link></li>
-              <li><Link href="/contact" className="hover:text-teal-300 transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-brass transition-colors">About</Link></li>
+              <li><Link href="/services" className="hover:text-brass transition-colors">Services</Link></li>
+              <li><Link href="/gallery" className="hover:text-brass transition-colors">Portfolio</Link></li>
+              <li><Link href="/contact" className="hover:text-brass transition-colors">Contact</Link></li>
             </ul>
 
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6 mt-8">

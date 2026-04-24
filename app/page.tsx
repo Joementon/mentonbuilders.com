@@ -30,7 +30,7 @@ export default function Home() {
       <section className="py-20 bg-stone-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+            <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
               What We Build
             </div>
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-6 leading-tight">
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+              <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
                 What Sets Us Apart
               </div>
               <h2 className="font-serif text-3xl md:text-4xl text-stone-900">
@@ -158,7 +158,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-4 rounded font-bold hover:bg-teal-400 transition-colors tracking-wide uppercase shadow-lg group"
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded font-medium hover:bg-teal-700 transition-colors group"
             >
               Tell Us About Your Project
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -183,7 +183,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-teal-900 px-8 py-4 rounded font-bold hover:bg-teal-50 transition-colors tracking-wide uppercase shadow-lg group"
+              className="inline-flex items-center gap-2 bg-white text-teal-900 px-8 py-4 rounded font-medium hover:bg-stone-50 transition-colors group"
             >
               Get in Touch
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

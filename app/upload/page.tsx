@@ -341,7 +341,7 @@ export default function UploadPage() {
           <button
             type="submit"
             disabled={files.length === 0}
-            className="w-full bg-teal-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-teal-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide"
+            className="w-full bg-teal-600 text-white py-4 rounded-lg font-medium text-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Submit {files.length > 0 ? `${files.length} Photo${files.length !== 1 ? 's' : ''}` : 'Photos'}
           </button>

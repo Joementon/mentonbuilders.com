@@ -84,7 +84,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-teal-700 font-medium text-sm border-b border-teal-600 inline-block w-fit pb-1 hover:text-teal-800 transition-colors"
                   >
                     Start a Conversation
                   </Link>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-teal-700 font-medium text-sm border-b border-teal-600 inline-block w-fit pb-1 hover:text-teal-800 transition-colors"
                   >
                     Discuss Your Remodel
                   </Link>
@@ -172,7 +172,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-teal-700 font-medium text-sm border-b border-teal-600 inline-block w-fit pb-1 hover:text-teal-800 transition-colors"
                   >
                     Explore Options
                   </Link>

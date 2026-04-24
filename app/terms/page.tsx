@@ -67,7 +67,7 @@ export default function TermsPage() {
             <li><strong>Message frequency varies</strong> based on operational activity and may include multiple messages per day during active job periods.</li>
             <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
             <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time. You will receive a single confirmation and no further messages will be sent.</li>
-            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-teal-700 hover:text-brass transition-colors">aimee@mentonbuilders.com</a>.</li>
             <li>SMS consent is not a condition of employment or service.</li>
             <li>We do not share your phone number with third parties for their marketing purposes.</li>
           </ul>
@@ -85,8 +85,8 @@ export default function TermsPage() {
           <h2 className="font-serif text-2xl text-stone-900 mb-4">12. Contact</h2>
           <p className="text-stone-600 mb-6 leading-relaxed">
             For questions about these terms, contact us at{' '}
-            <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>{' '}
-            or call <a href="tel:+17074688814" className="text-teal-600 hover:text-teal-500">(707) 468-8814</a>.
+            <a href="mailto:aimee@mentonbuilders.com" className="text-teal-700 hover:text-brass transition-colors">aimee@mentonbuilders.com</a>{' '}
+            or call <a href="tel:+17074688814" className="text-teal-700 hover:text-brass transition-colors">(707) 468-8814</a>.
           </p>
         </div>
       </div>

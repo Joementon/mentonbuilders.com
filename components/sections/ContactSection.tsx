@@ -143,7 +143,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4">
               Contact
             </div>
             <h2 className="font-serif text-4xl text-stone-900 mb-4">
@@ -165,7 +165,7 @@ export default function ContactSection() {
               <button
                 type="button"
                 onClick={() => setFormStatus('idle')}
-                className="text-teal-600 font-bold text-sm uppercase tracking-wider hover:text-teal-500"
+                className="text-teal-700 font-medium text-sm hover:text-teal-600 transition-colors"
               >
                 Submit Another Inquiry
               </button>
@@ -175,7 +175,7 @@ export default function ContactSection() {
               {/* Required Section */}
               <div className="bg-white p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-teal-700">Your Information</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-stone-500">Your Information</h3>
                   <span className="text-xs text-red-400 font-medium">* Required</span>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
@@ -288,7 +288,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={formStatus === 'sending'}
-                  className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg disabled:opacity-50"
+                  className="w-full bg-teal-600 text-white py-4 font-medium hover:bg-teal-700 transition-colors rounded text-lg disabled:opacity-50"
                 >
                   {formStatus === 'sending' ? 'Sending...' : 'Submit Inquiry'}
                 </button>

@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
-              <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+              <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
                 Who We Are
               </div>
               <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="py-24 bg-stone-50">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+            <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
               Our Approach
             </div>
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
@@ -102,7 +102,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+            <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
               Built With Purpose
             </div>
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
@@ -148,7 +148,7 @@ export default function AboutPage() {
       <section className="py-24 bg-stone-50">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block text-teal-700 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-teal-500 pb-1">
+            <div className="inline-block text-stone-500 text-sm font-bold tracking-widest uppercase mb-4 border-b-2 border-stone-500 pb-1">
               Our Standard
             </div>
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
@@ -224,7 +224,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-teal-800 px-6 py-3 rounded font-bold hover:bg-teal-50 transition-colors group w-fit"
+                className="inline-flex items-center gap-2 bg-white text-teal-800 px-6 py-3 rounded font-medium hover:bg-stone-50 transition-colors group w-fit"
               >
                 Get in Touch{' '}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

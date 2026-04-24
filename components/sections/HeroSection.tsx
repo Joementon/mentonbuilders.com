@@ -68,13 +68,13 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="bg-teal-500 text-white px-8 py-4 rounded font-bold hover:bg-teal-400 transition-colors text-center tracking-wide uppercase shadow-lg"
+              className="bg-teal-600 text-white px-8 py-4 rounded font-medium hover:bg-teal-700 transition-colors text-center"
             >
               Start Your Project
             </a>
             <a
               href="/gallery"
-              className="border border-white/30 text-white px-8 py-4 rounded font-medium hover:bg-white/10 transition-colors backdrop-blur-sm flex items-center justify-center gap-2 group"
+              className="relative border border-white/30 text-white px-8 py-4 rounded font-medium hover:bg-white/10 transition-colors backdrop-blur-sm flex items-center justify-center gap-2 group after:absolute after:left-4 after:right-4 after:-bottom-1.5 after:h-px after:bg-brass"
             >
               View Our Work{' '}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
