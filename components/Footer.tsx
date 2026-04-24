@@ -75,7 +75,7 @@ export default function Footer() {
               License &amp; Certs
             </h4>
             <ul className="space-y-2 text-sm">
-              <li>CA License #XXXXXX (B-General)</li>
+              <li>CA License #381334 (Class B – General Building Contractor)</li>
               <li>Bonded &amp; Insured</li>
               <li>EPA Lead-Safe Certified</li>
               <li className="pt-4 space-y-1">
