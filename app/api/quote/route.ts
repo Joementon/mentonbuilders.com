@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const LOGO_URL = "https://mentonbuilderscom.vercel.app/brand/menton-lockup.png";
+const LOGO_URL = "https://mentonbuilderscom.vercel.app/brand/source-lockup.png";
 const BRAND = {
   teal: "#0D9488",
   tealDark: "#134E4A",

@@ -8,14 +8,18 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <div className="mb-6">
+            <div className="mb-6 flex items-center gap-3">
               <Image
-                src="/brand/menton-icon-dark.svg"
-                alt="Menton Builders"
-                width={250}
-                height={310}
-                className="h-14 w-auto"
+                src="/brand/source-icon.png"
+                alt=""
+                width={449}
+                height={429}
+                className="h-12 w-auto brightness-0 invert"
               />
+              <span className="flex flex-col leading-none" aria-label="Menton Builders">
+                <span className="font-serif font-bold tracking-wide text-ivory text-2xl">MENTON</span>
+                <span className="font-sans font-medium text-ivory/85 text-[0.7rem] tracking-[0.28em] mt-1">BUILDERS</span>
+              </span>
             </div>
             <p className="max-w-md text-warm-gray mb-4">
               Menton Builders was founded on a commitment to quality,

@@ -39,22 +39,39 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded">
+        <Link
+          href="/"
+          className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
+          aria-label="Menton Builders — Home"
+        >
           <Image
-            src="/brand/menton-lockup-dark.svg"
-            alt="Menton Builders"
-            width={820}
-            height={820}
-            className={`w-auto transition-all duration-300 ${isTransparent ? 'h-36' : 'hidden'}`}
+            src="/brand/source-icon.png"
+            alt=""
+            width={449}
+            height={429}
+            className={`w-auto transition-all duration-300 ${
+              isTransparent ? 'h-11 brightness-0 invert' : 'h-9'
+            }`}
             priority
           />
-          <Image
-            src="/brand/menton-icon.svg"
-            alt="Menton Builders"
-            width={250}
-            height={310}
-            className={`w-auto transition-all duration-300 ${isTransparent ? 'hidden' : 'h-10'}`}
-          />
+          <span className="flex flex-col leading-none" aria-hidden="true">
+            <span
+              className={`font-serif font-bold tracking-wide transition-colors duration-300 ${
+                isTransparent ? 'text-ivory text-xl' : 'text-ink text-lg'
+              }`}
+            >
+              MENTON
+            </span>
+            <span
+              className={`font-sans font-medium mt-1 transition-colors duration-300 ${
+                isTransparent
+                  ? 'text-ivory/90 text-[0.65rem] tracking-[0.28em]'
+                  : 'text-warm-gray text-[0.6rem] tracking-[0.28em]'
+              }`}
+            >
+              BUILDERS
+            </span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
