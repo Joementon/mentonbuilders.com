@@ -8,12 +8,12 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 flex items-center gap-2">
               <Image
-                src="/brand/source-icon.png"
+                src="/brand/source-icon-tight.png"
                 alt=""
-                width={449}
-                height={429}
+                width={252}
+                height={313}
                 className="h-12 w-auto brightness-0 invert"
               />
               <span className="flex flex-col items-center leading-none" aria-label="Menton Builders">

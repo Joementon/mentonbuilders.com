@@ -41,14 +41,14 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link
           href="/"
-          className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
+          className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-taupe rounded"
           aria-label="Menton Builders — Home"
         >
           <Image
-            src="/brand/source-icon.png"
+            src="/brand/source-icon-tight.png"
             alt=""
-            width={449}
-            height={429}
+            width={252}
+            height={313}
             className={`w-auto transition-all duration-300 ${
               isTransparent ? 'h-11 brightness-0 invert' : 'h-9'
             }`}
