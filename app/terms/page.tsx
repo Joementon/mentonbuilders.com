@@ -67,7 +67,7 @@ export default function TermsPage() {
             <li><strong>Message frequency varies</strong> based on operational activity and may include multiple messages per day during active job periods.</li>
             <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
             <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time. You will receive a single confirmation and no further messages will be sent.</li>
-            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:joe@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">joe@mentonbuilders.com</a>.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>.</li>
             <li>SMS consent is not a condition of employment or service.</li>
             <li>We do not share your phone number with third parties for their marketing purposes.</li>
           </ul>

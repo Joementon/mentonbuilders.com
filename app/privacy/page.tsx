@@ -58,7 +58,7 @@ export default function PrivacyPage() {
             <li><strong>Message frequency:</strong> Message frequency varies based on operational needs. You may receive multiple messages per day during active job periods.</li>
             <li><strong>Message and data rates may apply.</strong> Standard carrier rates for SMS apply depending on your mobile plan.</li>
             <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any SMS message at any time to unsubscribe. You will receive a confirmation and no further messages will be sent.</li>
-            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:joe@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">joe@mentonbuilders.com</a>.</li>
+            <li><strong>For help:</strong> Reply <strong>HELP</strong> to any SMS message, or contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>.</li>
             <li>Opting out of SMS does not affect your ability to use other communication channels with us.</li>
           </ul>
 
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
             <li><strong>Request deletion</strong> of their data after employment ends, subject to legal retention requirements (e.g., payroll records, tax documents)</li>
           </ul>
           <p className="text-stone-600 mb-6 leading-relaxed">
-            To exercise these rights, contact us at <a href="mailto:joe@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">joe@mentonbuilders.com</a>.
+            To exercise these rights, contact us at <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>.
           </p>
 
           <h2 className="font-serif text-2xl text-stone-900 mb-4">8. California Privacy Rights (CCPA)</h2>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
             Ukiah, California
           </p>
           <p className="text-stone-600 mb-2 leading-relaxed">
-            Email: <a href="mailto:joe@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">joe@mentonbuilders.com</a>{' '}
+            Email: <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>{' '}
             or <a href="mailto:aimee@mentonbuilders.com" className="text-teal-600 hover:text-teal-500">aimee@mentonbuilders.com</a>
           </p>
           <p className="text-stone-600 mb-6 leading-relaxed">
