@@ -11,16 +11,16 @@ export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('residential')
 
   return (
-    <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
+    <div className="min-h-screen bg-ivory font-sans text-charcoal selection:bg-taupe selection:text-white">
       <Nav activePath="/services" />
 
       {/* Header */}
-      <div className="bg-stone-800 pt-24 pb-16">
+      <div className="bg-charcoal pt-24 pb-16">
         <div className="container mx-auto px-6">
-          <h1 className="font-serif text-4xl md:text-5xl text-white mb-3">
+          <h1 className="text-4xl md:text-5xl text-white mb-3">
             Our Services
           </h1>
-          <p className="text-stone-400 text-lg max-w-2xl">
+          <p className="text-ivory/70 text-lg max-w-2xl">
             We provide full-service construction through a design-build
             approach, allowing for a more streamlined and coordinated
             process. Our services include pre-construction planning,
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       </div>
 
       {/* Services Tabs */}
-      <section className="py-24 bg-stone-100">
+      <section className="py-24 bg-sand">
         <div className="container mx-auto px-6">
           <div className="flex justify-center mb-12 flex-wrap gap-2">
             {(['residential', 'renovations', 'commercial'] as const).map(
@@ -41,8 +41,8 @@ export default function ServicesPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-8 py-3 rounded-full text-sm font-medium transition-all ${
                     activeTab === tab
-                      ? 'bg-teal-700 text-white shadow-lg'
-                      : 'bg-white text-stone-600 hover:bg-stone-200'
+                      ? 'bg-taupe text-ivory shadow-lg'
+                      : 'bg-white text-warm-gray hover:bg-sand'
                   }`}
                 >
                   {tab === 'residential'
@@ -59,10 +59,10 @@ export default function ServicesPage() {
             {activeTab === 'residential' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
+                  <h3 className="text-3xl mb-4 text-charcoal">
                     Residential Construction
                   </h3>
-                  <p className="text-stone-600 mb-6 leading-relaxed">
+                  <p className="text-warm-gray mb-6 leading-relaxed">
                     Custom homes, ADUs, and additions — planned carefully and
                     built to perform for decades. We align all phases early to
                     reduce uncertainty and create a more efficient path from
@@ -76,20 +76,20 @@ export default function ServicesPage() {
                     ].map((item) => (
                       <li
                         key={item}
-                        className="flex items-center gap-3 text-sm font-medium text-stone-700"
+                        className="flex items-center gap-3 text-sm font-medium text-charcoal"
                       >
-                        <Check className="w-4 h-4 text-teal-500" /> {item}
+                        <Check className="w-4 h-4 text-taupe" /> {item}
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-taupe font-bold text-sm border-b-2 border-taupe inline-block w-fit pb-1 hover:text-charcoal transition-colors"
                   >
                     Start a Conversation
                   </Link>
                 </div>
-                <div className="relative bg-stone-200 h-64 md:h-auto min-h-[300px]">
+                <div className="relative bg-sand h-64 md:h-auto min-h-[300px]">
                   <Image
                     src="/rammed_earth_sunset.png"
                     className="object-cover"
@@ -104,10 +104,10 @@ export default function ServicesPage() {
             {activeTab === 'renovations' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
+                  <h3 className="text-3xl mb-4 text-charcoal">
                     Renovations &amp; Upgrades
                   </h3>
-                  <p className="text-stone-600 mb-6 leading-relaxed">
+                  <p className="text-warm-gray mb-6 leading-relaxed">
                     Full remodels and structural upgrades that honor the original
                     architecture while improving livability, flow, and modern
                     efficiency.
@@ -120,20 +120,20 @@ export default function ServicesPage() {
                     ].map((item) => (
                       <li
                         key={item}
-                        className="flex items-center gap-3 text-sm font-medium text-stone-700"
+                        className="flex items-center gap-3 text-sm font-medium text-charcoal"
                       >
-                        <Check className="w-4 h-4 text-teal-500" /> {item}
+                        <Check className="w-4 h-4 text-taupe" /> {item}
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-taupe font-bold text-sm border-b-2 border-taupe inline-block w-fit pb-1 hover:text-charcoal transition-colors"
                   >
                     Discuss Your Remodel
                   </Link>
                 </div>
-                <div className="relative bg-stone-200 h-64 md:h-auto min-h-[300px]">
+                <div className="relative bg-sand h-64 md:h-auto min-h-[300px]">
                   <Image
                     src="https://images.unsplash.com/photo-1484154218962-a1c002085d2f?q=80&w=2671&auto=format&fit=crop"
                     className="object-cover"
@@ -148,10 +148,10 @@ export default function ServicesPage() {
             {activeTab === 'commercial' && (
               <div className="grid md:grid-cols-2 h-full">
                 <div className="p-12 flex flex-col justify-center">
-                  <h3 className="font-serif text-3xl mb-4 text-teal-900">
+                  <h3 className="text-3xl mb-4 text-charcoal">
                     Commercial &amp; Agricultural
                   </h3>
-                  <p className="text-stone-600 mb-6 leading-relaxed">
+                  <p className="text-warm-gray mb-6 leading-relaxed">
                     We build functional, durable structures and specialize in
                     adaptive reuse — repurposing existing buildings for new
                     commercial life.
@@ -164,20 +164,20 @@ export default function ServicesPage() {
                     ].map((item) => (
                       <li
                         key={item}
-                        className="flex items-center gap-3 text-sm font-medium text-stone-700"
+                        className="flex items-center gap-3 text-sm font-medium text-charcoal"
                       >
-                        <Check className="w-4 h-4 text-teal-500" /> {item}
+                        <Check className="w-4 h-4 text-taupe" /> {item}
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/contact"
-                    className="text-teal-700 font-bold text-sm border-b-2 border-teal-500 inline-block w-fit pb-1 hover:text-teal-500 transition-colors"
+                    className="text-taupe font-bold text-sm border-b-2 border-taupe inline-block w-fit pb-1 hover:text-charcoal transition-colors"
                   >
                     Explore Options
                   </Link>
                 </div>
-                <div className="relative bg-stone-200 h-64 md:h-auto min-h-[300px]">
+                <div className="relative bg-sand h-64 md:h-auto min-h-[300px]">
                   <Image
                     src="/spain_commercial_ag.jpeg"
                     className="object-cover"

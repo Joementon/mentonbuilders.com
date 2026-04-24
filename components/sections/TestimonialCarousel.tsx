@@ -31,7 +31,7 @@ const testimonials = [
 
 export default function TestimonialCarousel() {
   return (
-    <section id="testimonials" className="bg-stone-100 border-y border-stone-200 py-6 overflow-hidden">
+    <section id="testimonials" className="bg-sand py-6 overflow-hidden">
       <div className="relative">
         <div className="flex animate-ticker items-stretch">
           {[...testimonials, ...testimonials].map((t, i) => (
@@ -42,7 +42,7 @@ export default function TestimonialCarousel() {
               <div className="bg-white rounded-lg border border-stone-200 p-5 h-full flex flex-col">
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, s) => (
-                    <Star key={s} className="w-3.5 h-3.5 text-teal-500 fill-teal-500" />
+                    <Star key={s} className="w-3.5 h-3.5 text-taupe fill-taupe" />
                   ))}
                 </div>
                 <p className="text-stone-600 text-sm italic leading-relaxed mb-3">

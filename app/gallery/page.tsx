@@ -44,16 +44,16 @@ export default function GalleryPage() {
     : []
 
   return (
-    <div className="min-h-screen bg-stone-50 font-sans text-stone-800 selection:bg-teal-800 selection:text-white">
+    <div className="min-h-screen bg-ivory font-sans text-charcoal selection:bg-taupe selection:text-white">
       <Nav activePath="/gallery" />
 
       {/* Header Banner */}
-      <div className="bg-stone-800 pt-24 pb-16">
+      <div className="bg-charcoal pt-24 pb-16">
         <div className="container mx-auto px-6">
-          <h1 className="font-serif text-4xl md:text-5xl text-white mb-3">
+          <h1 className="text-4xl md:text-5xl text-white mb-3">
             Project Gallery
           </h1>
-          <p className="text-stone-400 text-lg max-w-2xl">
+          <p className="text-ivory/70 text-lg max-w-2xl">
             A look inside our work — from breaking ground to handing over the
             keys.
           </p>
@@ -63,7 +63,7 @@ export default function GalleryPage() {
       {/* View Toggle + Filters */}
       <div className="container mx-auto px-6 -mt-6">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <div className="flex bg-white rounded-full border border-stone-200 p-1 shadow-sm">
+          <div className="flex bg-white rounded-full border border-sand p-1 shadow-sm">
             <button
               onClick={() => {
                 setViewMode('category')
@@ -71,8 +71,8 @@ export default function GalleryPage() {
               }}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 viewMode === 'category'
-                  ? 'bg-teal-600 text-white'
-                  : 'text-stone-600 hover:text-stone-800'
+                  ? 'bg-taupe text-ivory'
+                  : 'text-warm-gray hover:text-charcoal'
               }`}
             >
               <Grid3X3 className="w-4 h-4" />
@@ -82,8 +82,8 @@ export default function GalleryPage() {
               onClick={() => setViewMode('project')}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 viewMode === 'project'
-                  ? 'bg-teal-600 text-white'
-                  : 'text-stone-600 hover:text-stone-800'
+                  ? 'bg-taupe text-ivory'
+                  : 'text-warm-gray hover:text-charcoal'
               }`}
             >
               <FolderOpen className="w-4 h-4" />
@@ -99,8 +99,8 @@ export default function GalleryPage() {
                   onClick={() => setActiveCategory(slug)}
                   className={`py-2.5 px-5 rounded-full text-sm font-medium transition-all duration-150 ${
                     activeCategory === slug
-                      ? 'bg-teal-600 text-white shadow-lg'
-                      : 'bg-white border border-stone-200 text-stone-700 hover:bg-stone-50 hover:border-stone-300'
+                      ? 'bg-taupe text-ivory shadow-lg'
+                      : 'bg-white border border-sand text-charcoal hover:bg-ivory hover:border-warm-gray/40'
                   }`}
                 >
                   {label}
@@ -121,7 +121,7 @@ export default function GalleryPage() {
                   <button
                     key={`${photo.src}-${i}`}
                     onClick={() => setLightbox(photo)}
-                    className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-200 cursor-pointer"
+                    className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-sand cursor-pointer"
                   >
                     <Image
                       src={photo.src}
@@ -144,7 +144,7 @@ export default function GalleryPage() {
               </div>
             ) : (
               <div className="text-center py-24">
-                <p className="text-stone-400 text-lg">
+                <p className="text-warm-gray/70 text-lg">
                   No photos in this category yet — check back soon.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function GalleryPage() {
                 onClick={() => setActiveProject(proj.slug)}
                 className="group text-left"
               >
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-200 mb-3">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-sand mb-3">
                   <Image
                     src={proj.coverSrc}
                     alt={proj.displayName}
@@ -168,9 +168,9 @@ export default function GalleryPage() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal-900/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-white font-serif text-xl mb-1">
+                    <h3 className="text-white text-xl mb-1">
                       {proj.displayName}
                     </h3>
                     <p className="text-white/60 text-sm">
@@ -188,16 +188,16 @@ export default function GalleryPage() {
           <>
             <button
               onClick={() => setActiveProject(null)}
-              className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 text-taupe hover:text-charcoal transition-colors text-sm font-medium mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
               All Projects
             </button>
             <div className="mb-8">
-              <h2 className="font-serif text-3xl text-stone-900 mb-1">
+              <h2 className="text-3xl text-charcoal mb-1">
                 {projects.find((p) => p.slug === activeProject)?.displayName}
               </h2>
-              <p className="text-stone-500">
+              <p className="text-warm-gray">
                 {projects.find((p) => p.slug === activeProject)?.location}
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function GalleryPage() {
                 <button
                   key={`${photo.src}-${i}`}
                   onClick={() => setLightbox(photo)}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-200 cursor-pointer"
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-sand cursor-pointer"
                 >
                   <Image
                     src={photo.src}

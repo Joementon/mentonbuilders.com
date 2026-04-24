@@ -139,17 +139,17 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-stone-50">
+    <section id="contact" className="py-24 bg-ivory">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-block text-teal-600 text-sm font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block text-taupe text-sm font-bold tracking-widest uppercase mb-4">
               Contact
             </div>
-            <h2 className="font-serif text-4xl text-stone-900 mb-4">
+            <h2 className="text-4xl text-stone-900 mb-4">
               Start Your Project
             </h2>
-            <p className="text-stone-600">
+            <p className="text-warm-gray">
               Tell us about what you&rsquo;re building. We&rsquo;ll follow up
               within 2 business days.
             </p>
@@ -157,15 +157,15 @@ export default function ContactSection() {
 
           {formStatus === 'sent' ? (
             <div className="bg-white shadow-2xl p-8 md:p-12 rounded border border-stone-200 text-center">
-              <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Check className="w-8 h-8 text-teal-600" />
+              <div className="w-16 h-16 bg-sand rounded-full flex items-center justify-center mx-auto mb-6">
+                <Check className="w-8 h-8 text-taupe" />
               </div>
-              <h3 className="font-serif text-2xl text-stone-900 mb-3">Inquiry Received</h3>
-              <p className="text-stone-600 mb-6">Thank you! We&rsquo;ll review your project details and get back to you within 2 business days.</p>
+              <h3 className="text-2xl text-stone-900 mb-3">Inquiry Received</h3>
+              <p className="text-warm-gray mb-6">Thank you! We&rsquo;ll review your project details and get back to you within 2 business days.</p>
               <button
                 type="button"
                 onClick={() => setFormStatus('idle')}
-                className="text-teal-600 font-bold text-sm uppercase tracking-wider hover:text-teal-500"
+                className="text-taupe font-bold text-sm uppercase tracking-wider hover:text-charcoal"
               >
                 Submit Another Inquiry
               </button>
@@ -175,7 +175,7 @@ export default function ContactSection() {
               {/* Required Section */}
               <div className="bg-white p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-teal-700">Your Information</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-taupe">Your Information</h3>
                   <span className="text-xs text-red-400 font-medium">* Required</span>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
@@ -187,7 +187,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.name}
                       onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setFormErrors({ ...formErrors, name: '' }) }}
-                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.name ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.name ? 'border-red-400 focus:border-red-500' : 'border-taupe focus:border-taupe'}`}
                     />
                     {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
                   </div>
@@ -199,7 +199,7 @@ export default function ContactSection() {
                       type="email"
                       value={formData.email}
                       onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setFormErrors({ ...formErrors, email: '' }) }}
-                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.email ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.email ? 'border-red-400 focus:border-red-500' : 'border-taupe focus:border-taupe'}`}
                     />
                     {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
                   </div>
@@ -212,16 +212,16 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setFormErrors({ ...formErrors, phone: '' }) }}
                       onBlur={handlePhoneBlur}
-                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-stone-300 focus:border-teal-500'}`}
+                      className={`w-full border-2 rounded px-4 py-3 focus:outline-none transition-colors bg-white ${formErrors.phone ? 'border-red-400 focus:border-red-500' : 'border-taupe focus:border-taupe'}`}
                     />
                     {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
-                    {phoneCountry && !formErrors.phone && <p className="text-xs text-teal-600">{phoneCountry}</p>}
+                    {phoneCountry && !formErrors.phone && <p className="text-xs text-taupe">{phoneCountry}</p>}
                     <label className="flex items-center gap-2 pt-1 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={isInternational}
                         onChange={(e) => { setIsInternational(e.target.checked); setPhoneCountry(''); setFormErrors({ ...formErrors, phone: '' }) }}
-                        className="w-3.5 h-3.5 rounded border-stone-300 text-teal-600 focus:ring-teal-500"
+                        className="w-3.5 h-3.5 rounded border-stone-300 text-taupe focus:ring-taupe"
                       />
                       <span className="text-xs text-stone-400">International number</span>
                     </label>
@@ -234,14 +234,14 @@ export default function ContactSection() {
                       type="text"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white"
+                      className="w-full border-2 border-taupe rounded px-4 py-3 focus:outline-none focus:border-taupe transition-colors bg-white"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Optional Section */}
-              <div className="bg-stone-50 p-8 md:p-12 border-t border-stone-200">
+              <div className="bg-ivory p-8 md:p-12 border-t border-stone-200">
                 <div className="flex items-center gap-2 mb-6">
                   <h3 className="text-sm font-bold uppercase tracking-widest text-stone-400">Project Details</h3>
                   <span className="text-xs text-stone-400 font-medium">Optional</span>
@@ -255,7 +255,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white text-stone-700"
+                      className="w-full border-2 border-taupe rounded px-4 py-3 focus:outline-none focus:border-taupe transition-colors bg-white text-stone-700"
                     />
                   </div>
                   <div className="space-y-2">
@@ -266,7 +266,7 @@ export default function ContactSection() {
                       type="text"
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full border-2 border-stone-300 rounded px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors bg-white text-stone-700"
+                      className="w-full border-2 border-taupe rounded px-4 py-3 focus:outline-none focus:border-taupe transition-colors bg-white text-stone-700"
                     />
                   </div>
                 </div>
@@ -278,7 +278,7 @@ export default function ContactSection() {
                   <textarea
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    className="w-full border-2 border-stone-300 p-4 rounded focus:outline-none focus:border-teal-500 transition-colors h-32 bg-white"
+                    className="w-full border-2 border-taupe p-4 rounded focus:outline-none focus:border-taupe transition-colors h-32 bg-white"
                   />
                 </div>
               </div>
@@ -288,7 +288,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={formStatus === 'sending'}
-                  className="w-full bg-teal-600 text-white py-4 font-bold tracking-widest uppercase hover:bg-teal-500 transition-colors shadow-lg rounded text-lg disabled:opacity-50"
+                  className="w-full bg-taupe text-ivory py-4 font-bold tracking-widest uppercase hover:bg-charcoal transition-colors shadow-lg rounded text-lg disabled:opacity-50"
                 >
                   {formStatus === 'sending' ? 'Sending...' : 'Submit Inquiry'}
                 </button>
