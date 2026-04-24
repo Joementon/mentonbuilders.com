@@ -16,7 +16,7 @@ export default function Footer() {
                 height={429}
                 className="h-12 w-auto brightness-0 invert"
               />
-              <span className="flex flex-col leading-none" aria-label="Menton Builders">
+              <span className="flex flex-col items-center leading-none" aria-label="Menton Builders">
                 <span className="font-serif font-bold tracking-wide text-ivory text-2xl">MENTON</span>
                 <span className="font-sans font-medium text-ivory/85 text-[0.7rem] tracking-[0.28em] mt-1">BUILDERS</span>
               </span>

@@ -54,7 +54,7 @@ export default function Nav({ transparent = false, activePath }: NavProps) {
             }`}
             priority
           />
-          <span className="flex flex-col leading-none" aria-hidden="true">
+          <span className="flex flex-col items-center leading-none" aria-hidden="true">
             <span
               className={`font-serif font-bold tracking-wide transition-colors duration-300 ${
                 isTransparent ? 'text-ivory text-xl' : 'text-ink text-lg'
